@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DiscordGenius — Unlimited Discord development for a flat monthly fee</title>
+    <meta name="description" content="Unlimited Discord bot and server development with business-ready integrations. Fixed $699/mo plan. Average 96-hour delivery. Pause or cancel anytime.">
+    <meta name="theme-color" content="#00e5ff">
+    <link rel="canonical" href="https://www.discordgenius.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DiscordGenius">
+    <meta property="og:title" content="DiscordGenius — Unlimited Discord bot development">
+    <meta property="og:description" content="From novel, business-integrated bots to full server design — ship requests continuously as your community evolves. $699/mo plan. Average 96-hour delivery.">
+    <meta property="og:image" content="https://www.discordgenius.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.discordgenius.com/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DiscordGenius — Unlimited Discord bot development">
+    <meta name="twitter:description" content="Unlimited Discord bot and server development. $699/mo. Average 96-hour delivery. Pause or cancel anytime.">
+    <meta name="twitter:image" content="https://www.discordgenius.com/assets/og-image.png">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DiscordGenius",
+        "url": "https://www.discordgenius.com/",
+        "logo": "https://www.discordgenius.com/assets/logo.svg",
+        "description": "Unlimited Discord bot and server development with business-ready integrations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@discordgenius.com",
+          "contactType": "customer service"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Discord Bot Development",
+        "provider": {
+          "@type": "Organization",
+          "name": "DiscordGenius"
+        },
+        "description": "Unlimited Discord bot and server development with business-ready integrations. Fixed monthly fee, average 96-hour delivery.",
+        "offers": {
+          "@type": "Offer",
+          "price": "699",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "699",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar" role="region" aria-label="Book a 15-min intro call">
+      <div class="container topbar__wrap">
+        <span class="topbar__text">See if DiscordGenius is right for you. Book a 15‑minute guided tour.</span>
+        <button class="btn btn--neon" data-open-call><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call</button>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="container nav__wrap">
+        <a class="brand" href="#" aria-label="DiscordGenius home">
+          <img id="nav-logo-fallback" class="brand__logo" src="assets/logo.svg" alt="DiscordGenius logo" width="96" height="96">
+          <canvas id="nav-logo" class="brand__logo brand__logo--rive" width="96" height="96" style="display:none;"></canvas>
+          <span id="nav-title-fallback">DiscordGenius</span>
+          <canvas id="nav-title" class="brand__title" width="200" height="48" style="display:none;"></canvas>
+        </a>
+        <nav class="nav__links" aria-label="Main navigation">
+          <a href="#how" class="nav__link">How it works</a>
+          <a href="#services" class="nav__link">Services</a>
+          <a href="#pricing" class="nav__link">Pricing</a>
+          <a href="#faq" class="nav__link">FAQ</a>
+        </nav>
+        <div class="nav__ctas">
+          <button class="btn btn--ghost" data-open-subscribe>See pricing</button>
+          <button class="btn btn--primary" data-open-subscribe>Subscribe and try it</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <canvas id="waveGrid" class="hero__grid"></canvas>
+        </div>
+   
+        <div class="container hero__content">
+          <p class="badge">Founders price: $699/mo · Average 96-hour delivery · 75% refund if not satisfied in first week</p>
+          <h1 class="hero__title">Unlimited Discord development.<br>One flat monthly fee.</h1>
+          <p class="hero__tagline">You imagine it for your community, we build it.<br>Continually improve, update, and add features as your needs evolve.</p>
+          <div class="hero__actions">
+            <button class="btn btn--primary btn--lg" data-open-subscribe>Subscribe and try it</button>
+            <button class="btn btn--neon btn--lg" data-open-question>Ask a question</button>
+          </div>
+          <ul class="hero__bullets" role="list">
+            <li><i data-lucide="infinity" aria-hidden="true"></i> Unlimited requests</li>
+            <li><i data-lucide="zap" aria-hidden="true"></i> Average 96-hour delivery</li>
+            <li><i data-lucide="puzzle" aria-hidden="true"></i> Custom integrations</li>
+            <li><i data-lucide="wrench" aria-hidden="true"></i> We handle end to end running, implementation and maintenance with optional handdoff at any time</li>
+            <li><i data-lucide="pause-circle" aria-hidden="true"></i> Pause or cancel anytime. No hidden fees. You own everything</li>
+          </ul>
+        </div>
+      </section>
+
+      
+
+      <section id="how" class="section how">
+        <div class="container">
+          <h2 class="section__title">How it works</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step__icon">1</div>
+              <h3>Subscribe</h3>
+              <p>Join the monthly plan and get access to your Trello request board. Pause or cancel anytime.</p>
+            </div>
+            <div class="step">
+              <div class="step__icon">2</div>
+              <h3>Request</h3>
+              <p>Queue as many requests as you want: Bots, integrations, server design, analytics. We'll deliver one at a time.</p>
+            </div>
+            <div class="step">
+              <div class="step__icon">3</div>
+              <h3>Receive</h3>
+              <p>Average 96 hour delivery. We deploy, host, and maintain it (or hand it off for you to optional self-host). Your code, your choice.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="container">
+          <h2 class="section__title">What we ship on repeat</h2>
+          <div class="services__grid">
+            <article class="card" data-accordion>
+              <header class="card__head">
+<i data-lucide="bot" aria-hidden="true"></i>
+                <h3>Custom Discord bots & business integrations</h3>
+              </header>
+              <div class="card__panel" data-panel>
+                <ul>
+                  <li>Stripe, Whop, Shopify, Notion/Airtable, Zapier/Make, Slack and anything else on request</li>
+                  <li>Purchase-to-role, license checks, paywall & renewal reminders</li>
+                  <li>Webhooks, scheduled jobs, slash commands, dashboards</li>
+                  <li>Events tracking for analytics attribution</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card" data-accordion>
+              <header class="card__head">
+<i data-lucide="shield-check" aria-hidden="true"></i>
+                <h3>Server design, safety, and operations</h3>
+              </header>
+              <div class="card__panel" data-panel>
+                <ul>
+                  <li>Information architecture, branding, onboarding funnels</li>
+                  <li>Roles/permissions, moderation & escalation playbooks</li>
+                  <li>Ticketing/helpdesk, community health automations</li>
+                  <li>VIP tiers, quests, seasonal events, gamified engagement</li>
+                  <li>Logos, banners, emoji/sticker packs, and brand kits</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card" data-accordion>
+              <header class="card__head">
+<i data-lucide="bar-chart-3" aria-hidden="true"></i>
+                <h3>Analytics & reporting</h3>
+              </header>
+              <div class="card__panel" data-panel>
+                <ul>
+                  <li><strong></strong>Engagement & retention:</strong> Message frequency, DAU/WAU/MAU, session length, onboarding drop-offs, role adoption, quest/feature participation.</li>
+                  <li><strong>Revenue attribution:</strong> Stripe/Whop events → role assignments, churn forecasting, renewal reminders, LTV/CAC modeling, campaign readouts.</li>
+                  <li><strong>Moderation & safety:</strong> Incident volume dashboards, response SLAs, escalation reports, automated vs. manual intervention tracking.</li>
+                  <li><strong>Executive-ready outputs:</strong> Privacy-safe event design, CSV exports, Notion/Airtable dashboards, alerts to Slack/Email.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card" data-accordion>
+              <header class="card__head">
+<i data-lucide="users" aria-hidden="true"></i>
+                <h3>Community features that scale with imagination</h3>
+              </header>
+              <div class="card__panel" data-panel>
+                <ul>
+                  <li><strong>Onboarding & roles:</strong> Guided intros, quizzes, auto-role gating, tiered VIP & staff workflows.</li>
+                  <li><strong>Quests & rewards:</strong> XP systems, streaks, leaderboards, redeemables, seasonal campaigns.</li>
+                  <li><strong>Helpdesk & automations:</strong> Tickets with SLAs, knowledge base surfacing, webhook pipes to Notion/Airtable.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card" data-accordion>
+              <header class="card__head">
+<i data-lucide="palette" aria-hidden="true"></i>
+                <h3>In-house design: logos, banners, and bot UX</h3>
+              </header>
+              <div class="card__panel" data-panel>
+                <ul>
+                  <li>Logo sets, banner art, channel art, and brand guidelines</li>
+                  <li>Emoji & sticker packs that match your voice</li>
+                  <li>Custom bot interaction UX: buttons, selects, flows, copy</li>
+                  <li>Prototyping and iteration as your community grows</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+        
+        </div>
+      </section>
+
+      <section id="examples" class="section">
+        <div class="container">
+          <h2 class="section__title">Request examples</h2>
+          <p class="muted" style="text-align: center; margin-bottom: 16px;">Not sure what to request? Here's what "one request" looks like at different complexity levels.</p>
+          <div class="services__grid">
+            <article class="card card--center">
+              <div class="card__head"><i data-lucide="clock" aria-hidden="true"></i><h3>Simple (1-3 days)</h3></div>
+              <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;"><ul><li>Small feature edits to existing bots</li><li>Stripe webhook → role assignment</li><li>Basic ticket system</li></ul></div>
+            </article>
+            <article class="card card--center">
+              <div class="card__head"><i data-lucide="timer" aria-hidden="true"></i><h3>Moderate (4-7 days)</h3></div>
+              <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;"><ul><li>Large feature edits to existing bots</li><li>XP system with leaderboard</li><li>Notion content sync</li></ul></div>
+            </article>
+            <article class="card card--center">
+              <div class="card__head"><i data-lucide="hourglass" aria-hidden="true"></i><h3>Complex (7-10 days)</h3></div>
+              <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;"><ul><li>Analytics dashboard with funnels</li><li>Complex interactive games</li><li>Custom API + integration</li></ul></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing">
+        <div class="container">
+          <h2 class="section__title">One subscription, unlimited requests</h2>
+          <div class="pricecard">
+            <div class="pricecard__top">
+              <h3>Monthly</h3>
+              <div class="pricecard__price"><span class="price__currency">$</span><span id="price">699</span><span class="price__per">/mo</span></div>
+              <p class="muted">One active request at a time · Average 96-hour delivery · Unlimited requests</p>
+            </div>
+            <ul class="pricecard__list list--iconless" role="list">
+              <li><i data-lucide="server" aria-hidden="true"></i> Fully managed: we host, run, and maintain everything</li>
+              <li><i data-lucide="layers" aria-hidden="true"></i> Unlimited servers</li>
+              <li><i data-lucide="pause-circle" aria-hidden="true"></i> Pause or cancel anytime</li>
+              <li><i data-lucide="file-code" aria-hidden="true"></i> Yours to own: code, assets, and IP</li>
+              <li><i data-lucide="arrow-right-left" aria-hidden="true"></i> Self-host or migrate anytime: no lock-in</li>
+            </ul>
+            <div class="pricecard__actions">
+              <button class="btn btn--primary btn--lg" data-open-subscribe>Join today</button>
+              <button class="btn btn--ghost" aria-label="Contact via email">Prefer email? hello@DiscordGenius.dev</button>
+            </div>
+            
+          </div>
+          <div class="guarantees">
+            <h3 style="text-align: center; margin: 32px 0 16px;">Our guarantees</h3>
+            <div class="guarantee-grid">
+              <div class="guarantee-item">
+                <i data-lucide="shield" aria-hidden="true"></i>
+                <strong>7-day satisfaction</strong>
+                <p>75% refund if canceled within the first week</p>
+              </div>
+              <div class="guarantee-item">
+                <i data-lucide="refresh-cw" aria-hidden="true"></i>
+                <strong>Unlimited revisions</strong>
+                <p>We iterate until you're 100% happy</p>
+              </div>
+              <div class="guarantee-item">
+                <i data-lucide="award" aria-hidden="true"></i>
+                <strong>You own everything</strong>
+                <p>Code, assets, and IP are yours</p>
+              </div>
+              <div class="guarantee-item">
+                <i data-lucide="server" aria-hidden="true"></i>
+                <strong>Fully managed</strong>
+                <p>We host, run, and maintain everything for you</p>
+              </div>
+              <div class="guarantee-item">
+                <i data-lucide="unlock" aria-hidden="true"></i>
+                <strong>No lock-in</strong>
+                <p>Self-host or migrate to anyone, anytime</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq">
+        <div class="container">
+          <h2 class="section__title">FAQ</h2>
+          <div class="faq__nav" role="tablist" aria-label="FAQ categories">
+            <button class="faq__tab is-active" role="tab" aria-selected="true" data-faq-tab="bots">Bots & Integrations</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="design">Server Design & UX</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="community">Community Features</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="analytics">Analytics & Reporting</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="security">Security & Moderation</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="ops">Operations & Process</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="perf">Performance & Reliability</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="pricing">Pricing & Billing</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="legal">Legal & Ownership</button>
+            <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="support">Support & SLA</button>
+          </div>
+
+          <div class="faq__categories">
+            <!-- Bots & Integrations -->
+            <div class="faq__category is-active" role="tabpanel" data-faq-category="bots">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head">
+                  <h3>What service integrations do you provide?</h3>
+                </header>
+                <div class="card__panel" data-panel>
+                  <p>If your service has an API, we integrate it. If you run the service yourself, we’ll design the API and build the integration for you. Popular: Stripe, Whop, Shopify, Notion, Airtable, Zapier, Make, Slack, Intercom, HubSpot, Google Sheets, Twilio, Plaid.</p>
+                 
+                </div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head">
+                  <h3>Can you build novel, custom bots for unique workflows?</h3>
+                </header>
+                <div class="card__panel" data-panel>
+                  <p>Yes. Slash commands, scheduled jobs, purchase-to-role, licensing, gated channels, dashboards, analytics events, and any bespoke workflow your community dreams up.</p>
+                </div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head">
+                  <h3>Do you support AI features in bots?</h3>
+                </header>
+                <div class="card__panel" data-panel>
+                  <p>We can integrate OpenAI or on-device models for Q&A, summarization, moderation aids, and more, with strict guardrails and privacy controls.</p>
+                </div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head">
+                  <h3>How do you handle bot token security?</h3>
+                </header>
+                <div class="card__panel" data-panel>
+                  <p>Tokens are stored in encrypted vaults (AWS Secrets Manager or similar), never logged or exposed. We follow Discord's security best practices and can provide security audit reports.</p>
+                </div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head">
+                  <h3>What access do you need to our server?</h3>
+                </header>
+                <div class="card__panel" data-panel>
+                  <p>Minimum required permissions for the specific features we're building. We'll document exactly what we need and why. You maintain full admin control.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Server Design & UX -->
+            <div class="faq__category" role="tabpanel" data-faq-category="design">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you handle full server design and branding?</h3></header>
+                <div class="card__panel" data-panel><p>Yes. Information architecture, channel taxonomy, visual identity, onboarding flows, and role systems tailored to your brand.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What UX improvements do you implement?</h3></header>
+                <div class="card__panel" data-panel><p>Clear wayfinding, progressive onboarding, contextual help, accessibility-minded copy, and frictionless action paths for members.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you provide in-house design for logos, banners, and bot UX?</h3></header>
+                <div class="card__panel" data-panel><p>Yes. Our in-house designer creates logos, banners, emoji/sticker packs, and designs custom UX flows for bot interactions (buttons, selects, modals) including copywriting.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Can you design emoji/stickers and other brand assets?</h3></header>
+                <div class="card__panel" data-panel><p>Absolutely. We craft cohesive emoji and sticker packs, channel artwork, and templates that reinforce your brand.</p></div>
+              </article>
+            </div>
+
+            <!-- Community Features -->
+            <div class="faq__category" role="tabpanel" data-faq-category="community">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What community features can you build?</h3></header>
+                <div class="card__panel" data-panel><ul><li>Quests, XP, streaks, leaderboards</li><li>VIP tiers, staff tools, application workflows</li><li>Events, reminders, attendance tracking</li></ul></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you provide ticketing/helpdesk?</h3></header>
+                <div class="card__panel" data-panel><p>Yes. Ticketing, SLAs, escalation rules, and knowledge base surfacing, integrated with Notion/Airtable if needed.</p></div>
+              </article>
+            </div>
+
+            <!-- Analytics & Reporting -->
+            <div class="faq__category" role="tabpanel" data-faq-category="analytics">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What analytics do you provide?</h3></header>
+                <div class="card__panel" data-panel><ul><li>Engagement funnels, retention cohorts</li><li>Feature adoption, moderation KPIs</li><li>Revenue attribution, LTV/CAC, cohort profitability</li></ul></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you export or dashboard data?</h3></header>
+                <div class="card__panel" data-panel><p>CSV exports, privacy-safe event design, and dashboards tailored to your metrics.</p></div>
+              </article>
+            </div>
+
+            <!-- Security & Moderation -->
+            <div class="faq__category" role="tabpanel" data-faq-category="security">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>How do you approach safety?</h3></header>
+                <div class="card__panel" data-panel><p>Role/permission hardening, rate limits, audit logs, incident response playbooks, and abuse mitigation automations.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you support compliance needs?</h3></header>
+                <div class="card__panel" data-panel><p>We support data minimization, retention policies, and secure secrets handling. Formal audits can be coordinated.</p></div>
+              </article>
+            </div>
+
+            <!-- Operations & Process -->
+            <div class="faq__category" role="tabpanel" data-faq-category="ops">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>How do requests work day-to-day?</h3></header>
+                <div class="card__panel" data-panel><p>Queue unlimited requests in Trello. We deliver one at a time with Average 96-hour turnaround; larger items progress continuously.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What formats do you accept for briefs?</h3></header>
+                <div class="card__panel" data-panel><p>Trello cards, Google Docs, Loom videos(if it can be linked), it works.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What if I'm not satisfied with a delivery?</h3></header>
+                <div class="card__panel" data-panel><p>We iterate until you're 100% satisfied, unlimited revisions included. Most requests are approved after 1-2 revision cycles. If we fundamentally can't build what you need, we'll let you know upfront and help find alternatives.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>How do you prioritize multiple requests?</h3></header>
+                <div class="card__panel" data-panel><p>First-in, first-out from your Trello queue. You can reorder anytime. Urgent bug fixes are prioritized automatically.</p></div>
+              </article>
+            </div>
+
+            <!-- Performance & Reliability -->
+            <div class="faq__category" role="tabpanel" data-faq-category="perf">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Are bots reliable at scale?</h3></header>
+                <div class="card__panel" data-panel><p>We design for resilience: retries, circuit breakers, background jobs, and monitoring with alerts.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you support staging environments?</h3></header>
+                <div class="card__panel" data-panel><p>Yes: safe rollout through dev/stage/prod, with feature flags where applicable.</p></div>
+              </article>
+            </div>
+
+            <!-- Pricing & Billing -->
+            <div class="faq__category" role="tabpanel" data-faq-category="pricing">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What's included in $699/mo?</h3></header>
+                <div class="card__panel" data-panel><p>One active request at a time, unlimited queue, unlimited brands/servers, up to 2 users, pause/cancel anytime.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Can I pause my subscription?</h3></header>
+                <div class="card__panel" data-panel><p>Yes. Billing pauses with unused days banked for later use.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What payment methods do you accept?</h3></header>
+                <div class="card__panel" data-panel><p>Credit card via Stripe. Invoicing available for annual plans.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What's NOT included?</h3></header>
+                <div class="card__panel" data-panel><p>3D modeling, video production, physical hardware, 24/7 emergency on-call (enterprise only), content moderation services (we build tools, you moderate).</p></div>
+              </article>
+            </div>
+
+            <!-- Legal & Ownership -->
+            <div class="faq__category" role="tabpanel" data-faq-category="legal">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Who owns the code and assets?</h3></header>
+                <div class="card__panel" data-panel><p>You do. All code, assets, bots, and IP are 100% yours upon delivery. We retain no rights and sign over full ownership.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you host and run everything for me?</h3></header>
+                <div class="card__panel" data-panel><p>Yes. We handle all hosting, monitoring, updates, and maintenance so you never have to think about infrastructure. Your bots stay online and secure 24/7.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Can I run everything myself instead?</h3></header>
+                <div class="card__panel" data-panel><p>Absolutely. We deliver clean, documented code you can self-host anytime. We'll provide deployment guides and assist with the handoff if you want to take over operations.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What if I want to migrate to another developer?</h3></header>
+                <div class="card__panel" data-panel><p>No problem. Everything we build is yours. We'll package up all code, documentation, and credentials, then help the new team get up to speed. Zero lock-in, clean handoff.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you sign NDAs?</h3></header>
+                <div class="card__panel" data-panel><p>Yes. We can sign your mutual NDA prior to onboarding.</p></div>
+              </article>
+            </div>
+
+            <!-- Support & SLA -->
+            <div class="faq__category" role="tabpanel" data-faq-category="support">
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>What about support and fixes?</h3></header>
+                <div class="card__panel" data-panel><p>Bug fixes are prioritized. Support requests can be added to your queue anytime.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>Do you offer SLAs?</h3></header>
+                <div class="card__panel" data-panel><p>We target ~96-hour average delivery. Formal SLAs can be discussed for enterprise needs.</p></div>
+              </article>
+              <article class="faq__item" data-accordion>
+                <header class="faq__head"><h3>How do I contact you for urgent issues?</h3></header>
+                <div class="card__panel" data-panel><p>Email hello@DiscordGenius.dev for urgent bugs. Response within 12 hours, critical fixes prioritized within 24 hours.</p></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="book" class="section book">
+        <div class="container">
+          <div class="book__panel">
+            <div class="book__intro">
+              
+              <h2 class="section__title">Book a 15‑minute intro call</h2>
+             
+            </div>
+
+            <form class="booking-form" id="booking-form" aria-describedby="booking-help">
+              <input type="hidden" id="book-timezone" name="timezone" value="Etc/GMT">
+
+              <label class="field">
+                <span>Work email</span>
+                <input type="email" id="book-email" name="email" autocomplete="email" required placeholder="you@community.co">
+              </label>
+
+              <label class="field">
+                <span>What should we cover? <span class="muted small">(optional)</span></span>
+                <textarea id="book-agenda" name="agenda" rows="3" placeholder="Bots to build, integrations to ship, or current pain points"></textarea>
+              </label>
+
+              <fieldset class="booking-form__calendar" aria-label="Pick a date and time">
+                <legend>Pick a time</legend>
+                <div class="calendar" aria-live="polite">
+                  <div class="calendar__picker">
+                    <div class="calendar__inline" data-calendar-inline aria-live="polite"></div>
+                    <p class="calendar__selected" data-calendar-selected>Pick a date to view available times.</p>
+                    <p class="calendar__timezone">Showing times in your timezone: <strong data-calendar-timezone>GMT</strong></p>
+                  </div>
+                  <div class="calendar__loading" data-calendar-loading>
+                    <div class="spinner" aria-hidden="true"></div>
+                    <p>Loading fresh availability...</p>
+                  </div>
+                  <p class="calendar__state small" data-calendar-state hidden></p>
+                  <div class="timepicker" data-timepicker hidden>
+                    <div class="timepicker__header">
+                      <span class="timepicker__title">Select your 15-minute window</span>
+                    </div>
+                    <div class="timepicker__labels">
+                      <div>
+                        <span class="timepicker__label">Start</span>
+                        <strong data-timepicker-start>--</strong>
+                      </div>
+                      <div class="timepicker__arrow">→</div>
+                      <div>
+                        <span class="timepicker__label">End</span>
+                        <strong data-timepicker-end>--</strong>
+                      </div>
+                    </div>
+                    <div class="timepicker__slider">
+                      <input type="range" min="0" max="0" step="1" value="0" data-timepicker-range disabled aria-label="Choose a 15-minute window">
+                      <div class="timepicker__ticks" data-timepicker-ticks></div>
+                    </div>
+                  </div>
+                  <div class="calendar__empty" data-calendar-empty hidden>
+                    <p>No open slots for that day. Try another date or <a href="mailto:hello@discordgenius.dev">email us</a> and we’ll work around your schedule.</p>
+                  </div>
+                  <div class="calendar__error" data-calendar-error hidden>
+                    <p>We couldn’t load availability. Refresh or <a href="mailto:hello@discordgenius.dev">email us</a> and we’ll help ASAP.</p>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="booking-form__actions">
+                <button class="btn btn--primary btn--lg" type="submit" data-booking-submit>Request intro call</button>
+                <p id="booking-help" class="muted small">We'll send the calendar invite + Zoom link as soon as you pick a slot.</p>
+              </div>
+              <div class="booking-form__status" aria-live="polite">
+                <p class="booking-form__error" data-booking-error hidden></p>
+                <div class="success" data-booking-success hidden>
+                  <p>Thanks! Your request is in. We’ll send a calendar invite and Zoom link shortly.</p>
+                </div>
+              </div>
+              <input type="hidden" id="book-slot" name="slot">
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__about">
+          <p><strong>DiscordGenius</strong> is your dedicated Discord development partner. We build custom bots, integrations, and server experiences that scale with your community. From launch to 100K+ members.</p>
+          <p class="muted small">Founded by developers who've shipped 400+ Discord features for communities managing 100k+ members combined. We're Discord-native, security-first, and obsessed with helping communities thrive.</p>
+        </div>
+        <div class="footer__wrap">
+          <div class="footer__brand">
+            <img id="footer-logo-fallback" class="footer__logo" src="assets/logo.svg" alt="DiscordGenius logo" width="72" height="72">
+            <canvas id="footer-logo" class="footer__logo footer__logo--rive" width="72" height="72" style="display:none;"></canvas>
+            <span id="footer-title-fallback">DiscordGenius</span>
+            <canvas id="footer-title" class="footer__title" width="160" height="40" style="display:none;"></canvas>
+          </div>
+          <nav class="footer__links" aria-label="Footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+          </nav>
+          <p class="muted">Headquartered on the internet</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Subscribe Modal -->
+    <div class="modal" id="subscribe-modal" role="dialog" aria-modal="true" aria-labelledby="subscribe-title" hidden>
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <header class="modal__head">
+          <h2 id="subscribe-title">Subscribe — Monthly</h2>
+          <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
+        </header>
+        <div class="modal__body">
+          <p>This is a placeholder for Stripe Checkout. You'll subscribe to the <strong>$<span id="modal-price">699</span>/mo</strong> plan. In production, this opens a Stripe checkout session.</p>
+          <button class="btn btn--primary" id="proceed-subscribe">Proceed</button>
+          <p class="muted small">Price increases to $599 after the first 3 customers.</p>
+          <div id="subscribe-success" class="success" hidden>
+            <p>Thanks! Your subscription is noted. We’ll email your Trello board invite shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ask a Question Modal -->
+    <div class="modal" id="question-modal" role="dialog" aria-modal="true" aria-labelledby="question-title" hidden>
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <header class="modal__head">
+          <h2 id="question-title">Ask a question</h2>
+          <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
+        </header>
+        <div class="modal__body">
+          <form id="question-form">
+            <label class="field">
+              <span>Your question</span>
+              <textarea id="q-text" rows="5" required placeholder="Ask anything about bots, integrations, or server design."></textarea>
+            </label>
+            <label class="field">
+              <span>Contact (email or Discord)</span>
+              <input type="text" id="q-contact" required placeholder="you@example.com or @yourdiscord#0000">
+            </label>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Send question</button>
+            </div>
+          </form>
+          <div id="question-success" class="success" hidden>
+            <p>Thanks! We’ll reply to your contact with an answer shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book a Call Modal -->
+    <div class="modal" id="call-modal" role="dialog" aria-modal="true" aria-labelledby="call-title" hidden>
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <header class="modal__head">
+          <h2 id="call-title">Book a 15‑minute intro call</h2>
+          <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
+        </header>
+        <div class="modal__body">
+          <p>This is a placeholder for a scheduling link (e.g., Calendly). In production, this would open your booking page.</p>
+          <a class="btn btn--primary" href="#" aria-disabled="true">Open scheduling (placeholder)</a>
+          <p class="muted small">Prefer email? hello@DiscordGenius.dev</p>
+        </div>
+      </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+    <script>
+      // Initialize Rive logos with SVG fallback
+      document.addEventListener('DOMContentLoaded', () => {
+        const canUseRive = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+        if (window.rive && canUseRive) {
+          let navLogoInstance = null;
+          let footerLogoInstance = null;
+          
+          const navCanvas = document.getElementById('nav-logo');
+          const navFallback = document.getElementById('nav-logo-fallback');
+          if (navCanvas) {
+            navLogoInstance = new rive.Rive({
+              src: 'assets/DiscordGeniusLogo.riv',
+              canvas: navCanvas,
+              stateMachines: 'State Machine 1',
+              autoplay: true,
+              fit: rive.Fit.Contain,
+              alignment: rive.Alignment.Center,
+              onLoad: () => {
+                // Hide fallback, show Rive canvas
+                if (navFallback) navFallback.style.display = 'none';
+                navCanvas.style.display = 'block';
+              },
+            });
+          }
+          
+          // Nav title text animation
+          const navTitleCanvas = document.getElementById('nav-title');
+          const navTitleFallback = document.getElementById('nav-title-fallback');
+          if (navTitleCanvas) {
+            new rive.Rive({
+              src: 'assets/DiscordGeniusLogoText.riv',
+              canvas: navTitleCanvas,
+              autoplay: true,
+              fit: rive.Fit.Contain,
+              alignment: rive.Alignment.CenterLeft,
+              onLoad: () => {
+                if (navTitleFallback) navTitleFallback.style.display = 'none';
+                navTitleCanvas.style.display = 'block';
+              },
+            });
+          }
+          
+          const footerCanvas = document.getElementById('footer-logo');
+          const footerFallback = document.getElementById('footer-logo-fallback');
+          if (footerCanvas) {
+            footerLogoInstance = new rive.Rive({
+              src: 'assets/DiscordGeniusLogo.riv',
+              canvas: footerCanvas,
+              stateMachines: 'State Machine 1',
+              autoplay: true,
+              fit: rive.Fit.Contain,
+              alignment: rive.Alignment.Center,
+              onLoad: () => {
+                // Hide fallback, show Rive canvas
+                if (footerFallback) footerFallback.style.display = 'none';
+                footerCanvas.style.display = 'block';
+              },
+            });
+          }
+          
+          // Footer title text animation
+          const footerTitleCanvas = document.getElementById('footer-title');
+          const footerTitleFallback = document.getElementById('footer-title-fallback');
+          if (footerTitleCanvas) {
+            new rive.Rive({
+              src: 'assets/DiscordGeniusLogoText.riv',
+              canvas: footerTitleCanvas,
+              autoplay: true,
+              fit: rive.Fit.Contain,
+              alignment: rive.Alignment.CenterLeft,
+              onLoad: () => {
+                if (footerTitleFallback) footerTitleFallback.style.display = 'none';
+                footerTitleCanvas.style.display = 'block';
+              },
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+  <!-- References: design inspiration and model -->
+  <!-- Designjoy: https://www.designjoy.co/ ; Webflow ref: https://design-joy-website.webflow.io/ -->
+</html>
+
+
+
