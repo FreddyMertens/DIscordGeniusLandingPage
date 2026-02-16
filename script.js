@@ -7,12 +7,17 @@
   if (canvas) {
     const ctx = canvas.getContext('2d');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     let width, height, centerX, centerY, cols, rows;
     let isVisible = true;
     let animationId = null;
     const gridSize = 33;
-    
+
+    // Pre-allocated grid buffer: 3 floats (px, py, z) per point
+    let gridBuf = null;
+    let gridBufCols = 0;
+    let gridBufRows = 0;
+
     function resize() {
       const dpr = window.devicePixelRatio || 1;
       const rect = canvas.getBoundingClientRect();
@@ -25,18 +30,30 @@
       centerY = height / 2;
       cols = Math.ceil(width / gridSize) + 12;
       rows = Math.ceil(height / gridSize) + 12;
+      // Reallocate grid buffer only when dimensions change
+      if (cols !== gridBufCols || rows !== gridBufRows) {
+        gridBuf = new Float64Array(cols * rows * 3);
+        gridBufCols = cols;
+        gridBufRows = rows;
+      }
     }
     resize();
-    
+
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(resize, 100);
     });
 
-    // Intersection Observer to pause when not visible
+    // Intersection Observer — also controls rAF scheduling
     const observer = new IntersectionObserver((entries) => {
+      const wasVisible = isVisible;
       isVisible = entries[0].isIntersecting;
+      // Restart the animation loop when canvas becomes visible again
+      if (isVisible && !wasVisible && !reduced) {
+        lastFrameTime = 0;
+        animationId = requestAnimationFrame(animate);
+      }
     }, { threshold: 0.1 });
     observer.observe(canvas);
 
@@ -45,59 +62,51 @@
     const scrollSpeed = 0.25;
     let offsetX = 0;
     let time = 0;
+    let lastFrameTime = 0;
 
-    function project3D(x, y, z) {
-      const scale = perspective / (perspective + z);
-      return {
-        x: centerX + (x - centerX) * scale,
-        y: centerY + (y - centerY) * scale,
-        z: z
-      };
-    }
+    function computeGrid() {
+      const startX = -gridSize * 3 - (offsetX % gridSize);
+      const startY = -gridSize * 3;
 
-    function getZ(worldX, worldY, t) {
-      const x = worldX * 0.01;
-      const y = worldY * 0.01;
-      return Math.sin(x * 0.8 + t * 0.3) * Math.cos(y * 0.6 + t * 0.2) * waveAmp +
-             Math.sin(x * 1.6 + y * 1.2 + t * 0.25) * (waveAmp * 0.25);
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          const worldX = offsetX + startX + col * gridSize;
+          const worldY = startY + row * gridSize;
+          const sx = worldX * 0.01;
+          const sy = worldY * 0.01;
+          const z = Math.sin(sx * 0.8 + time * 0.3) * Math.cos(sy * 0.6 + time * 0.2) * waveAmp +
+            Math.sin(sx * 1.6 + sy * 1.2 + time * 0.25) * (waveAmp * 0.25);
+          const scale = perspective / (perspective + z);
+          const px = centerX + (startX + col * gridSize - centerX) * scale;
+          const py = centerY + (startY + row * gridSize - centerY) * scale;
+          const idx = (row * cols + col) * 3;
+          gridBuf[idx] = px;
+          gridBuf[idx + 1] = py;
+          gridBuf[idx + 2] = z;
+        }
+      }
     }
 
     function drawGrid() {
       ctx.clearRect(0, 0, width, height);
-      
-      const startX = -gridSize * 3 - (offsetX % gridSize);
-      const startY = -gridSize * 3;
+      computeGrid();
+
+      const invWaveAmp3 = 1 / (waveAmp * 3);
 
       // Draw horizontal lines
       for (let row = 0; row < rows; row++) {
         ctx.beginPath();
-        const points = [];
-        
+        let zSum = 0;
         for (let col = 0; col < cols; col++) {
-          const worldX = offsetX + startX + col * gridSize;
-          const worldY = startY + row * gridSize;
-          const z = getZ(worldX, worldY, time);
-          const x = startX + col * gridSize;
-          const y = startY + row * gridSize;
-          const proj = project3D(x, y, z);
-          points.push(proj);
+          const idx = (row * cols + col) * 3;
+          const px = gridBuf[idx], py = gridBuf[idx + 1];
+          zSum += gridBuf[idx + 2];
+          if (col === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
         }
-        
-        for (let i = 0; i < points.length; i++) {
-          if (i === 0) {
-            ctx.moveTo(points[i].x, points[i].y);
-          } else {
-            ctx.lineTo(points[i].x, points[i].y);
-          }
-        }
-        
-        const avgZ = points.reduce((sum, p) => sum + p.z, 0) / points.length;
-        const opacity = Math.max(0.15, Math.min(0.55, 1 - (avgZ / (waveAmp * 3))));
-        
-        // Vaporwave gradient emission
+        const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / cols) * invWaveAmp3));
         const hue = (time * 20 + row * 15) % 360;
         const vaporHue = hue < 180 ? 300 + (hue * 0.5) : 180 + ((hue - 180) * 0.3);
-        
         ctx.shadowBlur = 12;
         ctx.shadowColor = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.7})`;
         ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
@@ -108,50 +117,45 @@
       // Draw vertical lines
       for (let col = 0; col < cols; col++) {
         ctx.beginPath();
-        const points = [];
-        
+        let zSum = 0;
         for (let row = 0; row < rows; row++) {
-          const worldX = offsetX + startX + col * gridSize;
-          const worldY = startY + row * gridSize;
-          const z = getZ(worldX, worldY, time);
-          const x = startX + col * gridSize;
-          const y = startY + row * gridSize;
-          const proj = project3D(x, y, z);
-          points.push(proj);
+          const idx = (row * cols + col) * 3;
+          const px = gridBuf[idx], py = gridBuf[idx + 1];
+          zSum += gridBuf[idx + 2];
+          if (row === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
         }
-        
-        for (let i = 0; i < points.length; i++) {
-          if (i === 0) {
-            ctx.moveTo(points[i].x, points[i].y);
-          } else {
-            ctx.lineTo(points[i].x, points[i].y);
-          }
-        }
-        
-        const avgZ = points.reduce((sum, p) => sum + p.z, 0) / points.length;
-        const opacity = Math.max(0.15, Math.min(0.55, 1 - (avgZ / (waveAmp * 3))));
-        
-        // Vaporwave gradient emission
+        const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / rows) * invWaveAmp3));
         const hue = (time * 20 + col * 15) % 360;
         const vaporHue = hue < 180 ? 300 + (hue * 0.5) : 180 + ((hue - 180) * 0.3);
-        
         ctx.shadowBlur = 12;
         ctx.shadowColor = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.7})`;
         ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
+
+      // Reset shadow to prevent state accumulation
+      ctx.shadowBlur = 0;
+      ctx.shadowColor = 'transparent';
     }
 
-    function animate() {
-      if (!reduced && isVisible) {
-        time += 0.016;
-        offsetX += scrollSpeed;
-        drawGrid();
+    function animate(timestamp) {
+      if (reduced || !isVisible) {
+        animationId = null;
+        return;
       }
+      // Real delta time (clamped to avoid jumps after tab switch)
+      if (lastFrameTime > 0) {
+        const dt = Math.min((timestamp - lastFrameTime) / 1000, 0.1);
+        time += dt;
+        offsetX += scrollSpeed * (dt / 0.016);
+      }
+      lastFrameTime = timestamp;
+      drawGrid();
       animationId = requestAnimationFrame(animate);
     }
-    animate();
+    animationId = requestAnimationFrame(animate);
   }
 
   // Show topbar when nav scrolls out of view
@@ -170,20 +174,20 @@
   accordions.forEach(acc => {
     const panel = acc.querySelector('[data-panel]');
     if (!panel) return;
-    
+
     acc.addEventListener('click', (e) => {
       // Prevent if clicking on links or buttons inside
       if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-      
+
       const isOpen = acc.classList.toggle('is-open');
       acc.setAttribute('aria-expanded', String(isOpen));
     });
-    
+
     // Make keyboard accessible
     acc.setAttribute('role', 'button');
     acc.setAttribute('tabindex', '0');
     acc.setAttribute('aria-expanded', 'false');
-    
+
     acc.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -254,7 +258,7 @@
   const proceed = document.getElementById('proceed-subscribe');
   if (proceed) {
     proceed.addEventListener('click', () => {
-      try { localStorage.setItem('djSubscribed', 'true'); } catch (e) {}
+      try { localStorage.setItem('djSubscribed', 'true'); } catch (e) { }
       const success = document.getElementById('subscribe-success');
       if (success) success.hidden = false;
     });
@@ -273,7 +277,7 @@
         const existing = JSON.parse(localStorage.getItem('djQuestions') || '[]');
         existing.push(q);
         localStorage.setItem('djQuestions', JSON.stringify(existing));
-      } catch (err) {}
+      } catch (err) { }
       const success = document.getElementById('question-success');
       if (success) success.hidden = false;
       qForm.reset();
@@ -289,10 +293,10 @@
       authState.email = saved.email || null;
       document.body.classList.add('is-auth');
     }
-  } catch (e) {}
+  } catch (e) { }
   function setAuth(provider, email) {
     authState.provider = provider; authState.email = email || null;
-    try { localStorage.setItem('djAuth', JSON.stringify(authState)); } catch (e) {}
+    try { localStorage.setItem('djAuth', JSON.stringify(authState)); } catch (e) { }
     document.body.classList.add('is-auth');
   }
   document.querySelectorAll('[data-auth-provider]').forEach(btn => btn.addEventListener('click', () => {

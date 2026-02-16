@@ -1,8 +1,5 @@
 # Netlify redirects
 
-# Redirect apex to www (if both are configured)
-https://discordgenius.com/* https://www.discordgenius.com/:splat 301!
-
 # Handle trailing slashes
 /privacy /privacy.html 200
 /terms /terms.html 200
