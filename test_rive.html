@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rive Debugger</title>
+    <style>
+        body {
+            background: #0b0b14;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            background: #111;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #00e5ff;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            color: black;
+        }
+
+        button:hover {
+            background: #00b8cc;
+        }
+
+        #log {
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            overflow-y: scroll;
+            background: #000;
+            border: 1px solid #444;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rive Animation Debugger</h1>
+    <canvas id="rive-canvas" width="500" height="500"></canvas>
+
+    <div class="controls">
+        <button onclick="play('GradientBrainAnimation')">Play Gradient</button>
+        <button onclick="play('AtomsAnimations')">Play Atoms</button>
+        <button onclick="playBoth()">Play Both</button>
+        <button onclick="stopAll()">Stop All</button>
+        <button onclick="checkState()">Log State</button>
+    </div>
+
+    <div id="log"></div>
+
+    <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
+    <script>
+        const logEl = document.getElementById('log');
+        function log(msg) {
+            const div = document.createElement('div');
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            logEl.prepend(div);
+            console.log(msg);
+        }
+
+        let rInstance = null;
+
+        try {
+            log("Initializing Rive...");
+            rInstance = new rive.Rive({
+                src: 'assets/DiscordGeniusLogo.riv', // Using the logo file
+                canvas: document.getElementById('rive-canvas'),
+                autoplay: false, // Manual control
+                onLoad: () => {
+                    log("Rive Loaded!");
+                    log("Available Animations: " + JSON.stringify(rInstance.animationNames));
+                    log("Available State Machines: " + JSON.stringify(rInstance.stateMachineNames));
+                },
+                onError: (err) => log("Error: " + err)
+            });
+        } catch (e) {
+            log("Exception: " + e.message);
+        }
+
+        function play(name) {
+            if (!rInstance) return;
+            log(`Playing: ${name}`);
+            rInstance.play(name);
+        }
+
+        function playBoth() {
+            if (!rInstance) return;
+            log("Playing Gradient + Atoms");
+            rInstance.play(['GradientBrainAnimation', 'AtomsAnimations']);
+        }
+
+        function stopAll() {
+            if (!rInstance) return;
+            log("Stopping all");
+            rInstance.stop();
+        }
+
+        function checkState() {
+            if (!rInstance) return;
+            log("Playing animations: " + JSON.stringify(rInstance.playingAnimationNames));
+        }
+    </script>
+</body>
+
+</html>

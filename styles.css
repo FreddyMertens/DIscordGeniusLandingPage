@@ -1901,3 +1901,44 @@ body.is-auth .auth-gate {
   background: rgba(255, 255, 255, .2);
   box-shadow: none;
 }
+
+/* Rive Branding Fixes */
+header .container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 64px;
+}
+
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none;
+  /* remove underline from link */
+  height: 64px;
+  margin: 0 !important;
+}
+
+.brand__logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  transform: scale(1.25);
+  /* Zoom to reduce internal whitespace */
+}
+
+.brand__title {
+  display: block;
+  width: 267px;
+  /* Scaled from 200px (48->64) */
+  height: 64px;
+  margin-left: 12px;
+}
+
+/* Ensure canvas takes up the space */
+.brand__logo canvas,
+.brand__title canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
