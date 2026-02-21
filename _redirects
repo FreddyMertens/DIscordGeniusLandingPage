@@ -1,5 +1,8 @@
 # Netlify redirects
 
+# Proxy API requests to the production backend
+/api/* https://api.discordgenius.com/api/:splat 200
+
 # Handle trailing slashes
 /privacy /privacy.html 200
 /terms /terms.html 200
