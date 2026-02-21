@@ -267,20 +267,41 @@
   // Question form placeholder storing to localStorage and confirming submission
   const qForm = document.getElementById('question-form');
   if (qForm) {
-    qForm.addEventListener('submit', (e) => {
+    qForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const text = document.getElementById('q-text').value.trim();
       const contact = document.getElementById('q-contact').value.trim();
       if (!text || !contact) return;
-      const q = { id: Date.now(), text, contact };
+      
+      const submitBtn = qForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
       try {
-        const existing = JSON.parse(localStorage.getItem('djQuestions') || '[]');
-        existing.push(q);
-        localStorage.setItem('djQuestions', JSON.stringify(existing));
-      } catch (err) { }
-      const success = document.getElementById('question-success');
-      if (success) success.hidden = false;
-      qForm.reset();
+        const response = await fetch('/api/questions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({ text, contact }),
+        });
+        
+        if (!response.ok) {
+          throw new Error(`Submit failed (${response.status})`);
+        }
+        
+        const success = document.getElementById('question-success');
+        if (success) success.hidden = false;
+        qForm.reset();
+      } catch (err) {
+        console.error('[question] submit failed', err);
+        alert('Failed to send question. Please try again or email developer@discordgenius.com directly.');
+      } finally {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+      }
     });
   }
 
@@ -731,7 +752,7 @@
         updateSelectedLabel(null);
       } catch (error) {
         console.error('[booking] submit failed', error);
-        showFormError('Something went wrong booking your call. Please try again or email hello@discordgenius.dev.');
+        showFormError('Something went wrong booking your call. Please try again or email developer@discordgenius.com.');
       } finally {
         enableForm();
       }

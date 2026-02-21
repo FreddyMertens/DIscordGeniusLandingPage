@@ -52,7 +52,7 @@
         "description": "Unlimited Discord bot and server development with business-ready integrations.",
         "contactPoint": {
           "@type": "ContactPoint",
-          "email": "hello@discordgenius.com",
+          "email": "developer@discordgenius.com",
           "contactType": "customer service"
         }
       }
@@ -111,7 +111,8 @@
       </nav>
       <div class="nav__ctas">
         <a href="#pricing" class="btn btn--ghost">See pricing</a>
-        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe and try it</a>
+        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe <span class="hide-mobile">and try
+            it</span></a>
       </div>
     </div>
   </header>
@@ -242,20 +243,7 @@
             </div>
           </article>
 
-          <article class="card" data-accordion>
-            <header class="card__head">
-              <i data-lucide="palette" aria-hidden="true"></i>
-              <h3>In-house design: logos, banners, and bot UX</h3>
-            </header>
-            <div class="card__panel" data-panel>
-              <ul>
-                <li>Logo sets, banner art, channel art, and brand guidelines</li>
-                <li>Emoji & sticker packs that match your voice</li>
-                <li>Custom bot interaction UX: buttons, selects, flows, copy</li>
-                <li>Prototyping and iteration as your community grows</li>
-              </ul>
-            </div>
-          </article>
+
         </div>
 
 
@@ -275,8 +263,9 @@
             <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;">
               <ul>
                 <li>Small feature edits to existing bots</li>
-                <li>Stripe webhook → role assignment</li>
+                <li>API webhook → role assignment</li>
                 <li>Basic ticket system</li>
+                <li>Custom XP system with leaderboards</li>
               </ul>
             </div>
           </article>
@@ -287,8 +276,8 @@
             <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;">
               <ul>
                 <li>Large feature edits to existing bots</li>
-                <li>XP system with leaderboard</li>
-                <li>Notion content sync</li>
+                <li>Custom AI based bots</li>
+                <li>Server analytics with dedicated dashboard</li>
               </ul>
             </div>
           </article>
@@ -298,9 +287,9 @@
             </div>
             <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;">
               <ul>
-                <li>Analytics dashboard with funnels</li>
+                <li>Complex multi feature bot for your server with monetization</li>
                 <li>Complex interactive games and community economy</li>
-                <li>Custom API + integration</li>
+                <li>Complex Custom API + integration</li>
               </ul>
             </div>
           </article>
@@ -328,7 +317,8 @@
           </ul>
           <div class="pricecard__actions">
             <a href="https://app.discordgenius.com/" class="btn btn--primary btn--lg">Join today</a>
-            <button class="btn btn--ghost" aria-label="Contact via email">Prefer email? hello@DiscordGenius.dev</button>
+            <button class="btn btn--ghost" aria-label="Contact via email">Prefer email?
+              developer@discordgenius.com</button>
           </div>
 
         </div>
@@ -457,15 +447,7 @@
                   frictionless action paths for members.</p>
               </div>
             </article>
-            <article class="faq__item" data-accordion>
-              <header class="faq__head">
-                <h3>Do you provide in-house design for logos, banners, and bot UX?</h3>
-              </header>
-              <div class="card__panel" data-panel>
-                <p>Yes. Our in-house designer creates logos, banners, emoji/sticker packs, and designs custom UX flows
-                  for bot interactions (buttons, selects, modals) including copywriting.</p>
-              </div>
-            </article>
+
             <article class="faq__item" data-accordion>
               <header class="faq__head">
                 <h3>Can you design emoji/stickers and other brand assets?</h3>
@@ -717,7 +699,8 @@
                 <h3>How do I contact you for urgent issues?</h3>
               </header>
               <div class="card__panel" data-panel>
-                <p>Email hello@DiscordGenius.dev for urgent bugs. Response within 12 hours, critical fixes prioritized
+                <p>Email developer@discordgenius.com for urgent bugs. Response within 12 hours, critical fixes
+                  prioritized
                   within 24 hours.</p>
               </div>
             </article>
@@ -786,11 +769,12 @@
                   </div>
                 </div>
                 <div class="calendar__empty" data-calendar-empty hidden>
-                  <p>No open slots for that day. Try another date or <a href="mailto:hello@discordgenius.dev">email
+                  <p>No open slots for that day. Try another date or <a href="mailto:developer@discordgenius.com">email
                       us</a> and we’ll work around your schedule.</p>
                 </div>
                 <div class="calendar__error" data-calendar-error hidden>
-                  <p>We couldn’t load availability. Refresh or <a href="mailto:hello@discordgenius.dev">email us</a> and
+                  <p>We couldn’t load availability. Refresh or <a href="mailto:developer@discordgenius.com">email us</a>
+                    and
                     we’ll help ASAP.</p>
                 </div>
               </div>
@@ -902,7 +886,7 @@
         <p>This is a placeholder for a scheduling link (e.g., Calendly). In production, this would open your booking
           page.</p>
         <a class="btn btn--primary" href="#" aria-disabled="true">Open scheduling (placeholder)</a>
-        <p class="muted small">Prefer email? hello@DiscordGenius.dev</p>
+        <p class="muted small">Prefer email? developer@discordgenius.com</p>
       </div>
     </div>
   </div>
@@ -924,6 +908,23 @@
 
       // Track instances: Map<observed element, { canvas, config, instance, initialized }>
       const riveInstances = new Map();
+
+      // Resize handler to ensure Rive canvases update their drawing surface on window resize
+      const resizeAll = () => {
+        riveInstances.forEach((dataList) => {
+          dataList.forEach(data => {
+            if (data.instance && data.initialized && data.canvas.style.display !== 'none') {
+              data.instance.resizeDrawingSurfaceToCanvas();
+            }
+          });
+        });
+      };
+
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(resizeAll, 100);
+      });
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
