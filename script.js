@@ -50,12 +50,19 @@
       const wasVisible = isVisible;
       isVisible = entries[0].isIntersecting;
       // Restart the animation loop when canvas becomes visible again
-      if (isVisible && !wasVisible && !reduced) {
+      if (isVisible && !document.hidden && !wasVisible && !reduced) {
         lastFrameTime = 0;
         animationId = requestAnimationFrame(animate);
       }
     }, { threshold: 0.1 });
     observer.observe(canvas);
+
+    document.addEventListener('visibilitychange', () => {
+      if (isVisible && !document.hidden && !reduced && !animationId) {
+        lastFrameTime = 0;
+        animationId = requestAnimationFrame(animate);
+      }
+    });
 
     const perspective = 900;
     const waveAmp = 35;
@@ -141,7 +148,7 @@
     }
 
     function animate(timestamp) {
-      if (reduced || !isVisible) {
+      if (reduced || !isVisible || document.hidden) {
         animationId = null;
         return;
       }
@@ -272,7 +279,7 @@
       const text = document.getElementById('q-text').value.trim();
       const contact = document.getElementById('q-contact').value.trim();
       if (!text || !contact) return;
-      
+
       const submitBtn = qForm.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn.textContent;
       submitBtn.textContent = 'Sending...';
@@ -287,11 +294,11 @@
           },
           body: JSON.stringify({ text, contact }),
         });
-        
+
         if (!response.ok) {
           throw new Error(`Submit failed (${response.status})`);
         }
-        
+
         const success = document.getElementById('question-success');
         if (success) success.hidden = false;
         qForm.reset();
