@@ -424,6 +424,7 @@ body {
 
 .btn {
   appearance: none;
+  text-decoration: none;
   border: 1px solid rgba(255, 255, 255, .14);
   background: var(--dj-bg-800);
   color: var(--dj-text-100);
@@ -771,6 +772,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  align-items: start;
 }
 
 @media (min-width: 940px) {
@@ -1984,8 +1986,10 @@ header .container {
     flex: 1 !important;
     width: auto !important;
     height: 100% !important;
-    min-width: 0 !important; /* Critical for flex shrinking */
-    margin-left: 4px !important; /* Add space on left */
+    min-width: 0 !important;
+    /* Critical for flex shrinking */
+    margin-left: 4px !important;
+    /* Add space on left */
   }
 
   /* Brand container: take available space */
@@ -1994,8 +1998,10 @@ header .container {
     margin: 0 !important;
     flex: 1;
     min-width: 0;
-    padding-right: 8px; /* Add space on right */
-    gap: 0 !important; /* No gap */
+    padding-right: 8px;
+    /* Add space on right */
+    gap: 0 !important;
+    /* No gap */
   }
 
   /* Compact button on mobile */
@@ -2007,11 +2013,14 @@ header .container {
 
   /* Adjust logo layout width to save space, scale visual up */
   .brand .brand__logo {
-    width: 56px !important; /* Reduced layout width */
+    width: 56px !important;
+    /* Reduced layout width */
     height: 56px !important;
-    transform: scale(1.3); /* Visual compensation */
+    transform: scale(1.3);
+    /* Visual compensation */
     flex-shrink: 0;
-    margin-right: -4px; /* Pull text closer */
+    margin-right: -4px;
+    /* Pull text closer */
   }
 
   /* Button container: fixed size, don't shrink */
