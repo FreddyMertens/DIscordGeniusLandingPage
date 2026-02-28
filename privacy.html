@@ -8,31 +8,58 @@
   <meta name="description" content="DiscordGenius privacy policy. Learn how we collect, use, and protect your data.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://www.discordgenius.com/privacy.html">
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
 </head>
 
 <body>
   <header class="nav">
-    <div class="container nav__wrap"><a class="brand" href="/"><img src="assets/SVGDiscordGeniusLogo.svg" alt=""
-          width="24" height="24"><span>DiscordGenius</span></a></div>
+    <div class="container nav__wrap">
+      <a class="brand" href="/" aria-label="DiscordGenius home">
+        <img id="nav-logo-fallback" class="brand__logo" src="assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo"
+          width="96" height="96">
+        <canvas id="nav-logo" class="brand__logo brand__logo--rive" width="96" height="96"
+          style="display:none;"></canvas>
+        <span id="nav-title-fallback">DiscordGenius</span>
+        <canvas id="nav-title" class="brand__title" width="200" height="48" style="display:none;"></canvas>
+      </a>
+    </div>
   </header>
   <main class="section">
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p class="muted">This is a placeholder privacy policy. Replace with your real policy before launch.</p>
-      <p>We collect only the data required to deliver our service and communicate with you. We do not sell your data.
-        For any questions, email developer@discordgenius.com.</p>
+      <h2>Data Collection and Usage</h2>
+      <p>We collect only the essential data required to deliver our Discord development services, manage your
+        subscription, and communicate with you effectively. We do not and will never sell your personal or server data
+        to third parties.</p>
+
+      <h2>Data Retention and Removal</h2>
+      <p>Your data stays with you. You own everything we build for you. All data associated with your account and your
+        Discord server can be fully wiped and removed from our systems at any point upon request, during migration of
+        ownership, or upon cancellation of your subscription.</p>
+
+      <h2>Contact Us</h2>
+      <p>For any questions, privacy concerns, or to request data deletion, please email us directly at
+        developer@discordgenius.com.</p>
     </div>
   </main>
   <footer class="footer">
     <div class="container footer__wrap">
-      <div class="footer__brand"><img src="assets/SVGDiscordGeniusLogo.svg" alt="" width="24"
-          height="24"><span>DiscordGenius</span>
+      <div class="footer__brand">
+        <img id="footer-logo-fallback" class="footer__logo" src="assets/SVGDiscordGeniusLogo.svg"
+          alt="DiscordGenius logo" width="72" height="72">
+        <canvas id="footer-logo" class="footer__logo footer__logo--rive" width="72" height="72"
+          style="display:none;"></canvas>
+        <span id="footer-title-fallback">DiscordGenius</span>
+        <canvas id="footer-title" class="footer__title" width="160" height="40" style="display:none;"></canvas>
       </div>
       <nav class="footer__links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
     </div>
   </footer>
+  <script src="rive-setup.js"></script>
 </body>
 
 </html>
