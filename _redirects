@@ -3,6 +3,24 @@
 # Proxy API requests to the production backend
 /api/* https://api.discordgenius.com/api/:splat 200
 
-# Handle trailing slashes
+# Legal pages
 /privacy /privacy.html 200
 /terms /terms.html 200
+
+# Use-Case Spoke Pages
+/hire-discord-bot-developer /hire-discord-bot-developer.html 200
+/custom-discord-economy-bot /custom-discord-economy-bot.html 200
+/discord-bot-verification-system /discord-bot-verification-system.html 200
+/discord-server-setup-expert /discord-server-setup-expert.html 200
+
+# Integration Pages
+/discord-stripe-integration-bot /discord-stripe-integration-bot.html 200
+/discord-shopify-bot /discord-shopify-bot.html 200
+/discord-notion-integration /discord-notion-integration.html 200
+/discord-airtable-automation /discord-airtable-automation.html 200
+/discord-whop-integration /discord-whop-integration.html 200
+
+# Comparison Pages
+/discord-bot-maker-vs-custom-developer /discord-bot-maker-vs-custom-developer.html 200
+/fiverr-vs-discordgenius-for-discord-bots /fiverr-vs-discordgenius-for-discord-bots.html 200
+/upwork-discord-bot-developer-alternative /upwork-discord-bot-developer-alternative.html 200
