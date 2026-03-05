@@ -1560,7 +1560,7 @@ textarea {
 .booking-form__calendar {
   border: 1px solid rgba(255, 255, 255, .08);
   border-radius: var(--radius-lg);
-  padding: 12px;
+  padding: 24px 12px 12px 12px;
   margin: 0;
   background: rgba(255, 255, 255, .02);
 }
