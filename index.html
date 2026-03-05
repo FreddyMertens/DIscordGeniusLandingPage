@@ -744,8 +744,8 @@
                 placeholder="Bots to build, integrations to ship, or current pain points"></textarea>
             </label>
 
-            <fieldset class="booking-form__calendar" aria-label="Pick a date and time">
-              <legend>Pick a time</legend>
+            <div class="booking-form__calendar" role="group" aria-label="Pick a date and time">
+              <p class="booking-form__calendar-title">Pick a time</p>
               <div class="calendar" aria-live="polite">
                 <div class="calendar__picker">
                   <div class="calendar__inline" data-calendar-inline aria-live="polite"></div>
@@ -789,7 +789,7 @@
                     we’ll help ASAP.</p>
                 </div>
               </div>
-            </fieldset>
+            </div>
 
             <div class="booking-form__actions">
               <button class="btn btn--primary btn--lg" type="submit" data-booking-submit>Request intro call</button>

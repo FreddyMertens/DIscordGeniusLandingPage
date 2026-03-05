@@ -1560,17 +1560,18 @@ textarea {
 .booking-form__calendar {
   border: 1px solid rgba(255, 255, 255, .08);
   border-radius: var(--radius-lg);
-  padding: 24px 12px 12px 12px;
+  padding: 16px;
   margin: 0;
   background: rgba(255, 255, 255, .02);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.booking-form__calendar legend {
-  padding: 0 12px;
-  margin-left: 12px;
+.booking-form__calendar-title {
+  margin: 0;
   font-weight: 600;
   letter-spacing: .3px;
-  display: table;
 }
 
 .booking-form__actions {
