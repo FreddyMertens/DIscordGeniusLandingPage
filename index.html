@@ -720,90 +720,32 @@
       </div>
     </section>
 
-    <section id="book" class="section book">
+    <section id="tutorials" class="section">
       <div class="container">
-        <div class="book__panel">
-          <div class="book__intro">
-
-            <h2 class="section__title">Book a 15‑minute intro call</h2>
-
-          </div>
-
-          <form class="booking-form" id="booking-form" aria-describedby="booking-help">
-            <input type="hidden" id="book-timezone" name="timezone" value="Etc/GMT">
-
-            <label class="field">
-              <span>Work email</span>
-              <input type="email" id="book-email" name="email" autocomplete="email" required
-                placeholder="you@community.co">
-            </label>
-
-            <label class="field">
-              <span>What should we cover? <span class="muted small">(optional)</span></span>
-              <textarea id="book-agenda" name="agenda" rows="3"
-                placeholder="Bots to build, integrations to ship, or current pain points"></textarea>
-            </label>
-
-            <div class="booking-form__calendar" role="group" aria-label="Pick a date and time">
-              <p class="booking-form__calendar-title">Pick a time</p>
-              <div class="calendar" aria-live="polite">
-                <div class="calendar__picker">
-                  <div class="calendar__inline" data-calendar-inline aria-live="polite"></div>
-                  <p class="calendar__selected" data-calendar-selected>Pick a date to view available times.</p>
-                  <p class="calendar__timezone">Showing times in your timezone: <strong
-                      data-calendar-timezone>GMT</strong></p>
-                </div>
-                <div class="calendar__loading" data-calendar-loading>
-                  <div class="spinner" aria-hidden="true"></div>
-                  <p>Loading fresh availability...</p>
-                </div>
-                <p class="calendar__state small" data-calendar-state hidden></p>
-                <div class="timepicker" data-timepicker hidden>
-                  <div class="timepicker__header">
-                    <span class="timepicker__title">Select your 15-minute window</span>
-                  </div>
-                  <div class="timepicker__labels">
-                    <div>
-                      <span class="timepicker__label">Start</span>
-                      <strong data-timepicker-start>--</strong>
-                    </div>
-                    <div class="timepicker__arrow">→</div>
-                    <div>
-                      <span class="timepicker__label">End</span>
-                      <strong data-timepicker-end>--</strong>
-                    </div>
-                  </div>
-                  <div class="timepicker__slider">
-                    <input type="range" min="0" max="0" step="1" value="0" data-timepicker-range disabled
-                      aria-label="Choose a 15-minute window">
-                    <div class="timepicker__ticks" data-timepicker-ticks></div>
-                  </div>
-                </div>
-                <div class="calendar__empty" data-calendar-empty hidden>
-                  <p>No open slots for that day. Try another date or <a href="mailto:developer@discordgenius.com">email
-                      us</a> and we’ll work around your schedule.</p>
-                </div>
-                <div class="calendar__error" data-calendar-error hidden>
-                  <p>We couldn’t load availability. Refresh or <a href="mailto:developer@discordgenius.com">email us</a>
-                    and
-                    we’ll help ASAP.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="booking-form__actions">
-              <button class="btn btn--primary btn--lg" type="submit" data-booking-submit>Request intro call</button>
-              <p id="booking-help" class="muted small">We'll send the calendar invite + Zoom link as soon as you pick a
-                slot.</p>
-            </div>
-            <div class="booking-form__status" aria-live="polite">
-              <p class="booking-form__error" data-booking-error hidden></p>
-              <div class="success" data-booking-success hidden>
-                <p>Thanks! Your request is in. We’ll send a calendar invite and Zoom link shortly.</p>
-              </div>
-            </div>
-            <input type="hidden" id="book-slot" name="slot">
-          </form>
+        <div class="section__intro" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+          <h2 class="section__title">Explore Bot Tutorials</h2>
+          <p class="section__desc" style="color: var(--dj-text-400);">See exactly what we can build for your community
+            with these real-world examples and deep dives.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          <a href="/examples/video-contest-bot" class="faq__item"
+            style="text-decoration: none; padding: 2rem; border-radius: 12px; background: var(--dj-bg-800); border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s; display: block;">
+            <h3 style="color: var(--dj-text-100); margin-bottom: 0.5rem;">Video Contest Bot</h3>
+            <p style="color: var(--dj-text-400); font-size: 0.95rem;">A fully automated video submission and voting
+              system for growing communities.</p>
+          </a>
+          <a href="/examples/community-world-map-bot" class="faq__item"
+            style="text-decoration: none; padding: 2rem; border-radius: 12px; background: var(--dj-bg-800); border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s; display: block;">
+            <h3 style="color: var(--dj-text-100); margin-bottom: 0.5rem;">Community World Map</h3>
+            <p style="color: var(--dj-text-400); font-size: 0.95rem;">Interactive web map powered by a Discord bot where
+              members pin their locations.</p>
+          </a>
+          <a href="/examples/texas-holdem-poker-bot" class="faq__item"
+            style="text-decoration: none; padding: 2rem; border-radius: 12px; background: var(--dj-bg-800); border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s; display: block;">
+            <h3 style="color: var(--dj-text-100); margin-bottom: 0.5rem;">Texas Hold'em Poker</h3>
+            <p style="color: var(--dj-text-400); font-size: 0.95rem;">Multiplayer, full-economy Poker bot built strictly
+              on Discord interactions.</p>
+          </a>
         </div>
       </div>
     </section>
@@ -941,15 +883,87 @@
         <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
       </header>
       <div class="modal__body">
-        <p>This is a placeholder for a scheduling link (e.g., Calendly). In production, this would open your booking
-          page.</p>
-        <a class="btn btn--primary" href="#" aria-disabled="true">Open scheduling (placeholder)</a>
+        <form class="booking-form" id="booking-form" aria-describedby="booking-help">
+          <input type="hidden" id="book-timezone" name="timezone" value="Etc/GMT">
+
+          <label class="field">
+            <span>Work email</span>
+            <input type="email" id="book-email" name="email" autocomplete="email" required
+              placeholder="you@community.co">
+          </label>
+
+          <label class="field">
+            <span>What should we cover? <span class="muted small">(optional)</span></span>
+            <textarea id="book-agenda" name="agenda" rows="3"
+              placeholder="Bots to build, integrations to ship, or current pain points"></textarea>
+          </label>
+
+          <div class="booking-form__calendar" role="group" aria-label="Pick a date and time">
+            <p class="booking-form__calendar-title">Pick a time</p>
+            <div class="calendar" aria-live="polite">
+              <div class="calendar__picker">
+                <div class="calendar__inline" data-calendar-inline aria-live="polite"></div>
+                <p class="calendar__selected" data-calendar-selected>Pick a date to view available times.</p>
+                <p class="calendar__timezone">Showing times in your timezone: <strong
+                    data-calendar-timezone>GMT</strong></p>
+              </div>
+              <div class="calendar__loading" data-calendar-loading>
+                <div class="spinner" aria-hidden="true"></div>
+                <p>Loading fresh availability...</p>
+              </div>
+              <p class="calendar__state small" data-calendar-state hidden></p>
+              <div class="timepicker" data-timepicker hidden>
+                <div class="timepicker__header">
+                  <span class="timepicker__title">Select your 15-minute window</span>
+                </div>
+                <div class="timepicker__labels">
+                  <div>
+                    <span class="timepicker__label">Start</span>
+                    <strong data-timepicker-start>--</strong>
+                  </div>
+                  <div class="timepicker__arrow">→</div>
+                  <div>
+                    <span class="timepicker__label">End</span>
+                    <strong data-timepicker-end>--</strong>
+                  </div>
+                </div>
+                <div class="timepicker__slider">
+                  <input type="range" min="0" max="0" step="1" value="0" data-timepicker-range disabled
+                    aria-label="Choose a 15-minute window">
+                  <div class="timepicker__ticks" data-timepicker-ticks></div>
+                </div>
+              </div>
+              <div class="calendar__empty" data-calendar-empty hidden>
+                <p>No open slots for that day. Try another date or <a href="mailto:developer@discordgenius.com">email
+                    us</a> and we’ll work around your schedule.</p>
+              </div>
+              <div class="calendar__error" data-calendar-error hidden>
+                <p>We couldn’t load availability. Refresh or <a href="mailto:developer@discordgenius.com">email us</a>
+                  and
+                  we’ll help ASAP.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-form__actions">
+            <button class="btn btn--primary btn--lg" type="submit" data-booking-submit>Request intro call</button>
+            <p id="booking-help" class="muted small">We'll send the calendar invite + Zoom link as soon as you pick a
+              slot.</p>
+          </div>
+          <div class="booking-form__status" aria-live="polite">
+            <p class="booking-form__error" data-booking-error hidden></p>
+            <div class="success" data-booking-success hidden>
+              <p>Thanks! Your request is in. We’ll send a calendar invite and Zoom link shortly.</p>
+            </div>
+          </div>
+          <input type="hidden" id="book-slot" name="slot">
+        </form>
         <p class="muted small">Prefer email? developer@discordgenius.com</p>
       </div>
     </div>
   </div>
 
-  <script>lucide.createIcons();</script>
+  <script>lucide.createI</script>
   <script src="rive-setup.js"></script>
 
 </body>
