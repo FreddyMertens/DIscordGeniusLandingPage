@@ -2410,3 +2410,403 @@ header .container {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* ============================================================
+   TUTORIAL / CASE-STUDY PAGE STYLES
+   ============================================================ */
+
+/* Request card — styled block showing the client's original request */
+.request-card {
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(31, 34, 41, .35), rgba(31, 34, 41, .18));
+  backdrop-filter: blur(2px) saturate(150%);
+  padding: 28px 28px 24px;
+  margin: 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.request-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--dj-neon), var(--dj-accent));
+  border-radius: 4px 0 0 4px;
+}
+
+.request-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: .85rem;
+  color: var(--dj-text-400);
+}
+
+.request-card__label {
+  background: rgba(0, 229, 255, .12);
+  color: var(--dj-neon);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.request-card__from {
+  font-weight: 600;
+  color: var(--dj-text-200);
+}
+
+.request-card__body {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--dj-text-300);
+  white-space: pre-wrap;
+}
+
+.request-card__body p {
+  margin: 0 0 12px;
+}
+
+.request-card__body p:last-child {
+  margin-bottom: 0;
+}
+
+.request-card__body ul,
+.request-card__body ol {
+  padding-left: 20px;
+  margin: 8px 0 12px;
+}
+
+.request-card__body li {
+  margin-bottom: 6px;
+}
+
+.request-card__body strong {
+  color: var(--dj-text-100);
+}
+
+/* Complexity badge */
+.complexity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.complexity-badge--simple {
+  background: rgba(20, 241, 149, .12);
+  color: var(--dj-accent);
+}
+
+.complexity-badge--moderate {
+  background: rgba(255, 200, 50, .12);
+  color: #ffc832;
+}
+
+.complexity-badge--complex {
+  background: rgba(168, 85, 247, .12);
+  color: #a855f7;
+}
+
+/* Delivery timeline */
+.timeline {
+  display: grid;
+  gap: 0;
+  margin: 24px 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--dj-neon), var(--dj-accent));
+  opacity: .3;
+}
+
+.timeline__item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  position: relative;
+}
+
+.timeline__dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, .1);
+  border: 2px solid rgba(0, 229, 255, .3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--dj-neon);
+  z-index: 1;
+}
+
+.timeline__dot--done {
+  background: rgba(20, 241, 149, .15);
+  border-color: var(--dj-accent);
+  color: var(--dj-accent);
+}
+
+.timeline__content {
+  flex: 1;
+  padding-top: 6px;
+}
+
+.timeline__title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 4px;
+  color: var(--dj-text-100);
+}
+
+.timeline__desc {
+  color: var(--dj-text-400);
+  font-size: .9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.timeline__time {
+  font-size: .8rem;
+  color: var(--dj-neon);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Bot result showcase */
+.bot-showcase {
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(0, 229, 255, .03), rgba(106, 0, 255, .03));
+  padding: 32px;
+  margin: 24px 0;
+}
+
+.bot-showcase__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bot-showcase__title i,
+.bot-showcase__title svg {
+  color: var(--dj-neon);
+}
+
+.bot-showcase__commands {
+  display: grid;
+  gap: 12px;
+}
+
+.bot-command {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, .2);
+  border: 1px solid rgba(255, 255, 255, .06);
+}
+
+.bot-command__name {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--dj-neon);
+  white-space: nowrap;
+  font-size: .9rem;
+  min-width: 180px;
+}
+
+.bot-command__desc {
+  color: var(--dj-text-400);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+/* Tutorial nav — links between tutorial pages */
+.tutorial-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.tutorial-nav__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: var(--radius-lg);
+  background: rgba(31, 34, 41, .2);
+  text-decoration: none;
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.tutorial-nav__card:hover {
+  border-color: rgba(0, 229, 255, .3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .3), 0 0 12px rgba(0, 229, 255, .1);
+}
+
+.tutorial-nav__card-label {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  color: var(--dj-text-400);
+}
+
+.tutorial-nav__card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dj-text-100);
+}
+
+.tutorial-nav__card-complexity {
+  margin-top: 4px;
+}
+
+/* Iteration card — shows a follow-up request */
+.iteration-card {
+  border: 1px solid rgba(255, 200, 50, .15);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255, 200, 50, .04), transparent);
+  padding: 24px 24px 20px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.iteration-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #ffc832, #f59e0b);
+  border-radius: 4px 0 0 4px;
+}
+
+.iteration-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.iteration-card__label {
+  background: rgba(255, 200, 50, .12);
+  color: #ffc832;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.iteration-card__title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dj-text-100);
+}
+
+.iteration-card__body {
+  font-size: .92rem;
+  line-height: 1.65;
+  color: var(--dj-text-300);
+}
+
+.iteration-card__body p {
+  margin: 0 0 8px;
+}
+
+/* Tutorial intro stats */
+.tutorial-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.tutorial-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  background: rgba(0, 229, 255, .06);
+  border: 1px solid rgba(0, 229, 255, .12);
+  min-width: 120px;
+}
+
+.tutorial-stat__value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--dj-text-100);
+}
+
+.tutorial-stat__label {
+  font-size: .78rem;
+  color: var(--dj-text-400);
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+/* Responsive tutorial adjustments */
+@media (max-width: 640px) {
+  .request-card {
+    padding: 20px 16px 16px;
+  }
+
+  .bot-showcase {
+    padding: 20px;
+  }
+
+  .bot-command {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .bot-command__name {
+    min-width: unset;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline__dot {
+    width: 32px;
+    height: 32px;
+    font-size: .7rem;
+  }
+
+  .tutorial-stats {
+    flex-direction: column;
+  }
+}

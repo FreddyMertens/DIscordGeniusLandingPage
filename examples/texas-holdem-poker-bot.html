@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Texas Hold'em Poker Bot — Complex Build With Visual Cards &amp; Multi-Table | DiscordGenius</title>
+  <meta name="description"
+    content="See how a real client used DiscordGenius to build a full Texas Hold'em poker bot — visual card rendering, multi-table support, configurable rules, turn timers, and elimination. Complex request example.">
+  <meta name="theme-color" content="#00e5ff">
+  <link rel="canonical" href="https://www.discordgenius.com/examples/texas-holdem-poker-bot">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DiscordGenius">
+  <meta property="og:title" content="Texas Hold'em Poker Bot — Complex Build With Visual Cards & Multi-Table">
+  <meta property="og:description"
+    content="Full poker game inside Discord. Visual cards, multi-table, configurable rules. See the real client request and what was delivered.">
+  <meta property="og:image" content="https://www.discordgenius.com/assets/og-image.png">
+  <meta property="og:url" content="https://www.discordgenius.com/examples/texas-holdem-poker-bot">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Texas Hold'em Poker Bot — Complex Build">
+  <meta name="twitter:description"
+    content="Full poker game inside Discord. Visual cards, multi-table, turn timers. Real client example.">
+  <meta name="twitter:image" content="https://www.discordgenius.com/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=3">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Texas Hold'em Poker Bot — Complex Build With Visual Cards & Multi-Table",
+      "description": "A real client example showing how the DiscordGenius platform handles complex, multi-feature builds with detailed product requirements.",
+      "publisher": { "@type": "Organization", "name": "DiscordGenius", "url": "https://www.discordgenius.com/" },
+      "mainEntityOfPage": "https://www.discordgenius.com/examples/texas-holdem-poker-bot"
+    }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar topbar--spoke" role="region">
+    <div class="container topbar__wrap">
+      <span class="topbar__text">See if DiscordGenius is right for you. Book a 15‑minute guided tour.</span>
+      <a href="/#book" class="btn btn--neon"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call</a>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__wrap">
+      <a class="brand" href="/" aria-label="DiscordGenius home">
+        <img class="brand__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="96"
+          height="96">
+        <span>DiscordGenius</span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#pricing" class="nav__link">Pricing</a>
+        <a href="/#faq" class="nav__link">FAQ</a>
+      </nav>
+      <div class="nav__ctas">
+        <a href="/#pricing" class="btn btn--ghost">See pricing</a>
+        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="spoke-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <a href="/examples/video-contest-bot">Examples</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>Texas Hold'em Poker Bot</span>
+        </nav>
+        <span class="complexity-badge complexity-badge--complex"><i data-lucide="trophy"
+            style="width:14px;height:14px" aria-hidden="true"></i> Complex Request</span>
+        <h1 class="spoke-hero__title">Texas Hold'em Poker Bot<br>A Full Game Engine Inside Discord</h1>
+        <p class="spoke-hero__tagline">A 4,200-member gaming community wanted a polished, visual Texas Hold'em
+          experience running entirely inside Discord — with canvas-rendered cards, multiple concurrent tables,
+          configurable rules, turn timers, and elimination. Here's the full story from request to delivery.</p>
+
+        <div class="tutorial-stats">
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">7</span>
+            <span class="tutorial-stat__label">Commands</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">~96h</span>
+            <span class="tutorial-stat__label">Delivery</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">Complex</span>
+            <span class="tutorial-stat__label">Complexity</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">10</span>
+            <span class="tutorial-stat__label">Max players/table</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 1: The Request -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Step 1 — The client submits a detailed request</h2>
+        <p class="spoke-section__subtitle">This client knew exactly what they wanted and wrote a thorough product
+          requirements document. More detail = faster delivery with fewer questions.</p>
+
+        <div class="request-card">
+          <div class="request-card__header">
+            <span class="request-card__label">Client Request</span>
+            <span class="request-card__from">Jake M. · Community Lead, Aces High Discord · ~4,200 members</span>
+          </div>
+          <div class="request-card__body">
+            <p><strong>Discord Poker Bot — Product Requirements</strong></p>
+            <p>We need a Texas Hold'em poker bot for our gaming Discord server (~4,200 members). Members have been
+              asking for an in-Discord poker game for months. We want something polished — visual cards, proper game
+              flow, and the ability for multiple tables to run at once so people aren't waiting around.</p>
+
+            <p><strong>Game format:</strong> Texas Hold'em (No-Limit), elimination style (last player standing wins),
+              up to 10 players per table, multiple concurrent games per server.</p>
+
+            <p><strong>Configuration options per game:</strong></p>
+            <ul>
+              <li><strong>Starting Chips</strong> — Default: 1,000. Should accept any reasonable value.</li>
+              <li><strong>Ante Increase</strong> — Amount the ante goes up each round. Default: 0 (flat ante). Keeps
+                longer games from stalling.</li>
+              <li><strong>Turn Timer</strong> — Seconds a player has to act before auto-fold. Default: 0 (no timer).
+                Max: 300 seconds. Critical for keeping games moving.</li>
+            </ul>
+
+            <p><strong>Visual requirements:</strong> Community cards and player hands should be rendered as actual card
+              images (canvas-based rendering is fine). The game board should show community cards, pot size, current
+              player turn, and each player's chip count. Private hands shown via ephemeral messages.</p>
+
+            <p><strong>Edge cases:</strong> Late join (enter folded until next hand), elimination at 0 chips, auto-fold
+              on timer expiry, and correct side pot handling for all-in situations.</p>
+
+            <p><strong>Hosting:</strong> Fully managed — we don't have a dev on the team. We just need the bot invited,
+              running 24/7, with bug fixes if anything comes up. Option to get the code handed over if we ever want to
+              self-host.</p>
+
+            <p><strong>Notes:</strong> Our server is a gaming community so the vibe should be fun, not corporate.
+              Casual bot personality welcome. We might request a leaderboard as a follow-up.</p>
+          </div>
+        </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;">This is a more detailed request — the client wrote a
+          proper PRD with sections for format, configuration, visuals, and edge cases. More detail upfront means we can
+          build with fewer questions and deliver exactly what's expected. <strong>Both styles work.</strong> Write five
+          sentences or five pages — we adapt to you.</p>
+      </div>
+    </section>
+
+    <!-- Step 2: The Build -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Step 2 — We build the game engine</h2>
+        <p class="spoke-section__subtitle">A complex build like this involves multiple interconnected systems. Here's
+          how the delivery unfolded:</p>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">1</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Architecture & game state engine</p>
+              <p class="timeline__desc">Designed the core game state machine: lobby creation, player tracking,
+                hand dealing, betting rounds (pre-flop, flop, turn, river), pot management, side pot calculations, and
+                elimination logic. Built to support multiple concurrent games per server.</p>
+              <p class="timeline__time">Hours 0–16</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">2</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Card rendering engine</p>
+              <p class="timeline__desc">Built a server-side Canvas renderer that generates visual card images. Community
+                cards displayed on a felt-green table layout. Private hands rendered as separate images sent via
+                ephemeral messages. All 52 card faces rendered with proper suits, values, and styling.</p>
+              <p class="timeline__time">Hours 16–32</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">3</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Slash commands & game flow</p>
+              <p class="timeline__desc">Implemented all 7 slash commands: /poker create, join, start, end, action,
+                status, quit. Each command validates game state, handles edge cases (acting out of turn, invalid raises,
+                etc.), and updates the game board embed.</p>
+              <p class="timeline__time">Hours 32–56</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">4</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Turn timer & auto-fold</p>
+              <p class="timeline__desc">Implemented configurable turn timers with visual countdown in the game embed.
+                Players who don't act in time are auto-folded. Timer resets on each action. Handles edge cases like
+                timer expiring during a disconnect.</p>
+              <p class="timeline__time">Hours 56–68</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">5</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Edge cases, testing & deployment</p>
+              <p class="timeline__desc">Tested all edge cases: side pots with multiple all-ins, late joins, single
+                remaining player wins, ante increase across rounds, concurrent games in different channels. Deployed to
+                managed hosting with monitoring.</p>
+              <p class="timeline__time">Hours 68–90</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: What was delivered -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Step 3 — The delivered product</h2>
+        <p class="spoke-section__subtitle">Here's everything the client received:</p>
+
+        <div class="bot-showcase">
+          <h3 class="bot-showcase__title"><i data-lucide="terminal" aria-hidden="true"></i> All 7 commands</h3>
+          <div class="bot-showcase__commands">
+            <div class="bot-command">
+              <span class="bot-command__name">/poker create</span>
+              <span class="bot-command__desc">Creates a new game lobby with configurable starting chips, ante increase
+                per round, and turn timer. Host becomes the table owner.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/poker join</span>
+              <span class="bot-command__desc">Join a specific host's table by mentioning them. If the game already
+                started, you enter in a "folded" state and are dealt in on the next hand.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/poker start</span>
+              <span class="bot-command__desc">Host-only. Starts the game once enough players have joined. Shuffles the
+                deck, deals hole cards, and posts the initial game board with visual card images.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/poker action</span>
+              <span class="bot-command__desc">Perform a game action: check, call, fold, raise (with amount), or allin.
+                The game board image updates in real-time showing community cards, pot, and player states.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/poker status</span>
+              <span class="bot-command__desc">View your private hole cards as a rendered card image in an ephemeral
+                message only you can see. Also refreshes the public game board.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/poker quit</span>
+              <span class="bot-command__desc">Leave the game mid-session. Your chips are forfeited and remaining players
+                continue.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/poker end</span>
+              <span class="bot-command__desc">Host-only. Ends the game early if needed. Announces the current chip
+                leader as the winner.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid" style="margin-top:24px;">
+          <div class="feature-card">
+            <i data-lucide="image" aria-hidden="true"></i>
+            <h3>Canvas-rendered cards</h3>
+            <p>All 52 cards rendered as images using server-side Canvas. Community cards shown on a felt-green table
+              layout. Private hands displayed as ephemeral card images only the player can see.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="layout-grid" aria-hidden="true"></i>
+            <h3>Multi-table support</h3>
+            <p>Multiple games can run concurrently in the same server. Each host creates their own table with independent
+              game state, settings, and players.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="settings" aria-hidden="true"></i>
+            <h3>Configurable rules</h3>
+            <p>Starting chips, ante increase per round, and turn timer are all configurable per game. Defaults work out
+              of the box, but hosts can tune for quick or marathon sessions.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="timer" aria-hidden="true"></i>
+            <h3>Turn timer & auto-fold</h3>
+            <p>Optional turn timer (up to 300 seconds) keeps games moving. Players who don't act in time are
+              automatically folded. Critical for keeping distracted gamers honest.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="calculator" aria-hidden="true"></i>
+            <h3>Side pot handling</h3>
+            <p>Correct side pot calculations when players go all-in with fewer chips than others. Multiple side pots
+              tracked and resolved properly across complex multi-way all-in situations.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="user-plus" aria-hidden="true"></i>
+            <h3>Late join support</h3>
+            <p>Players who join after the game starts enter in a "folded" state and are dealt in on the next hand.
+              No waiting for a new game to start.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Takeaway -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Key takeaway</h2>
+        <ul class="usecase-list">
+          <li><i data-lucide="brain" aria-hidden="true"></i> <span><strong>Complex builds are our sweet spot.</strong>
+              This bot involves a game state machine, image rendering, real-time multiplayer, and dozens of edge cases.
+              It's the kind of project where freelancers typically under-scope and over-charge. With DiscordGenius,
+              it's just another request card.</span></li>
+          <li><i data-lucide="file-text" aria-hidden="true"></i> <span><strong>Detailed requests = faster
+                delivery.</strong> The client wrote a proper PRD with configuration options, visual requirements, and
+              edge cases. We didn't need a single follow-up question. The build started immediately.</span></li>
+          <li><i data-lucide="repeat" aria-hidden="true"></i> <span><strong>Follow-ups are easy.</strong> The client
+              mentioned wanting a leaderboard as a future request. When they're ready, it's just another card on their
+              board — no new project, no new quote, no scope negotiation.</span></li>
+          <li><i data-lucide="code" aria-hidden="true"></i> <span><strong>You own the code.</strong> Even though we host
+              and manage the bot, the client can request a full code handover at any time. No lock-in, full IP
+              ownership.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Side-by-side: casual vs detailed -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Casual vs detailed — both work</h2>
+        <p class="spoke-section__subtitle">Compare how different clients write requests:</p>
+        <div style="overflow-x:auto;">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Video Contest Bot</th>
+                <th>World Map Bot</th>
+                <th class="highlight-col">Poker Bot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Request style</strong></td>
+                <td>5 casual sentences</td>
+                <td>Conversational paragraph</td>
+                <td class="highlight-col">Formal PRD with sections</td>
+              </tr>
+              <tr>
+                <td><strong>Complexity</strong></td>
+                <td><span class="complexity-badge complexity-badge--simple" style="font-size:.7rem;padding:2px 8px;">Simple</span></td>
+                <td><span class="complexity-badge complexity-badge--moderate" style="font-size:.7rem;padding:2px 8px;">Moderate</span></td>
+                <td class="highlight-col"><span class="complexity-badge complexity-badge--complex" style="font-size:.7rem;padding:2px 8px;">Complex</span></td>
+              </tr>
+              <tr>
+                <td><strong>Commands</strong></td>
+                <td>2</td>
+                <td>3</td>
+                <td class="highlight-col">7</td>
+              </tr>
+              <tr>
+                <td><strong>Delivery time</strong></td>
+                <td>&lt;48 hours</td>
+                <td>72 hours</td>
+                <td class="highlight-col">~96 hours</td>
+              </tr>
+              <tr>
+                <td><strong>Follow-up requests</strong></td>
+                <td>0</td>
+                <td>3 iterations</td>
+                <td class="highlight-col">Leaderboard (future)</td>
+              </tr>
+              <tr>
+                <td><strong>Outcome</strong></td>
+                <td>Approved first try</td>
+                <td>Evolved through feedback</td>
+                <td class="highlight-col">Approved first try</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
+          There's no wrong way to submit a request. Write it however comes naturally. We'll figure out the rest.
+        </p>
+      </div>
+    </section>
+
+    <!-- Other examples nav -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">More examples</h2>
+        <div class="tutorial-nav">
+          <a href="/examples/video-contest-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Simple Build</span>
+            <span class="tutorial-nav__card-title">Video Contest Bot</span>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--simple"><i
+                  data-lucide="zap" style="width:14px;height:14px" aria-hidden="true"></i> Simple</span></span>
+          </a>
+          <a href="/examples/community-world-map-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Iterative Build</span>
+            <span class="tutorial-nav__card-title">Community World Map Bot</span>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--moderate"><i
+                  data-lucide="layers" style="width:14px;height:14px" aria-hidden="true"></i> Moderate</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="spoke-section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Got a complex bot idea? We love those.</h2>
+          <p>Game engines, visual rendering, real-time multiplayer — whatever you need. One subscription covers it
+            all.</p>
+          <a href="https://app.discordgenius.com/" class="btn btn--primary btn--lg">Subscribe — $699/mo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__columns">
+        <div>
+          <p class="footer__col-title">Solutions</p>
+          <ul class="footer__col-links">
+            <li><a href="/hire-discord-bot-developer">Hire a Discord Bot Developer</a></li>
+            <li><a href="/custom-discord-economy-bot">Custom Economy Bots</a></li>
+            <li><a href="/discord-bot-verification-system">Verification Systems</a></li>
+            <li><a href="/discord-server-setup-expert">Server Setup Expert</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Integrations</p>
+          <ul class="footer__col-links">
+            <li><a href="/discord-stripe-integration-bot">Stripe Integration</a></li>
+            <li><a href="/discord-shopify-bot">Shopify Bot</a></li>
+            <li><a href="/discord-notion-integration">Notion Integration</a></li>
+            <li><a href="/discord-airtable-automation">Airtable Automation</a></li>
+            <li><a href="/discord-whop-integration">Whop Integration</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Examples</p>
+          <ul class="footer__col-links">
+            <li><a href="/examples/video-contest-bot">Video Contest Bot</a></li>
+            <li><a href="/examples/community-world-map-bot">Community World Map Bot</a></li>
+            <li><a href="/examples/texas-holdem-poker-bot">Texas Hold'em Poker Bot</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__col-links">
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#book">Book a Call</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__wrap">
+        <div class="footer__brand">
+          <img class="footer__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="72"
+            height="72">
+          <span>DiscordGenius</span>
+        </div>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+        </nav>
+        <p class="muted">Headquartered on the internet</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>

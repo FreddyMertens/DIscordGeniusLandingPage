@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community World Map Bot — Iterative Build With 4 Revisions | DiscordGenius</title>
+  <meta name="description"
+    content="See how a real client built a community world map bot through 4 iterative requests — from initial concept to dark theme, pin clustering, and privacy controls. A real example of the DiscordGenius workflow.">
+  <meta name="theme-color" content="#00e5ff">
+  <link rel="canonical" href="https://www.discordgenius.com/examples/community-world-map-bot">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DiscordGenius">
+  <meta property="og:title" content="Community World Map Bot — Iterative Build With 4 Revisions">
+  <meta property="og:description"
+    content="From initial concept to polished product in 4 iterations. See how unlimited revisions work in practice.">
+  <meta property="og:image" content="https://www.discordgenius.com/assets/og-image.png">
+  <meta property="og:url" content="https://www.discordgenius.com/examples/community-world-map-bot">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Community World Map Bot — Iterative Build With 4 Revisions">
+  <meta name="twitter:description"
+    content="From initial concept to polished product in 4 iterations. Real client example.">
+  <meta name="twitter:image" content="https://www.discordgenius.com/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=3">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Community World Map Bot — Iterative Build With 4 Revisions",
+      "description": "A real client example showing how the DiscordGenius platform handles iterative requests and revisions.",
+      "publisher": { "@type": "Organization", "name": "DiscordGenius", "url": "https://www.discordgenius.com/" },
+      "mainEntityOfPage": "https://www.discordgenius.com/examples/community-world-map-bot"
+    }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar topbar--spoke" role="region">
+    <div class="container topbar__wrap">
+      <span class="topbar__text">See if DiscordGenius is right for you. Book a 15‑minute guided tour.</span>
+      <a href="/#book" class="btn btn--neon"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call</a>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__wrap">
+      <a class="brand" href="/" aria-label="DiscordGenius home">
+        <img class="brand__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="96"
+          height="96">
+        <span>DiscordGenius</span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#pricing" class="nav__link">Pricing</a>
+        <a href="/#faq" class="nav__link">FAQ</a>
+      </nav>
+      <div class="nav__ctas">
+        <a href="/#pricing" class="btn btn--ghost">See pricing</a>
+        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="spoke-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <a href="/examples/video-contest-bot">Examples</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>Community World Map Bot</span>
+        </nav>
+        <span class="complexity-badge complexity-badge--moderate"><i data-lucide="layers"
+            style="width:14px;height:14px" aria-hidden="true"></i> Moderate Request</span>
+        <h1 class="spoke-hero__title">Community World Map Bot<br>Built Iteratively Over 4 Requests</h1>
+        <p class="spoke-hero__tagline">A 6,000-member global community wanted a way for members to see each other on a
+          map. The first version shipped in 72 hours. Then three follow-up requests refined the theme, added clustering,
+          and introduced privacy controls — all included in the same subscription.</p>
+
+        <div class="tutorial-stats">
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">3</span>
+            <span class="tutorial-stat__label">Commands</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">72h</span>
+            <span class="tutorial-stat__label">Initial delivery</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">4</span>
+            <span class="tutorial-stat__label">Total requests</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">Bot + Web</span>
+            <span class="tutorial-stat__label">Deliverables</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request 1: Initial build -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Request 1 — The initial concept</h2>
+        <p class="spoke-section__subtitle">The client described what they wanted: a way for members to pin their
+          location on a shared world map, with privacy as a core concern.</p>
+
+        <div class="request-card">
+          <div class="request-card__header">
+            <span class="request-card__label">Client Request</span>
+            <span class="request-card__from">Community Owner · ~6,000 members</span>
+          </div>
+          <div class="request-card__body">
+            <p><strong>Community World Map Bot</strong></p>
+            <p>We have a global community (~6k members across 40+ countries) and we'd love a way for members to see
+              where everyone is on a map. Something that builds community and helps people find others nearby.</p>
+            <p>Here's what I'm picturing:</p>
+            <ul>
+              <li>A <strong>/setlocation</strong> command that gives the user a private link to a web page where they
+                can drop a pin on a map to set their location. Needs to be ephemeral so only they see the link
+                (privacy).</li>
+              <li>A <strong>/showmap</strong> command that posts a static image preview of the world map into Discord
+                showing all the pins, plus a link to a full interactive version they can pan/zoom around.</li>
+              <li>A <strong>/removelocation</strong> command so users can delete their data anytime.</li>
+            </ul>
+            <p>Privacy is important to us — users should control their own data and be able to remove themselves
+              whenever they want.</p>
+            <p>For the interactive map, something like Leaflet or Google Maps embedded in a simple web page would be
+              perfect. The static image just needs to be a decent looking snapshot we can post in Discord.</p>
+            <p>Please host and manage for us. We'll want the web map accessible at a URL we can share with our
+              community.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:32px;">What we delivered</h3>
+        <div class="bot-showcase">
+          <h3 class="bot-showcase__title"><i data-lucide="terminal" aria-hidden="true"></i> Delivered commands</h3>
+          <div class="bot-showcase__commands">
+            <div class="bot-command">
+              <span class="bot-command__name">/setlocation</span>
+              <span class="bot-command__desc">Sends an ephemeral (private) message with a unique link to a web page
+                where the user can drop a pin on an interactive Leaflet map. Location saved server-side, link expires
+                after use.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/showmap</span>
+              <span class="bot-command__desc">Generates a static PNG image of the world map with all member pins
+                rendered via server-side Canvas, posts it to the channel, and includes a link to the full interactive web
+                map.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/removelocation</span>
+              <span class="bot-command__desc">Instantly deletes the user's location data. Confirms removal with an
+                ephemeral message. The pin disappears from both the static and interactive maps immediately.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid" style="margin-top:20px;">
+          <div class="feature-card">
+            <i data-lucide="globe" aria-hidden="true"></i>
+            <h3>Interactive web map</h3>
+            <p>Full-screen Leaflet map hosted at a shareable URL. Pan, zoom, and click pins to see member usernames.
+              Mobile-responsive.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="image" aria-hidden="true"></i>
+            <h3>Static map previews</h3>
+            <p>Server-side Canvas rendering generates a clean PNG snapshot of all pins on a world map, posted directly
+              to Discord.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="lock" aria-hidden="true"></i>
+            <h3>Privacy-first design</h3>
+            <p>Ephemeral links, user-controlled data deletion, and no location sharing without explicit opt-in. Built
+              around consent.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request 2: Dark theme -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Request 2 — Dark theme & branded pins</h2>
+        <p class="spoke-section__subtitle">The initial version worked great. But the default Leaflet tiles didn't match
+          their server's aesthetic. The client queued a follow-up request:</p>
+
+        <div class="iteration-card">
+          <div class="iteration-card__header">
+            <span class="iteration-card__label">Follow-up Request</span>
+            <span class="iteration-card__title">Style — Map Theme</span>
+          </div>
+          <div class="iteration-card__body">
+            <p>Hey, the map is working great! One thing though — the default Leaflet tiles look a bit generic and don't
+              match our server's branding at all. Our Discord has a dark theme with purple/blue accent colors.</p>
+            <p>Could you swap the map tiles to a dark-themed style? Something like CartoDB Dark Matter or Mapbox Dark.
+              And if possible, make the user pins a bright purple (#7C3AFF) so they pop against the dark background.</p>
+            <p>The static image preview posted in Discord should match the same dark theme so it all looks cohesive.
+              Thanks!</p>
+          </div>
+        </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
+          <strong>Delivered in ~24 hours.</strong> We swapped to CartoDB Dark Matter tiles, updated pin colors to
+          #7C3AFF, and regenerated the static map renderer to match. Both the web map and Discord previews now look
+          cohesive with the server's branding.
+        </p>
+      </div>
+    </section>
+
+    <!-- Request 3: Clustering & header -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Request 3 — Pin clustering & web page polish</h2>
+        <p class="spoke-section__subtitle">As more members pinned their locations, the map got crowded. The client
+          queued another request:</p>
+
+        <div class="iteration-card">
+          <div class="iteration-card__header">
+            <span class="iteration-card__label">Follow-up Request</span>
+            <span class="iteration-card__title">Pin Clustering & Web Page Polish</span>
+          </div>
+          <div class="iteration-card__body">
+            <p>Love the dark theme — looks way better now. Two more visual tweaks:</p>
+            <p><strong>1. Pin Clustering:</strong> When zoomed out the pins overlap into a mess in places like Europe
+              and the US east coast. Can you add marker clustering so nearby pins group into a circle with a count, and
+              then expand when you zoom in?</p>
+            <p><strong>2. Web Page Header:</strong> The interactive map page is just a bare map with no context. Could
+              you add a small header bar at the top with our server name, member count on the map (e.g. "142 members
+              pinned"), and our server icon? Keep it minimal — just enough so if someone shares the link it looks
+              intentional and branded, not like a raw dev tool.</p>
+          </div>
+        </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
+          <strong>Delivered in ~36 hours.</strong> Integrated Leaflet.markercluster for dynamic pin grouping. Added a
+          branded header bar with the server icon, name, and live "X members pinned" counter. The map now looks polished
+          enough to share publicly.
+        </p>
+      </div>
+    </section>
+
+    <!-- Request 4: Location specificity -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Request 4 — Location specificity options</h2>
+        <p class="spoke-section__subtitle">Member feedback revealed that some people wanted to participate but didn't
+          feel comfortable pinning their exact neighborhood. The client asked for flexibility:</p>
+
+        <div class="iteration-card">
+          <div class="iteration-card__header">
+            <span class="iteration-card__label">Follow-up Request</span>
+            <span class="iteration-card__title">Location Specificity Options</span>
+          </div>
+          <div class="iteration-card__body">
+            <p>So we've had some feedback from members. A lot of people want to participate but don't want to pin an
+              exact location — they feel weird dropping a pin on their neighborhood. Totally fair.</p>
+            <p>Can you update /setlocation so users can choose how specific they want to be? Something like:</p>
+            <ul>
+              <li><strong>City level</strong> (e.g. "London, UK")</li>
+              <li><strong>Region/State level</strong> (e.g. "California, US")</li>
+              <li><strong>Country level</strong> (e.g. "Brazil")</li>
+            </ul>
+            <p>If someone picks city, the pin goes on the city center. Region puts it roughly in the middle of the
+              state/province. Country centers it on the country.</p>
+            <p>They should still be able to drop an exact pin on the map if they want to — just make it an optional
+              choice alongside typing in a place name at varying specificity.</p>
+            <p>This would help a lot with adoption. Right now some members are skipping it entirely because exact pin is
+              the only option.</p>
+          </div>
+        </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
+          <strong>Delivered in ~48 hours.</strong> The /setlocation web page now offers four options: exact pin drop,
+          city, region/state, or country. A geocoding service converts place names to coordinates at the appropriate
+          precision level. Adoption increased significantly after this update.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Takeaway -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Key takeaway: this is how unlimited requests work</h2>
+        <ul class="usecase-list">
+          <li><i data-lucide="infinity" aria-hidden="true"></i> <span><strong>4 requests, zero extra cost.</strong> The
+              initial build plus three follow-up refinements — all covered by the same $699/mo subscription. No "change
+              order" invoices, no scope negotiations.</span></li>
+          <li><i data-lucide="git-branch" aria-hidden="true"></i> <span><strong>Products evolve with real
+                feedback.</strong> The client didn't need to predict every requirement upfront. They launched, gathered
+              member feedback, and iterated. Each improvement made the bot more valuable.</span></li>
+          <li><i data-lucide="layers" aria-hidden="true"></i> <span><strong>Complexity grew naturally.</strong> What
+              started as 3 slash commands became a full-stack product: Discord bot + interactive web map + server-side
+              image rendering + geocoding service + branded UI. All through natural iteration.</span></li>
+          <li><i data-lucide="users" aria-hidden="true"></i> <span><strong>User feedback drives development.</strong>
+              The privacy options in Request 4 came directly from member feedback. With DiscordGenius, acting on that
+              feedback is as easy as submitting another card.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Other examples nav -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">More examples</h2>
+        <div class="tutorial-nav">
+          <a href="/examples/video-contest-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Simple Build</span>
+            <span class="tutorial-nav__card-title">Video Contest Bot</span>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--simple"><i
+                  data-lucide="zap" style="width:14px;height:14px" aria-hidden="true"></i> Simple</span></span>
+          </a>
+          <a href="/examples/texas-holdem-poker-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Complex Build</span>
+            <span class="tutorial-nav__card-title">Texas Hold'em Poker Bot</span>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--complex"><i
+                  data-lucide="trophy" style="width:14px;height:14px" aria-hidden="true"></i> Complex</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="spoke-section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Build, launch, and iterate — all in one subscription</h2>
+          <p>Ship your first version fast. Refine based on real feedback. Unlimited requests, unlimited revisions,
+            $699/mo.</p>
+          <a href="https://app.discordgenius.com/" class="btn btn--primary btn--lg">Subscribe — $699/mo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__columns">
+        <div>
+          <p class="footer__col-title">Solutions</p>
+          <ul class="footer__col-links">
+            <li><a href="/hire-discord-bot-developer">Hire a Discord Bot Developer</a></li>
+            <li><a href="/custom-discord-economy-bot">Custom Economy Bots</a></li>
+            <li><a href="/discord-bot-verification-system">Verification Systems</a></li>
+            <li><a href="/discord-server-setup-expert">Server Setup Expert</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Integrations</p>
+          <ul class="footer__col-links">
+            <li><a href="/discord-stripe-integration-bot">Stripe Integration</a></li>
+            <li><a href="/discord-shopify-bot">Shopify Bot</a></li>
+            <li><a href="/discord-notion-integration">Notion Integration</a></li>
+            <li><a href="/discord-airtable-automation">Airtable Automation</a></li>
+            <li><a href="/discord-whop-integration">Whop Integration</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Examples</p>
+          <ul class="footer__col-links">
+            <li><a href="/examples/video-contest-bot">Video Contest Bot</a></li>
+            <li><a href="/examples/community-world-map-bot">Community World Map Bot</a></li>
+            <li><a href="/examples/texas-holdem-poker-bot">Texas Hold'em Poker Bot</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__col-links">
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#book">Book a Call</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__wrap">
+        <div class="footer__brand">
+          <img class="footer__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="72"
+            height="72">
+          <span>DiscordGenius</span>
+        </div>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+        </nav>
+        <p class="muted">Headquartered on the internet</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>

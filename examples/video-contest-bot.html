@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How We Built a Video Contest Bot in 48 Hours — Client Example | DiscordGenius</title>
+  <meta name="description"
+    content="See how a real client used the DiscordGenius platform to request a Discord video contest bot — from a 5-sentence request to a fully working bot in under 48 hours. Simple request example.">
+  <meta name="theme-color" content="#00e5ff">
+  <link rel="canonical" href="https://www.discordgenius.com/examples/video-contest-bot">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DiscordGenius">
+  <meta property="og:title" content="How We Built a Video Contest Bot in 48 Hours — Client Example">
+  <meta property="og:description"
+    content="From a 5-sentence request to a working video contest bot. See the real request, the process, and what was delivered.">
+  <meta property="og:image" content="https://www.discordgenius.com/assets/og-image.png">
+  <meta property="og:url" content="https://www.discordgenius.com/examples/video-contest-bot">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How We Built a Video Contest Bot in 48 Hours">
+  <meta name="twitter:description"
+    content="From a 5-sentence request to a working video contest bot. Real client example.">
+  <meta name="twitter:image" content="https://www.discordgenius.com/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=3">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How We Built a Video Contest Bot in 48 Hours",
+      "description": "A real client example showing how the DiscordGenius platform turns simple requests into working Discord bots.",
+      "publisher": { "@type": "Organization", "name": "DiscordGenius", "url": "https://www.discordgenius.com/" },
+      "mainEntityOfPage": "https://www.discordgenius.com/examples/video-contest-bot"
+    }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar topbar--spoke" role="region">
+    <div class="container topbar__wrap">
+      <span class="topbar__text">See if DiscordGenius is right for you. Book a 15‑minute guided tour.</span>
+      <a href="/#book" class="btn btn--neon"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call</a>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__wrap">
+      <a class="brand" href="/" aria-label="DiscordGenius home">
+        <img class="brand__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="96"
+          height="96">
+        <span>DiscordGenius</span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#pricing" class="nav__link">Pricing</a>
+        <a href="/#faq" class="nav__link">FAQ</a>
+      </nav>
+      <div class="nav__ctas">
+        <a href="/#pricing" class="btn btn--ghost">See pricing</a>
+        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="spoke-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <a href="/examples/video-contest-bot">Examples</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>Video Contest Bot</span>
+        </nav>
+        <span class="complexity-badge complexity-badge--simple"><i data-lucide="zap" style="width:14px;height:14px"
+            aria-hidden="true"></i> Simple Request</span>
+        <h1 class="spoke-hero__title">Video Contest Bot<br>Built From a 5‑Sentence Request</h1>
+        <p class="spoke-hero__tagline">A community was running monthly video contests manually — collecting DMs,
+          counting reactions by hand, announcing winners one-by-one. They described what they needed in five sentences.
+          We shipped a working bot in under 48 hours.</p>
+
+        <div class="tutorial-stats">
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">2</span>
+            <span class="tutorial-stat__label">Commands</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">&lt;48h</span>
+            <span class="tutorial-stat__label">Delivery</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">Simple</span>
+            <span class="tutorial-stat__label">Complexity</span>
+          </div>
+          <div class="tutorial-stat">
+            <span class="tutorial-stat__value">0</span>
+            <span class="tutorial-stat__label">Revisions needed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 1: The Request -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Step 1 — The client submits a request</h2>
+        <p class="spoke-section__subtitle">After subscribing, the client opened their DiscordGenius request board and
+          created a new card. Here's exactly what they wrote:</p>
+
+        <div class="request-card">
+          <div class="request-card__header">
+            <span class="request-card__label">Client Request</span>
+            <span class="request-card__from">Community Manager</span>
+          </div>
+          <div class="request-card__body">
+            <p><strong>Video Contest Bot</strong></p>
+            <p>We are running monthly video contests in our Discord and right now we're doing it all manually — people
+              DM us clips, we post them, we count reactions by hand. It's a nightmare lol.</p>
+            <p>Can you build us a bot that handles this? Here's what we need:</p>
+            <ul>
+              <li>A <strong>/submit</strong> command where users can upload a video file or paste a URL. The bot reposts
+                it into a dedicated submissions channel and adds a thumbs-up reaction automatically so people can vote.
+              </li>
+              <li>A <strong>/finish</strong> command (admin only) that tallies up all the thumbs-up votes, picks the top
+                5, announces the winners in a winners channel, and DMs each winner to let them know they placed.</li>
+            </ul>
+            <p>That's basically it. Two commands. We just need it to work reliably and look clean in the embeds.</p>
+            <p>We'll set up the channels on our end — just need the bot to point at a submissions channel and a winners
+              channel. Let us know what IDs or setup info you need from us.</p>
+          </div>
+        </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;">Notice how casual this is. No formal spec, no technical
+          jargon, no wireframes. The client described their problem and what they wanted in plain language. That's all
+          you need — <strong>we handle the rest</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Step 2: We Build -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Step 2 — We move the card to Active and start building</h2>
+        <p class="spoke-section__subtitle">Within hours the request moves from Backlog to Active on your board. Here's
+          the delivery timeline for this build:</p>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">1</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Request received & scoped</p>
+              <p class="timeline__desc">We review the request, identify the two core commands, note the channel
+                configuration needs, and plan the embed structure. No back-and-forth needed — the request was clear
+                enough.</p>
+              <p class="timeline__time">Hour 0</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">2</div>
+            <div class="timeline__content">
+              <p class="timeline__title">/submit command built</p>
+              <p class="timeline__desc">Slash command accepting a video file upload or URL. Bot reposts to the configured
+                submissions channel with a clean embed (title, submitter name, video preview) and auto-adds the
+                thumbs-up reaction for voting.</p>
+              <p class="timeline__time">Hour 8</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">3</div>
+            <div class="timeline__content">
+              <p class="timeline__title">/finish command built</p>
+              <p class="timeline__desc">Admin-only command that fetches all messages from the submissions channel,
+                counts thumbs-up reactions, sorts by votes, selects top 5, posts a polished winner announcement embed,
+                and DMs each winner their placement.</p>
+              <p class="timeline__time">Hour 18</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--done">4</div>
+            <div class="timeline__content">
+              <p class="timeline__title">Testing, deployment & handoff</p>
+              <p class="timeline__desc">Bot tested end-to-end in a staging server. Deployed to managed hosting. Bot
+                invite link and setup instructions posted to the client's delivery thread on the board.</p>
+              <p class="timeline__time">Hour 24</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: What was delivered -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Step 3 — The client reviews & approves</h2>
+        <p class="spoke-section__subtitle">The card moves to the Approved column. Here's what was delivered:</p>
+
+        <div class="bot-showcase">
+          <h3 class="bot-showcase__title"><i data-lucide="terminal" aria-hidden="true"></i> Delivered commands</h3>
+          <div class="bot-showcase__commands">
+            <div class="bot-command">
+              <span class="bot-command__name">/submit</span>
+              <span class="bot-command__desc">Users provide a video file upload or URL. The bot creates a rich embed in
+                the submissions channel with the video, submitter info, and timestamp — then auto-reacts with a
+                thumbs-up for voting.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/finish</span>
+              <span class="bot-command__desc">Admin-only. Tallies all thumbs-up reactions across submissions, ranks
+                them, posts the top 5 winners in a beautiful announcement embed to the winners channel, and DMs each
+                winner their placement.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid" style="margin-top:24px;">
+          <div class="feature-card">
+            <i data-lucide="upload" aria-hidden="true"></i>
+            <h3>File & URL support</h3>
+            <p>Accepts both direct video file uploads and external URLs (YouTube, Streamable, etc.) so members can submit
+              however they prefer.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="palette" aria-hidden="true"></i>
+            <h3>Clean embed design</h3>
+            <p>Submissions display as polished embeds with the video, submitter name, and timestamp. Winner
+              announcements include rankings, vote counts, and medal indicators.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="mail" aria-hidden="true"></i>
+            <h3>Automatic winner DMs</h3>
+            <p>Each top-5 winner receives a personal DM congratulating them and letting them know their placement. No
+              manual outreach needed.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            <h3>Admin-only controls</h3>
+            <p>The /finish command is restricted to administrators, so regular members can't end a contest early. Clean
+              permission handling with friendly error messages.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Takeaway -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">Key takeaway</h2>
+        <ul class="usecase-list">
+          <li><i data-lucide="message-circle" aria-hidden="true"></i> <span><strong>You don't need a formal spec.</strong>
+              This client wrote five casual sentences describing their problem. We interpreted it, built it, and
+              delivered — without a single follow-up question.</span></li>
+          <li><i data-lucide="clock" aria-hidden="true"></i> <span><strong>Simple requests ship fast.</strong> Two
+              commands, clean embeds, admin-only controls. Delivered in under 24 hours. Approved on the first
+              attempt.</span></li>
+          <li><i data-lucide="server" aria-hidden="true"></i> <span><strong>Fully managed.</strong> The client didn't
+              touch a terminal, install Node.js, or configure a server. We deployed, hosted, and maintain the bot. They
+              just invited it and started running contests.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Other examples nav -->
+    <section class="spoke-section">
+      <div class="container">
+        <h2 class="spoke-section__title">More examples</h2>
+        <div class="tutorial-nav">
+          <a href="/examples/community-world-map-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Iterative Build</span>
+            <span class="tutorial-nav__card-title">Community World Map Bot</span>
+            <span class="tutorial-nav__card-complexity"><span
+                class="complexity-badge complexity-badge--moderate"><i data-lucide="layers"
+                  style="width:14px;height:14px" aria-hidden="true"></i> Moderate</span></span>
+          </a>
+          <a href="/examples/texas-holdem-poker-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Complex Build</span>
+            <span class="tutorial-nav__card-title">Texas Hold'em Poker Bot</span>
+            <span class="tutorial-nav__card-complexity"><span
+                class="complexity-badge complexity-badge--complex"><i data-lucide="trophy"
+                  style="width:14px;height:14px" aria-hidden="true"></i> Complex</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="spoke-section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Have a bot idea? Describe it, we'll build it.</h2>
+          <p>No formal specs needed. Just tell us what you want in plain language. We'll handle the rest — design,
+            development, hosting, and maintenance.</p>
+          <a href="https://app.discordgenius.com/" class="btn btn--primary btn--lg">Subscribe — $699/mo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__columns">
+        <div>
+          <p class="footer__col-title">Solutions</p>
+          <ul class="footer__col-links">
+            <li><a href="/hire-discord-bot-developer">Hire a Discord Bot Developer</a></li>
+            <li><a href="/custom-discord-economy-bot">Custom Economy Bots</a></li>
+            <li><a href="/discord-bot-verification-system">Verification Systems</a></li>
+            <li><a href="/discord-server-setup-expert">Server Setup Expert</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Integrations</p>
+          <ul class="footer__col-links">
+            <li><a href="/discord-stripe-integration-bot">Stripe Integration</a></li>
+            <li><a href="/discord-shopify-bot">Shopify Bot</a></li>
+            <li><a href="/discord-notion-integration">Notion Integration</a></li>
+            <li><a href="/discord-airtable-automation">Airtable Automation</a></li>
+            <li><a href="/discord-whop-integration">Whop Integration</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Examples</p>
+          <ul class="footer__col-links">
+            <li><a href="/examples/video-contest-bot">Video Contest Bot</a></li>
+            <li><a href="/examples/community-world-map-bot">Community World Map Bot</a></li>
+            <li><a href="/examples/texas-holdem-poker-bot">Texas Hold'em Poker Bot</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__col-links">
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#book">Book a Call</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__wrap">
+        <div class="footer__brand">
+          <img class="footer__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="72"
+            height="72">
+          <span>DiscordGenius</span>
+        </div>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+        </nav>
+        <p class="muted">Headquartered on the internet</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
