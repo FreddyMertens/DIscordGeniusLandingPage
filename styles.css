@@ -1570,6 +1570,7 @@ textarea {
   margin-left: 8px;
   font-weight: 600;
   letter-spacing: .3px;
+  background: var(--dj-bg-900);
 }
 
 .booking-form__actions {
