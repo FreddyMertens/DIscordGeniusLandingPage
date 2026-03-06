@@ -2691,8 +2691,15 @@ header .container {
   color: var(--dj-text-100);
 }
 
+.tutorial-nav__card-desc {
+  font-size: .85rem;
+  color: var(--dj-text-400);
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
 .tutorial-nav__card-complexity {
-  margin-top: 4px;
+  margin-top: auto;
 }
 
 /* Iteration card — shows a follow-up request */
