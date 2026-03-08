@@ -34,6 +34,51 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=3">
   <link rel="stylesheet" href="../styles.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .app-screenshot {
+      margin: 24px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 255, 0.06);
+      position: relative;
+    }
+
+    .app-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .app-screenshot__label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      color: var(--dj-cyan, #00e5ff);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      z-index: 2;
+    }
+
+    @media (max-width: 600px) {
+      .app-screenshot {
+        margin: 16px -16px;
+        border-radius: 0;
+      }
+
+      .app-screenshot img {
+        border-radius: 0;
+      }
+    }
+  </style>
 
   <script type="application/ld+json">
     {
@@ -89,8 +134,8 @@
           <span class="breadcrumb__sep">/</span>
           <span>Community World Map Bot</span>
         </nav>
-        <span class="complexity-badge complexity-badge--moderate"><i data-lucide="layers"
-            style="width:14px;height:14px" aria-hidden="true"></i> Moderate Request</span>
+        <span class="complexity-badge complexity-badge--moderate"><i data-lucide="layers" style="width:14px;height:14px"
+            aria-hidden="true"></i> Moderate Request</span>
         <h1 class="spoke-hero__title">Community World Map Bot<br>Built Iteratively Over 4 Requests</h1>
         <p class="spoke-hero__tagline">A 6,000-member global community wanted a way for members to see each other on a
           map. The first version shipped in 72 hours. Then three follow-up requests refined the theme, added clustering,
@@ -124,31 +169,11 @@
         <p class="spoke-section__subtitle">The client described what they wanted: a way for members to pin their
           location on a shared world map, with privacy as a core concern.</p>
 
-        <div class="request-card">
-          <div class="request-card__header">
-            <span class="request-card__label">Client Request</span>
-            <span class="request-card__from">Community Owner · ~6,000 members</span>
-          </div>
-          <div class="request-card__body">
-            <p><strong>Community World Map Bot</strong></p>
-            <p>We have a global community (~6k members across 40+ countries) and we'd love a way for members to see
-              where everyone is on a map. Something that builds community and helps people find others nearby.</p>
-            <p>Here's what I'm picturing:</p>
-            <ul>
-              <li>A <strong>/setlocation</strong> command that gives the user a private link to a web page where they
-                can drop a pin on a map to set their location. Needs to be ephemeral so only they see the link
-                (privacy).</li>
-              <li>A <strong>/showmap</strong> command that posts a static image preview of the world map into Discord
-                showing all the pins, plus a link to a full interactive version they can pan/zoom around.</li>
-              <li>A <strong>/removelocation</strong> command so users can delete their data anytime.</li>
-            </ul>
-            <p>Privacy is important to us — users should control their own data and be able to remove themselves
-              whenever they want.</p>
-            <p>For the interactive map, something like Leaflet or Google Maps embedded in a simple web page would be
-              perfect. The static image just needs to be a decent looking snapshot we can post in Discord.</p>
-            <p>Please host and manage for us. We'll want the web map accessible at a URL we can share with our
-              community.</p>
-          </div>
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/request1-app.png"
+            alt="Screenshot of the Community World Map Bot request and builder fulfillment on the DiscordGenius portal"
+            loading="lazy">
         </div>
 
         <h3 style="margin-top:32px;">What we delivered</h3>
@@ -164,7 +189,8 @@
             <div class="bot-command">
               <span class="bot-command__name">/showmap</span>
               <span class="bot-command__desc">Generates a static PNG image of the world map with all member pins
-                rendered via server-side Canvas, posts it to the channel, and includes a link to the full interactive web
+                rendered via server-side Canvas, posts it to the channel, and includes a link to the full interactive
+                web
                 map.</span>
             </div>
             <div class="bot-command">
@@ -205,19 +231,11 @@
         <p class="spoke-section__subtitle">The initial version worked great. But the default Leaflet tiles didn't match
           their server's aesthetic. The client queued a follow-up request:</p>
 
-        <div class="iteration-card">
-          <div class="iteration-card__header">
-            <span class="iteration-card__label">Follow-up Request</span>
-            <span class="iteration-card__title">Style — Map Theme</span>
-          </div>
-          <div class="iteration-card__body">
-            <p>Hey, the map is working great! One thing though — the default Leaflet tiles look a bit generic and don't
-              match our server's branding at all. Our Discord has a dark theme with purple/blue accent colors.</p>
-            <p>Could you swap the map tiles to a dark-themed style? Something like CartoDB Dark Matter or Mapbox Dark.
-              And if possible, make the user pins a bright purple (#7C3AFF) so they pop against the dark background.</p>
-            <p>The static image preview posted in Discord should match the same dark theme so it all looks cohesive.
-              Thanks!</p>
-          </div>
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/request2-app.png"
+            alt="Screenshot of the Dark map theme follow-up request and builder fulfillment on the DiscordGenius portal"
+            loading="lazy">
         </div>
 
         <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
@@ -235,21 +253,11 @@
         <p class="spoke-section__subtitle">As more members pinned their locations, the map got crowded. The client
           queued another request:</p>
 
-        <div class="iteration-card">
-          <div class="iteration-card__header">
-            <span class="iteration-card__label">Follow-up Request</span>
-            <span class="iteration-card__title">Pin Clustering & Web Page Polish</span>
-          </div>
-          <div class="iteration-card__body">
-            <p>Love the dark theme — looks way better now. Two more visual tweaks:</p>
-            <p><strong>1. Pin Clustering:</strong> When zoomed out the pins overlap into a mess in places like Europe
-              and the US east coast. Can you add marker clustering so nearby pins group into a circle with a count, and
-              then expand when you zoom in?</p>
-            <p><strong>2. Web Page Header:</strong> The interactive map page is just a bare map with no context. Could
-              you add a small header bar at the top with our server name, member count on the map (e.g. "142 members
-              pinned"), and our server icon? Keep it minimal — just enough so if someone shares the link it looks
-              intentional and branded, not like a raw dev tool.</p>
-          </div>
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/request3-app.png"
+            alt="Screenshot of the Grouping nearby pins follow-up request and builder fulfillment on the DiscordGenius portal"
+            loading="lazy">
         </div>
 
         <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
@@ -267,27 +275,11 @@
         <p class="spoke-section__subtitle">Member feedback revealed that some people wanted to participate but didn't
           feel comfortable pinning their exact neighborhood. The client asked for flexibility:</p>
 
-        <div class="iteration-card">
-          <div class="iteration-card__header">
-            <span class="iteration-card__label">Follow-up Request</span>
-            <span class="iteration-card__title">Location Specificity Options</span>
-          </div>
-          <div class="iteration-card__body">
-            <p>So we've had some feedback from members. A lot of people want to participate but don't want to pin an
-              exact location — they feel weird dropping a pin on their neighborhood. Totally fair.</p>
-            <p>Can you update /setlocation so users can choose how specific they want to be? Something like:</p>
-            <ul>
-              <li><strong>City level</strong> (e.g. "London, UK")</li>
-              <li><strong>Region/State level</strong> (e.g. "California, US")</li>
-              <li><strong>Country level</strong> (e.g. "Brazil")</li>
-            </ul>
-            <p>If someone picks city, the pin goes on the city center. Region puts it roughly in the middle of the
-              state/province. Country centers it on the country.</p>
-            <p>They should still be able to drop an exact pin on the map if they want to — just make it an optional
-              choice alongside typing in a place name at varying specificity.</p>
-            <p>This would help a lot with adoption. Right now some members are skipping it entirely because exact pin is
-              the only option.</p>
-          </div>
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/request4-app.png"
+            alt="Screenshot of the Location Specificity Options follow-up request and builder fulfillment on the DiscordGenius portal"
+            loading="lazy">
         </div>
 
         <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
@@ -326,13 +318,17 @@
         <div class="tutorial-nav">
           <a href="/examples/video-contest-bot" class="tutorial-nav__card">
             <span class="tutorial-nav__card-title">Video Contest Bot</span>
-            <p class="tutorial-nav__card-desc">A fully automated video submission and voting system for growing communities.</p>
-            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--simple"><i data-lucide="zap" style="width:14px;height:14px" aria-hidden="true"></i> Simple</span></span>
+            <p class="tutorial-nav__card-desc">A fully automated video submission and voting system for growing
+              communities.</p>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--simple"><i
+                  data-lucide="zap" style="width:14px;height:14px" aria-hidden="true"></i> Simple</span></span>
           </a>
           <a href="/examples/texas-holdem-poker-bot" class="tutorial-nav__card">
             <span class="tutorial-nav__card-title">Texas Hold'em Poker Bot</span>
-            <p class="tutorial-nav__card-desc">Multiplayer, full-economy Poker bot built strictly on Discord interactions.</p>
-            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--complex"><i data-lucide="trophy" style="width:14px;height:14px" aria-hidden="true"></i> Complex</span></span>
+            <p class="tutorial-nav__card-desc">Multiplayer, full-economy Poker bot built strictly on Discord
+              interactions.</p>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--complex"><i
+                  data-lucide="trophy" style="width:14px;height:14px" aria-hidden="true"></i> Complex</span></span>
           </a>
         </div>
       </div>

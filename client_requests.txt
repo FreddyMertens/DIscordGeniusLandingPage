@@ -1,0 +1,37 @@
+CARD 1
+Title: Community World Map Bot
+Description: We have a global community (~6k members across 40+ countries) and we'd love a way for members to see where everyone is on a map. Something that builds community and helps people find others nearby.
+Here's what I'm picturing:
+- A /setlocation command that gives the user a private link to a web page where they can drop a pin on a map to set their location. Needs to be ephemeral so only they see the link (privacy).
+- A /showmap command that posts a static image preview of the world map into Discord showing all the pins, plus a link to a full interactive version they can pan/zoom around.
+- A /removelocation command so users can delete their data anytime.
+Privacy is important to us — users should control their own data and be able to remove themselves whenever they want.
+For the interactive map, something like Leaflet or Google Maps embedded in a simple web page would be perfect. The static image just needs to be a decent looking snapshot we can post in Discord.
+Please host and manage for us. We'll want the web map accessible at a URL we can share with our community.
+
+---
+
+CARD 2
+Title: Follow-up Request - Dark map theme
+Description: The map runs great, but the standard map tiles are very bright white/blue. Is there a way to use a dark theme for the map tiles so it matches Discord's dark mode aesthetic? Also can the page itself use standard Discord colors (grey background) instead of white?
+
+---
+
+CARD 3
+Title: Follow-up Request - Grouping nearby pins
+Description: As more people use the bot, areas like Europe and the US East Coast are getting really crowded. Some pins overlap entirely so you can't tell there are multiple people there.
+Can we cluster pins? Like if you're zoomed out, it shows a circle with '42' inside it, and when you zoom in or click it, it breaks apart into the individual pins?
+Also, can we add our community name ('Genius Server') and 'X members pinned' to the top of the map page, along with our server icon? Keep it minimal — just enough so if someone shares the link it looks intentional and branded, not like a raw dev tool.
+
+---
+
+CARD 4
+Title: Location Specificity Options
+Description: So we've had some feedback from members. A lot of people want to participate but don't want to pin an exact location — they feel weird dropping a pin on their neighborhood. Totally fair.
+Can you update /setlocation so users can choose how specific they want to be? Something like:
+- City level (e.g. "London, UK")
+- Region/State level (e.g. "California, US")
+- Country level (e.g. "Brazil")
+If someone picks city, the pin goes on the city center. Region puts it roughly in the middle of the state/province. Country centers it on the country.
+They should still be able to drop an exact pin on the map if they want to — just make it an optional choice alongside typing in a place name at varying specificity.
+This would help a lot with adoption. Right now some members are skipping it entirely because exact pin is the only option.
