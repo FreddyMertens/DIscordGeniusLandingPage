@@ -34,6 +34,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=3">
   <link rel="stylesheet" href="../styles.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
 
   <script type="application/ld+json">
     {
@@ -60,8 +61,10 @@
   <header class="nav">
     <div class="container nav__wrap">
       <a class="brand" href="/" aria-label="DiscordGenius home">
-        <img class="brand__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="96"
-          height="96">
+        <img id="nav-logo-fallback" class="brand__logo" src="../assets/SVGDiscordGeniusLogo.svg"
+          alt="DiscordGenius logo" width="96" height="96">
+        <canvas id="nav-logo" class="brand__logo brand__logo--rive" width="96" height="96" aria-hidden="true"
+          style="display:none;"></canvas>
         <span>DiscordGenius</span>
       </a>
       <nav class="nav__links" aria-label="Main navigation">
@@ -345,8 +348,10 @@
       </div>
       <div class="footer__wrap">
         <div class="footer__brand">
-          <img class="footer__logo" src="../assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="72"
-            height="72">
+          <img id="footer-logo-fallback" class="footer__logo" src="../assets/SVGDiscordGeniusLogo.svg"
+            alt="DiscordGenius logo" width="72" height="72">
+          <canvas id="footer-logo" class="footer__logo footer__logo--rive" width="72" height="72" aria-hidden="true"
+            style="display:none;"></canvas>
           <span>DiscordGenius</span>
         </div>
         <nav class="footer__links" aria-label="Footer">
@@ -359,6 +364,7 @@
   </footer>
 
   <script>lucide.createIcons();</script>
+  <script src="../rive-setup.js"></script>
 </body>
 
 </html>

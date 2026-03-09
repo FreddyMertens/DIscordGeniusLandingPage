@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Define all Rive animation targets
     const riveTargets = [
-        { canvasId: 'nav-logo', fallbackId: 'nav-logo-fallback', src: 'assets/DiscordGeniusLogo.riv', animations: ['GradientBrainAnimation', 'AtomsAnimations'], alignment: rive.Alignment.Center, fit: rive.Fit.Contain },
-        { canvasId: 'nav-title', fallbackId: 'nav-title-fallback', src: 'assets/DiscordGeniusLogoText.riv', stateMachines: null, alignment: rive.Alignment.CenterLeft, fit: rive.Fit.Contain },
-        { canvasId: 'footer-logo', fallbackId: 'footer-logo-fallback', src: 'assets/DiscordGeniusLogo.riv', animations: ['GradientBrainAnimation', 'AtomsAnimations'], alignment: rive.Alignment.Center, fit: rive.Fit.Contain },
-        { canvasId: 'footer-title', fallbackId: 'footer-title-fallback', src: 'assets/DiscordGeniusLogoText.riv', stateMachines: null, alignment: rive.Alignment.CenterLeft, fit: rive.Fit.Contain },
+        { canvasId: 'nav-logo', fallbackId: 'nav-logo-fallback', src: '/assets/DiscordGeniusLogo.riv', animations: ['GradientBrainAnimation', 'AtomsAnimations'], alignment: rive.Alignment.Center, fit: rive.Fit.Contain },
+        { canvasId: 'nav-title', fallbackId: 'nav-title-fallback', src: '/assets/DiscordGeniusLogoText.riv', stateMachines: null, alignment: rive.Alignment.CenterLeft, fit: rive.Fit.Contain },
+        { canvasId: 'footer-logo', fallbackId: 'footer-logo-fallback', src: '/assets/DiscordGeniusLogo.riv', animations: ['GradientBrainAnimation', 'AtomsAnimations'], alignment: rive.Alignment.Center, fit: rive.Fit.Contain },
+        { canvasId: 'footer-title', fallbackId: 'footer-title-fallback', src: '/assets/DiscordGeniusLogoText.riv', stateMachines: null, alignment: rive.Alignment.CenterLeft, fit: rive.Fit.Contain },
     ];
 
     // Track instances: Map<observed element, { canvas, config, instance, initialized }>
