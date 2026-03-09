@@ -2370,6 +2370,33 @@ header .container {
   max-width: 640px;
 }
 
+/* Portal screenshots — constrained, rounded, and centered */
+.app-screenshot {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.app-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, .1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .4), 0 0 0 1px rgba(0, 229, 255, .08);
+}
+
+.app-screenshot__label {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--dj-neon);
+  margin-bottom: 8px;
+  opacity: .7;
+}
+
 /* Footer columns for internal linking */
 .footer__columns {
   display: grid;
