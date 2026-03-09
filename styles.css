@@ -2408,12 +2408,7 @@ header .container {
   color: var(--dj-neon);
 }
 
-/* Topbar always visible on sub-pages */
-.topbar--spoke {
-  opacity: 1;
-  pointer-events: auto;
-  position: relative;
-}
+
 
 /* ============================================================
    TUTORIAL / CASE-STUDY PAGE STYLES
