@@ -124,43 +124,10 @@
         <p class="spoke-section__subtitle">This client knew exactly what they wanted and wrote a thorough product
           requirements document. More detail = faster delivery with fewer questions.</p>
 
-        <div class="request-card">
-          <div class="request-card__header">
-            <span class="request-card__label">Client Request</span>
-            <span class="request-card__from">Jake M. · Community Lead, Aces High Discord · ~4,200 members</span>
-          </div>
-          <div class="request-card__body">
-            <p><strong>Discord Poker Bot — Product Requirements</strong></p>
-            <p>We need a Texas Hold'em poker bot for our gaming Discord server (~4,200 members). Members have been
-              asking for an in-Discord poker game for months. We want something polished — visual cards, proper game
-              flow, and the ability for multiple tables to run at once so people aren't waiting around.</p>
-
-            <p><strong>Game format:</strong> Texas Hold'em (No-Limit), elimination style (last player standing wins),
-              up to 10 players per table, multiple concurrent games per server.</p>
-
-            <p><strong>Configuration options per game:</strong></p>
-            <ul>
-              <li><strong>Starting Chips</strong> — Default: 1,000. Should accept any reasonable value.</li>
-              <li><strong>Ante Increase</strong> — Amount the ante goes up each round. Default: 0 (flat ante). Keeps
-                longer games from stalling.</li>
-              <li><strong>Turn Timer</strong> — Seconds a player has to act before auto-fold. Default: 0 (no timer).
-                Max: 300 seconds. Critical for keeping games moving.</li>
-            </ul>
-
-            <p><strong>Visual requirements:</strong> Community cards and player hands should be rendered as actual card
-              images (canvas-based rendering is fine). The game board should show community cards, pot size, current
-              player turn, and each player's chip count. Private hands shown via ephemeral messages.</p>
-
-            <p><strong>Edge cases:</strong> Late join (enter folded until next hand), elimination at 0 chips, auto-fold
-              on timer expiry, and correct side pot handling for all-in situations.</p>
-
-            <p><strong>Hosting:</strong> Fully managed — we don't have a dev on the team. We just need the bot invited,
-              running 24/7, with bug fixes if anything comes up. Option to get the code handed over if we ever want to
-              self-host.</p>
-
-            <p><strong>Notes:</strong> Our server is a gaming community so the vibe should be fun, not corporate.
-              Casual bot personality welcome. We might request a leaderboard as a follow-up.</p>
-          </div>
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/poker-bot-requested.png"
+            alt="Screenshot of the Texas Hold'em Poker Bot request on the DiscordGenius portal" loading="lazy">
         </div>
 
         <p style="color:var(--dj-text-400);font-size:.95rem;">This is a more detailed request — the client wrote a
@@ -237,6 +204,12 @@
       <div class="container">
         <h2 class="spoke-section__title">Step 3 — The delivered product</h2>
         <p class="spoke-section__subtitle">Here's everything the client received:</p>
+
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/poker-bot-delivered.png"
+            alt="Screenshot of the Texas Hold'em Poker Bot delivered on the DiscordGenius portal" loading="lazy">
+        </div>
 
         <div class="bot-showcase">
           <h3 class="bot-showcase__title"><i data-lucide="terminal" aria-hidden="true"></i> All 7 commands</h3>

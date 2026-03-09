@@ -124,27 +124,10 @@
         <p class="spoke-section__subtitle">After subscribing, the client opened their DiscordGenius request board and
           created a new card. Here's exactly what they wrote:</p>
 
-        <div class="request-card">
-          <div class="request-card__header">
-            <span class="request-card__label">Client Request</span>
-            <span class="request-card__from">Community Manager</span>
-          </div>
-          <div class="request-card__body">
-            <p><strong>Video Contest Bot</strong></p>
-            <p>We are running monthly video contests in our Discord and right now we're doing it all manually — people
-              DM us clips, we post them, we count reactions by hand. It's a nightmare lol.</p>
-            <p>Can you build us a bot that handles this? Here's what we need:</p>
-            <ul>
-              <li>A <strong>/submit</strong> command where users can upload a video file or paste a URL. The bot reposts
-                it into a dedicated submissions channel and adds a thumbs-up reaction automatically so people can vote.
-              </li>
-              <li>A <strong>/finish</strong> command (admin only) that tallies up all the thumbs-up votes, picks the top
-                5, announces the winners in a winners channel, and DMs each winner to let them know they placed.</li>
-            </ul>
-            <p>That's basically it. Two commands. We just need it to work reliably and look clean in the embeds.</p>
-            <p>We'll set up the channels on our end — just need the bot to point at a submissions channel and a winners
-              channel. Let us know what IDs or setup info you need from us.</p>
-          </div>
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/video-contest-bot-requested.png"
+            alt="Screenshot of the Video Contest Bot request on the DiscordGenius portal" loading="lazy">
         </div>
 
         <p style="color:var(--dj-text-400);font-size:.95rem;">Notice how casual this is. No formal spec, no technical
@@ -210,6 +193,12 @@
       <div class="container">
         <h2 class="spoke-section__title">Step 3 — The client reviews & approves</h2>
         <p class="spoke-section__subtitle">The card moves to the Approved column. Here's what was delivered:</p>
+
+        <div class="app-screenshot">
+          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
+          <img src="screenshots/video-contest-bot-delivered.png"
+            alt="Screenshot of the Video Contest Bot delivered on the DiscordGenius portal" loading="lazy">
+        </div>
 
         <div class="bot-showcase">
           <h3 class="bot-showcase__title"><i data-lucide="terminal" aria-hidden="true"></i> Delivered commands</h3>
