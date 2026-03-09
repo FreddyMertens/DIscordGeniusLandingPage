@@ -89,7 +89,7 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span class="breadcrumb__sep">/</span>
-          <a href="/examples">Examples</a>
+          <a href="/examples/">Examples</a>
           <span class="breadcrumb__sep">/</span>
           <span>Video Contest Bot</span>
         </nav>
@@ -121,39 +121,41 @@
       </div>
     </section>
 
-    <!-- Step 1: The Request -->
+    <!-- The request: 5 sentences that started it all -->
     <section class="spoke-section">
       <div class="container">
-        <h2 class="spoke-section__title">Step 1 — The client submits a request</h2>
-        <p class="spoke-section__subtitle">After subscribing, the client opened their DiscordGenius request board and
-          created a new card. Here's exactly what they wrote:</p>
+        <h2 class="spoke-section__title">The request — 5 sentences that started it all</h2>
+        <p class="spoke-section__subtitle">After subscribing, the client opened their DiscordGenius board and
+          created a new card. No formal spec, no PRD — just a plain-language description of their problem and what they
+          needed. Here's exactly what they wrote:</p>
 
         <div class="app-screenshot">
           <span class="app-screenshot__label">Live from app.discordgenius.com</span>
           <img src="screenshots/video-contest-bot-requested.png"
-            alt="Screenshot of the Video Contest Bot request on the DiscordGenius portal" loading="lazy">
+            alt="Screenshot of the Video Contest Bot request and delivery on the DiscordGenius portal" loading="lazy">
         </div>
 
-        <p style="color:var(--dj-text-400);font-size:.95rem;">Notice how casual this is. No formal spec, no technical
-          jargon, no wireframes. The client described their problem and what they wanted in plain language. That's all
-          you need — <strong>we handle the rest</strong>.</p>
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">Notice how casual this is. No technical
+          jargon, no wireframes, no meeting required. The client described their problem and what they wanted in plain
+          language.
+          That's all you need — <strong>we handle the rest</strong>.</p>
       </div>
     </section>
 
-    <!-- Step 2: We Build -->
+    <!-- What we built: from request to delivery in 24 hours -->
     <section class="spoke-section">
       <div class="container">
-        <h2 class="spoke-section__title">Step 2 — We move the card to Active and start building</h2>
-        <p class="spoke-section__subtitle">Within hours the request moves from Backlog to Active on your board. Here's
-          the delivery timeline for this build:</p>
+        <h2 class="spoke-section__title">What we built — from request to delivery in 24 hours</h2>
+        <p class="spoke-section__subtitle">Within hours the request moved from Backlog to Active on the client's board.
+          Here's how the build unfolded:</p>
 
         <div class="timeline">
           <div class="timeline__item">
             <div class="timeline__dot timeline__dot--done">1</div>
             <div class="timeline__content">
               <p class="timeline__title">Request received & scoped</p>
-              <p class="timeline__desc">We review the request, identify the two core commands, note the channel
-                configuration needs, and plan the embed structure. No back-and-forth needed — the request was clear
+              <p class="timeline__desc">We reviewed the request, identified the two core commands, noted the channel
+                configuration needs, and planned the embed structure. No back-and-forth needed — the request was clear
                 enough.</p>
               <p class="timeline__time">Hour 0</p>
             </div>
@@ -163,9 +165,8 @@
             <div class="timeline__content">
               <p class="timeline__title">/submit command built</p>
               <p class="timeline__desc">Slash command accepting a video file upload or URL. Bot reposts to the
-                configured
-                submissions channel with a clean embed (title, submitter name, video preview) and auto-adds the
-                thumbs-up reaction for voting.</p>
+                configured submissions channel with a clean embed (title, submitter name, video preview) and auto-adds
+                the thumbs-up reaction for voting.</p>
               <p class="timeline__time">Hour 8</p>
             </div>
           </div>
@@ -189,20 +190,21 @@
             </div>
           </div>
         </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
+          <strong>Delivered in under 24 hours.</strong> Both commands tested end-to-end in a staging server. The bot was
+          deployed to managed hosting, and the invite link was posted directly to the client's board.
+          Zero follow-up questions needed — the five-sentence request was clear enough to build from.
+        </p>
       </div>
     </section>
 
-    <!-- Step 3: What was delivered -->
+    <!-- What was delivered: approved on the first try -->
     <section class="spoke-section">
       <div class="container">
-        <h2 class="spoke-section__title">Step 3 — The client reviews & approves</h2>
-        <p class="spoke-section__subtitle">The card moves to the Approved column. Here's what was delivered:</p>
-
-        <div class="app-screenshot">
-          <span class="app-screenshot__label">Live from app.discordgenius.com</span>
-          <img src="screenshots/video-contest-bot-delivered.png"
-            alt="Screenshot of the Video Contest Bot delivered on the DiscordGenius portal" loading="lazy">
-        </div>
+        <h2 class="spoke-section__title">What was delivered — approved on the first try</h2>
+        <p class="spoke-section__subtitle">The card moved to the Approved column with zero revisions. Here's everything
+          the client received:</p>
 
         <div class="bot-showcase">
           <h3 class="bot-showcase__title"><i data-lucide="terminal" aria-hidden="true"></i> Delivered commands</h3>
@@ -227,8 +229,7 @@
             <i data-lucide="upload" aria-hidden="true"></i>
             <h3>File & URL support</h3>
             <p>Accepts both direct video file uploads and external URLs (YouTube, Streamable, etc.) so members can
-              submit
-              however they prefer.</p>
+              submit however they prefer.</p>
           </div>
           <div class="feature-card">
             <i data-lucide="palette" aria-hidden="true"></i>
@@ -249,13 +250,19 @@
               permission handling with friendly error messages.</p>
           </div>
         </div>
+
+        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
+          <strong>Approved on the first attempt.</strong> The client invited the bot, ran their next video contest
+          that same week, and hasn't needed a single change since. That's the power of starting with a clear
+          description — even if it's only five sentences.
+        </p>
       </div>
     </section>
 
     <!-- Key Takeaway -->
     <section class="spoke-section">
       <div class="container">
-        <h2 class="spoke-section__title">Key takeaway</h2>
+        <h2 class="spoke-section__title">Key takeaway: simple requests, fast results</h2>
         <ul class="usecase-list">
           <li><i data-lucide="message-circle" aria-hidden="true"></i> <span><strong>You don't need a formal
                 spec.</strong>
@@ -267,6 +274,9 @@
           <li><i data-lucide="server" aria-hidden="true"></i> <span><strong>Fully managed.</strong> The client didn't
               touch a terminal, install Node.js, or configure a server. We deployed, hosted, and maintain the bot. They
               just invited it and started running contests.</span></li>
+          <li><i data-lucide="repeat" aria-hidden="true"></i> <span><strong>Need more later? Just submit another
+                card.</strong> If the client ever wants to add features — a leaderboard, custom categories,
+              seasonal themes — it's just another request on the same board. No new project, no new quote.</span></li>
         </ul>
       </div>
     </section>
@@ -277,14 +287,16 @@
         <h2 class="spoke-section__title">More examples</h2>
         <div class="tutorial-nav">
           <a href="/examples/community-world-map-bot" class="tutorial-nav__card">
-            <span class="tutorial-nav__card-label">Iterative Build</span>
             <span class="tutorial-nav__card-title">Community World Map Bot</span>
+            <p class="tutorial-nav__card-desc">Interactive web map powered by a Discord bot where members pin their
+              locations.</p>
             <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--moderate"><i
                   data-lucide="layers" style="width:14px;height:14px" aria-hidden="true"></i> Moderate</span></span>
           </a>
           <a href="/examples/texas-holdem-poker-bot" class="tutorial-nav__card">
-            <span class="tutorial-nav__card-label">Moderate Build</span>
             <span class="tutorial-nav__card-title">Texas Hold'em Poker Bot</span>
+            <p class="tutorial-nav__card-desc">Multiplayer, full-economy Poker bot built strictly on Discord
+              interactions.</p>
             <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--moderate"><i
                   data-lucide="layers" style="width:14px;height:14px" aria-hidden="true"></i> Moderate</span></span>
           </a>
