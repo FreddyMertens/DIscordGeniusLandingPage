@@ -2755,6 +2755,7 @@ header .container {
 .tutorial-stats {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
   margin: 20px 0;
 }
