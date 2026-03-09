@@ -2412,8 +2412,7 @@ header .container {
 .topbar--spoke {
   opacity: 1;
   pointer-events: auto;
-  position: sticky;
-  top: 0;
+  position: relative;
 }
 
 /* ============================================================
