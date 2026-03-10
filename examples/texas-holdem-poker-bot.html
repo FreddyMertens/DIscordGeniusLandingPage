@@ -141,67 +141,6 @@
           visual requirements, edge cases, and hosting preferences. <strong>Both styles work.</strong> Write five
           sentences or five pages — we adapt to you.</p>
 
-        <h3 style="margin-top:32px;">What we built</h3>
-
-        <div class="timeline">
-          <div class="timeline__item">
-            <div class="timeline__dot timeline__dot--done">1</div>
-            <div class="timeline__content">
-              <p class="timeline__title">Architecture & game state engine</p>
-              <p class="timeline__desc">Designed the core game state machine: lobby creation, player tracking,
-                hand dealing, betting rounds (pre-flop, flop, turn, river), pot management, side pot calculations, and
-                elimination logic. Built to support multiple concurrent games per server.</p>
-              <p class="timeline__time">Hours 0–16</p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__dot timeline__dot--done">2</div>
-            <div class="timeline__content">
-              <p class="timeline__title">Card rendering engine</p>
-              <p class="timeline__desc">Built a server-side Canvas renderer that generates visual card images. Community
-                cards displayed on a felt-green table layout. Private hands rendered as separate images sent via
-                ephemeral messages. All 52 card faces rendered with proper suits, values, and styling.</p>
-              <p class="timeline__time">Hours 16–32</p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__dot timeline__dot--done">3</div>
-            <div class="timeline__content">
-              <p class="timeline__title">Slash commands & game flow</p>
-              <p class="timeline__desc">Implemented all 7 slash commands: /poker create, join, start, end, action,
-                status, quit. Each command validates game state, handles edge cases (acting out of turn, invalid raises,
-                etc.), and updates the game board embed.</p>
-              <p class="timeline__time">Hours 32–56</p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__dot timeline__dot--done">4</div>
-            <div class="timeline__content">
-              <p class="timeline__title">Turn timer & auto-fold</p>
-              <p class="timeline__desc">Implemented configurable turn timers with visual countdown in the game embed.
-                Players who don't act in time are auto-folded. Timer resets on each action. Handles edge cases like
-                timer expiring during a disconnect.</p>
-              <p class="timeline__time">Hours 56–68</p>
-            </div>
-          </div>
-          <div class="timeline__item">
-            <div class="timeline__dot timeline__dot--done">5</div>
-            <div class="timeline__content">
-              <p class="timeline__title">Edge cases, testing & deployment</p>
-              <p class="timeline__desc">Tested all edge cases: side pots with multiple all-ins, late joins, single
-                remaining player wins, ante increase across rounds, concurrent games in different channels. Deployed to
-                managed hosting with monitoring.</p>
-              <p class="timeline__time">Hours 68–90</p>
-            </div>
-          </div>
-        </div>
-
-        <p style="color:var(--dj-text-400);font-size:.95rem;margin-top:16px;">
-          <strong>Delivered in ~90 hours.</strong> Full game state machine with lobby creation, hand dealing, betting
-          rounds, pot management, side pot calculations, and elimination logic. Server-side Canvas renderer generating
-          visual card images. Seven slash commands covering every game action. Deployed to managed hosting with
-          monitoring.
-        </p>
 
         <h3 style="margin-top:32px;">What we delivered</h3>
         <div class="bot-showcase">
