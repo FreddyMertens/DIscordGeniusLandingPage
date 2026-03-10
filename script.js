@@ -625,7 +625,7 @@
     };
 
     const formatWindowRange = (window, timezone) => {
-      return `${formatSlotLabel(window.startIso, timezone)} — ${formatSlotLabel(window.endIso, timezone)}`;
+      return `${formatSlotLabel(window.startIso, timezone)} to ${formatSlotLabel(window.endIso, timezone)}`;
     };
 
     const formatHourLabel = (isoString, timezone) => {
