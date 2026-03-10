@@ -248,6 +248,16 @@ body {
   letter-spacing: .2px;
 }
 
+@media (max-width: 600px) {
+  .topbar__wrap {
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .topbar__text {
+    display: none;
+  }
+}
+
 .nav {
   position: relative;
   z-index: 50;
@@ -2370,33 +2380,6 @@ header .container {
   max-width: 640px;
 }
 
-/* Portal screenshots — constrained, rounded, and centered */
-.app-screenshot {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.app-screenshot img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, .1);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, .4), 0 0 0 1px rgba(0, 229, 255, .08);
-}
-
-.app-screenshot__label {
-  display: inline-block;
-  font-size: .75rem;
-  font-weight: 600;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  color: var(--dj-neon);
-  margin-bottom: 8px;
-  opacity: .7;
-}
-
 /* Footer columns for internal linking */
 .footer__columns {
   display: grid;
@@ -2844,3 +2827,59 @@ header .container {
     flex-direction: column;
   }
 }
+/* App Screenshot Showcase */
+.app-screenshot {
+  margin: 32px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 255, 0.06);
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+}
+
+.app-screenshot img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.app-screenshot__label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--dj-cyan, #00e5ff);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .app-screenshot {
+    margin: 24px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-screenshot {
+    margin: 16px 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .app-screenshot img {
+    border-radius: 8px;
+  }
+}
+
