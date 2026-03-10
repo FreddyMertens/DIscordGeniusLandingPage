@@ -1546,6 +1546,31 @@ textarea {
   }
 }
 
+/* Modal Typography & Spacing Overrides */
+#call-title {
+  font-size: 1.25rem;
+}
+
+.calendar__selected,
+.calendar__timezone {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.calendar__state {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+#booking-form {
+  margin-bottom: 8px;
+}
+
+#booking-form+p.muted.small {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 /* Booking section */
 .section.book {
   position: relative;
