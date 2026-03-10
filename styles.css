@@ -253,6 +253,7 @@ body {
     justify-content: center;
     padding: 10px 0;
   }
+
   .topbar__text {
     display: none;
   }
@@ -1433,18 +1434,22 @@ body {
   position: fixed;
   inset: 0;
   z-index: 60;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 0;
 }
 
 .modal__overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, .5);
   backdrop-filter: blur(2px);
+  z-index: -1;
 }
 
 .modal__dialog {
   position: relative;
-  margin: 10vh auto;
+  margin: min(5vh, 32px) auto;
   width: min(640px, 92vw);
   background: var(--dj-bg-900);
   border: 1px solid rgba(255, 255, 255, .12);
@@ -2827,6 +2832,7 @@ header .container {
     flex-direction: column;
   }
 }
+
 /* App Screenshot Showcase */
 .app-screenshot {
   margin: 32px auto;
@@ -2882,4 +2888,3 @@ header .container {
     border-radius: 8px;
   }
 }
-
