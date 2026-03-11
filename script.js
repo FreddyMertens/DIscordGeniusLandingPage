@@ -261,6 +261,13 @@
     openModal('subscribe-modal');
   }));
   document.querySelectorAll('[data-open-question]').forEach(btn => btn.addEventListener('click', () => openModal('question-modal')));
+  const questionToCall = document.getElementById('question-to-call');
+  if (questionToCall) {
+    questionToCall.addEventListener('click', () => {
+      closeModal(document.getElementById('question-modal'));
+      openModal('call-modal');
+    });
+  }
   document.querySelectorAll('[data-open-call]').forEach(btn => btn.addEventListener('click', (e) => {
     const book = document.getElementById('book');
     if (book) { e.preventDefault(); book.scrollIntoView({ behavior: 'smooth', block: 'start' }); }

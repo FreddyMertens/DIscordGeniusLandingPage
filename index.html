@@ -93,9 +93,9 @@
 
   <div class="topbar" role="region" aria-label="Book a 15-min intro call">
     <div class="container topbar__wrap">
-      <span class="topbar__text">See if DiscordGenius is right for you. Book a 15‑minute guided tour.</span>
-      <button class="btn btn--neon" data-open-call><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min
-        call</button>
+      <button class="btn btn--neon" data-open-question>Ask a question</button>
+      <span class="topbar__text">or</span>
+      <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe now</a>
     </div>
   </div>
 
@@ -892,6 +892,7 @@
           </label>
           <div class="form__actions">
             <button type="submit" class="btn btn--primary">Send question</button>
+            <button type="button" class="btn btn--neon" id="question-to-call"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call instead</button>
           </div>
         </form>
         <div id="question-success" class="success" hidden>
