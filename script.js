@@ -112,14 +112,12 @@
           else ctx.lineTo(px, py);
         }
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / cols) * invWaveAmp3));
-        const hue = (time * 20 + row * 15) % 360;
-        const vaporHue = hue < 180 ? 300 + (hue * 0.5) : 180 + ((hue - 180) * 0.3);
-        // Outer glow — wide, faint colored stroke
-        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.18})`;
+        // Outer glow — wide, faint cyan stroke
+        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.18})`;
         ctx.lineWidth = 6;
         ctx.stroke();
         // Mid glow
-        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.35})`;
+        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.35})`;
         ctx.lineWidth = 3;
         ctx.stroke();
         // Core line
@@ -140,14 +138,12 @@
           else ctx.lineTo(px, py);
         }
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / rows) * invWaveAmp3));
-        const hue = (time * 20 + col * 15) % 360;
-        const vaporHue = hue < 180 ? 300 + (hue * 0.5) : 180 + ((hue - 180) * 0.3);
-        // Outer glow — wide, faint colored stroke
-        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.18})`;
+        // Outer glow — wide, faint cyan stroke
+        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.18})`;
         ctx.lineWidth = 6;
         ctx.stroke();
         // Mid glow
-        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.35})`;
+        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.35})`;
         ctx.lineWidth = 3;
         ctx.stroke();
         // Core line
