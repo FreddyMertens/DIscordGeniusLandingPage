@@ -268,10 +268,6 @@ body {
   .topbar__text {
     display: none;
   }
-
-  .topbar__or {
-    display: none;
-  }
 }
 
 .nav {
