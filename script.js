@@ -112,16 +112,18 @@
           else ctx.lineTo(px, py);
         }
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / cols) * invWaveAmp3));
-        // Outer glow — wide, faint cyan stroke
-        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.18})`;
+        // Smooth hue: oscillates slowly between cyan (185) and purple (280)
+        const hue = 232 + Math.sin(time * 0.4 + row * 0.15) * 47;
+        // Outer glow — wide, faint colored stroke
+        ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity * 0.18})`;
         ctx.lineWidth = 6;
         ctx.stroke();
         // Mid glow
-        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.35})`;
+        ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity * 0.35})`;
         ctx.lineWidth = 3;
         ctx.stroke();
         // Core line
-        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
+        ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -138,16 +140,18 @@
           else ctx.lineTo(px, py);
         }
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / rows) * invWaveAmp3));
-        // Outer glow — wide, faint cyan stroke
-        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.18})`;
+        // Smooth hue: oscillates slowly between cyan (185) and purple (280)
+        const hue = 232 + Math.sin(time * 0.4 + col * 0.15) * 47;
+        // Outer glow — wide, faint colored stroke
+        ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity * 0.18})`;
         ctx.lineWidth = 6;
         ctx.stroke();
         // Mid glow
-        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.35})`;
+        ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity * 0.35})`;
         ctx.lineWidth = 3;
         ctx.stroke();
         // Core line
-        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
+        ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
