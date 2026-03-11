@@ -93,9 +93,12 @@
 
   <div class="topbar" role="region" aria-label="Book a 15-min intro call">
     <div class="container topbar__wrap">
-      <button class="btn btn--neon" data-open-question>Ask a question</button>
-      <span class="topbar__text">or</span>
-      <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe now</a>
+      <span class="topbar__text">Is DiscordGenius right for you?</span>
+      <div class="topbar__actions">
+        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe now</a>
+        <span class="topbar__or">or</span>
+        <button class="btn btn--neon" data-open-question>Ask a question</button>
+      </div>
     </div>
   </div>
 
@@ -891,8 +894,9 @@
             <input type="text" id="q-contact" required placeholder="you@example.com or @yourdiscord#0000">
           </label>
           <div class="form__actions">
-            <button type="submit" class="btn btn--primary">Send question</button>
-            <button type="button" class="btn btn--neon" id="question-to-call"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call instead</button>
+            <button type="submit" class="btn btn--primary btn--lg">Send question</button>
+            <span class="form__or">or</span>
+            <button type="button" class="btn btn--neon btn--lg" id="question-to-call"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15‑min call instead</button>
           </div>
         </form>
         <div id="question-success" class="success" hidden>
