@@ -100,7 +100,7 @@
 
       const invWaveAmp3 = 1 / (waveAmp * 3);
 
-      // Draw horizontal lines
+      // Draw horizontal lines — cheap multi-stroke glow (no shadowBlur)
       for (let row = 0; row < rows; row++) {
         ctx.beginPath();
         let zSum = 0;
@@ -114,14 +114,21 @@
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / cols) * invWaveAmp3));
         const hue = (time * 20 + row * 15) % 360;
         const vaporHue = hue < 180 ? 300 + (hue * 0.5) : 180 + ((hue - 180) * 0.3);
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.7})`;
+        // Outer glow — wide, faint colored stroke
+        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.18})`;
+        ctx.lineWidth = 6;
+        ctx.stroke();
+        // Mid glow
+        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.35})`;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        // Core line
         ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
-      // Draw vertical lines
+      // Draw vertical lines — cheap multi-stroke glow (no shadowBlur)
       for (let col = 0; col < cols; col++) {
         ctx.beginPath();
         let zSum = 0;
@@ -135,16 +142,19 @@
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / rows) * invWaveAmp3));
         const hue = (time * 20 + col * 15) % 360;
         const vaporHue = hue < 180 ? 300 + (hue * 0.5) : 180 + ((hue - 180) * 0.3);
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.7})`;
+        // Outer glow — wide, faint colored stroke
+        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.18})`;
+        ctx.lineWidth = 6;
+        ctx.stroke();
+        // Mid glow
+        ctx.strokeStyle = `hsla(${vaporHue}, 85%, 65%, ${opacity * 0.35})`;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        // Core line
         ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
-
-      // Reset shadow to prevent state accumulation
-      ctx.shadowBlur = 0;
-      ctx.shadowColor = 'transparent';
     }
 
     function animate(timestamp) {
