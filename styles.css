@@ -781,7 +781,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  align-items: start;
+  align-items: stretch;
 }
 
 @media (min-width: 940px) {
@@ -792,6 +792,8 @@ body {
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(255, 255, 255, .15);
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, rgba(31, 34, 41, 0.85), rgba(31, 34, 41, 0.78));
@@ -913,6 +915,7 @@ body {
   transition: grid-template-rows .35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 1;
+  flex: 1;
 }
 
 .card__panel>* {
@@ -2116,6 +2119,24 @@ header .container {
     justify-content: center;
     font-size: 1.05rem;
     padding: 12px 18px;
+  }
+
+  .hero__bullets {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero__bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .hero__bullets li i,
+  .hero__bullets li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
   }
 
   .badge {
