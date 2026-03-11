@@ -112,8 +112,8 @@
           else ctx.lineTo(px, py);
         }
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / cols) * invWaveAmp3));
-        // Smooth hue: oscillates slowly between cyan (185) and purple (280)
-        const hue = 232 + Math.sin(time * 0.4 + row * 0.15) * 47;
+        // Smooth hue: oscillates mostly in neon cyan-blue (180-230)
+        const hue = 205 + Math.sin(time * 0.4 + row * 0.15) * 25;
         // Outer glow — wide, faint colored stroke
         ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity * 0.18})`;
         ctx.lineWidth = 6;
@@ -140,8 +140,8 @@
           else ctx.lineTo(px, py);
         }
         const opacity = Math.max(0.15, Math.min(0.55, 1 - (zSum / rows) * invWaveAmp3));
-        // Smooth hue: oscillates slowly between cyan (185) and purple (280)
-        const hue = 232 + Math.sin(time * 0.4 + col * 0.15) * 47;
+        // Smooth hue: oscillates mostly in neon cyan-blue (180-230)
+        const hue = 205 + Math.sin(time * 0.4 + col * 0.15) * 25;
         // Outer glow — wide, faint colored stroke
         ctx.strokeStyle = `hsla(${hue}, 85%, 65%, ${opacity * 0.18})`;
         ctx.lineWidth = 6;
