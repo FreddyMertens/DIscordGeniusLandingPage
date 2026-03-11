@@ -2134,6 +2134,7 @@ header .container {
   }
 
   .hero__content {
+    width: auto;
     margin-inline: 8px;
     padding: 20px 16px;
   }
