@@ -254,6 +254,11 @@ body {
   gap: 12px;
 }
 
+.topbar__actions .btn {
+  font-size: 13.5px;
+  padding: 8px 14px;
+}
+
 .topbar__or {
   color: var(--dj-text-400);
   font-size: 13px;
@@ -457,7 +462,12 @@ body {
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 .btn:hover {
