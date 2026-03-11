@@ -2928,3 +2928,82 @@ header .container {
     border-radius: 8px;
   }
 }
+
+/* ============================================================
+   APPLE-ONLY FROSTED GLASS (iOS / macOS)
+   Activated by .gpu-blur class on <html> — set via JS platform
+   detection. These platforms GPU-accelerate backdrop-filter.
+   Android stays on the solid/opaque fallbacks above.
+   ============================================================ */
+
+.gpu-blur .hero__content {
+  background: rgba(31, 34, 41, 0.15);
+  backdrop-filter: blur(3px) saturate(150%);
+  -webkit-backdrop-filter: blur(3px) saturate(150%);
+}
+
+.gpu-blur .step {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.2), rgba(31, 34, 41, 0.15));
+  backdrop-filter: blur(2px) saturate(150%);
+  -webkit-backdrop-filter: blur(2px) saturate(150%);
+}
+
+.gpu-blur .card {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.2), rgba(31, 34, 41, 0.15));
+  backdrop-filter: blur(2px) saturate(150%);
+  -webkit-backdrop-filter: blur(2px) saturate(150%);
+}
+
+.gpu-blur .pricecard {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.25), rgba(31, 34, 41, 0.2));
+  backdrop-filter: blur(3px) saturate(150%);
+  -webkit-backdrop-filter: blur(3px) saturate(150%);
+}
+
+.gpu-blur .faq__item {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.2), rgba(31, 34, 41, 0.15));
+  backdrop-filter: blur(2px) saturate(150%);
+  -webkit-backdrop-filter: blur(2px) saturate(150%);
+}
+
+.gpu-blur .testimonial {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.3), rgba(31, 34, 41, 0.25));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.gpu-blur .portfolio-item {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.25), rgba(31, 34, 41, 0.2));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.gpu-blur .modal__overlay {
+  background: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.gpu-blur .auth-gate {
+  background: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.gpu-blur .feature-card {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.2), rgba(31, 34, 41, 0.15));
+  backdrop-filter: blur(2px) saturate(150%);
+  -webkit-backdrop-filter: blur(2px) saturate(150%);
+}
+
+.gpu-blur .request-card {
+  background: linear-gradient(180deg, rgba(31, 34, 41, 0.35), rgba(31, 34, 41, 0.25));
+  backdrop-filter: blur(2px) saturate(150%);
+  -webkit-backdrop-filter: blur(2px) saturate(150%);
+}
+
+.gpu-blur .app-screenshot__label {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

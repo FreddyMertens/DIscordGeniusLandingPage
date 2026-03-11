@@ -36,6 +36,12 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
   <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png?v=3">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=3">
+  <script>
+    // Enable GPU-accelerated backdrop-filter on Apple platforms only (iOS/macOS)
+    if (/Mac|iPhone|iPad|iPod/.test(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document)) {
+      document.documentElement.classList.add('gpu-blur');
+    }
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="styles.css">
   <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
