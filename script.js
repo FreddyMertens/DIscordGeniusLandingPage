@@ -1,5 +1,6 @@
 /* DiscordGenius interactions: accordions, modals, request/subscribe placeholders */
 (function () {
+  window.__djInteractionsLoaded = true;
   const PRICE = 299; // founders plan price
 
   // 3D Sine Wave Grid Background
@@ -223,6 +224,81 @@
     }, { passive: true });
   }
 
+  function ensureQuestionModal() {
+    if (document.getElementById('question-modal')) return;
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+      <div class="modal" id="question-modal" role="dialog" aria-modal="true" aria-labelledby="question-title" hidden>
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__dialog" role="document">
+          <header class="modal__head">
+            <h2 id="question-title">Ask a question</h2>
+            <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
+          </header>
+          <div class="modal__body">
+            <form id="question-form">
+              <label class="field">
+                <span>Your question</span>
+                <textarea id="q-text" rows="5" required placeholder="Ask anything about bots, integrations, or server design."></textarea>
+              </label>
+              <label class="field">
+                <span>Contact (email or Discord)</span>
+                <input type="text" id="q-contact" required placeholder="you@example.com or @yourdiscord#0000">
+              </label>
+              <div class="form__actions">
+                <button type="submit" class="btn btn--primary btn--lg">Send question</button>
+                <span class="form__or">or</span>
+                <button type="button" class="btn btn--neon btn--lg" id="question-to-call"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15-min call instead</button>
+              </div>
+            </form>
+            <div id="question-success" class="success" hidden>
+              <p>Thanks! We’ll reply to your contact with an answer shortly.</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    if (wrapper.firstElementChild) {
+      document.body.appendChild(wrapper.firstElementChild);
+    }
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  function rewriteBookCallCtas() {
+    let shouldRefreshIcons = false;
+    document.querySelectorAll('.topbar__text').forEach((el) => {
+      const text = (el.textContent || '').trim();
+      if (/book a 15|min call|guided tour/i.test(text)) {
+        el.textContent = 'See if DiscordGenius is right for you. Ask a question and get a clear next step.';
+      }
+    });
+    document.querySelectorAll('.topbar[aria-label]').forEach((el) => {
+      const label = el.getAttribute('aria-label') || '';
+      if (/book a 15|min call|guided tour/i.test(label)) {
+        el.setAttribute('aria-label', 'Ask a question');
+      }
+    });
+    document.querySelectorAll('a[href="/#book"], a[href="#book"]').forEach((el) => {
+      if (el.closest('.modal')) return;
+      el.setAttribute('data-open-question', 'true');
+      el.setAttribute('href', '#ask-question');
+      const isButton = el.classList.contains('btn');
+      if (isButton) {
+        el.innerHTML = '<i data-lucide="message-circle" aria-hidden="true"></i> Ask a question';
+        shouldRefreshIcons = true;
+      } else {
+        el.textContent = 'Ask a question';
+      }
+    });
+    if (shouldRefreshIcons && window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  ensureQuestionModal();
+  rewriteBookCallCtas();
+
   // Modal helpers with focus trap
   const focusableSelectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
   let lastActive = null;
@@ -260,12 +336,20 @@
     document.getElementById('modal-price').textContent = String(PRICE);
     openModal('subscribe-modal');
   }));
-  document.querySelectorAll('[data-open-question]').forEach(btn => btn.addEventListener('click', () => openModal('question-modal')));
+  document.querySelectorAll('[data-open-question]').forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openModal('question-modal');
+  }));
   const questionToCall = document.getElementById('question-to-call');
   if (questionToCall) {
     questionToCall.addEventListener('click', () => {
-      closeModal(document.getElementById('question-modal'));
-      openModal('call-modal');
+      const questionModal = document.getElementById('question-modal');
+      if (questionModal) closeModal(questionModal);
+      if (document.getElementById('call-modal')) {
+        openModal('call-modal');
+        return;
+      }
+      window.location.href = '/?open=call';
     });
   }
   document.querySelectorAll('[data-open-call]').forEach(btn => btn.addEventListener('click', (e) => {
@@ -372,6 +456,16 @@
   }
   tabs.forEach(t => t.addEventListener('click', () => activateTab(t.getAttribute('data-faq-tab'))));
   if (tabs.length) activateTab('bots');
+
+  try {
+    const currentUrl = new URL(window.location.href);
+    const open = currentUrl.searchParams.get('open');
+    if (open === 'call' && document.getElementById('call-modal')) {
+      openModal('call-modal');
+    } else if (open === 'question' && document.getElementById('question-modal')) {
+      openModal('question-modal');
+    }
+  } catch (_err) { }
 
   initBookingScheduler();
 

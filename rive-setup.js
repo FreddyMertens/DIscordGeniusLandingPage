@@ -1,3 +1,12 @@
+(() => {
+    const hasInteractions = Boolean(window.__djInteractionsLoaded) || Boolean(document.querySelector('script[src$="script.js"]'));
+    if (!hasInteractions && document.currentScript?.src) {
+        const sharedScript = document.createElement('script');
+        sharedScript.src = new URL('script.js', document.currentScript.src).toString();
+        document.head.appendChild(sharedScript);
+    }
+})();
+
 // Lazy-load Rive animations: only init when visible, pause when off-screen
 document.addEventListener('DOMContentLoaded', () => {
     const canUseRive = window.location.protocol === 'http:' || window.location.protocol === 'https:';
