@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discord Build Walkthroughs and Integration Guides | DiscordGenius</title>
+  <meta name="description"
+    content="See real Discord bot walkthroughs and browse integration guides grouped by category. Payments, creator memberships, courses, operations, and game server integrations.">
+  <meta name="theme-color" content="#00e5ff">
+  <link rel="canonical" href="https://www.discordgenius.com/walkthrough">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DiscordGenius">
+  <meta property="og:title" content="Discord Build Walkthroughs and Integration Guides | DiscordGenius">
+  <meta property="og:description"
+    content="See real walkthroughs, then browse integration guides grouped by what they do inside your Discord server.">
+  <meta property="og:image" content="https://www.discordgenius.com/assets/og-image.png">
+  <meta property="og:url" content="https://www.discordgenius.com/walkthrough">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Discord Build Walkthroughs and Integration Guides">
+  <meta name="twitter:description"
+    content="Walkthroughs first. Then a grouped library of integration guides for monetization, creators, courses, ops, and games.">
+  <meta name="twitter:image" content="https://www.discordgenius.com/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/DiscordLogoNoAtoms.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar" role="region">
+    <div class="container topbar__wrap">
+      <span class="topbar__text">See if DiscordGenius is right for you. Book a 15-minute guided tour.</span>
+      <a href="/#book" class="btn btn--neon"><i data-lucide="calendar" aria-hidden="true"></i> Book a 15-min call</a>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__wrap">
+      <a class="brand" href="/" aria-label="DiscordGenius home">
+        <img id="nav-logo-fallback" class="brand__logo" src="assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="96" height="96">
+        <canvas id="nav-logo" class="brand__logo brand__logo--rive" width="96" height="96" aria-hidden="true" style="display:none;"></canvas>
+        <span id="nav-title-fallback">DiscordGenius</span>
+        <canvas id="nav-title" class="brand__title" width="200" height="48" style="display:none;"></canvas>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#pricing" class="nav__link">Pricing</a>
+        <a href="/#faq" class="nav__link">FAQ</a>
+      </nav>
+      <div class="nav__ctas">
+        <a href="/#pricing" class="btn btn--ghost">See pricing</a>
+        <a href="https://app.discordgenius.com/" class="btn btn--primary">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="spoke-hero" style="padding-bottom: 2rem;">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>Walkthroughs</span>
+        </nav>
+
+        <span class="badge" style="margin-top: 1.5rem; display: inline-flex;">Real builds + grouped integration guides</span>
+        <h1 class="spoke-hero__title" style="margin-top: 1.25rem;">Build Walkthroughs and<br>Integration Guides</h1>
+        <p class="spoke-hero__tagline">Start with real client walkthroughs so you can see how a request becomes a shipped system. Then browse the integration library below, grouped by what each integration does inside your Discord server.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section__intro" style="text-align: center; max-width: 760px; margin: 0 auto 2rem;">
+          <h2 class="section__title">Real client walkthroughs</h2>
+          <p class="section__desc" style="color: var(--dj-text-400);">These are not hypothetical feature lists. They show what an actual request looked like and what got shipped.</p>
+        </div>
+
+        <div class="tutorial-nav">
+          <a href="/walkthrough/video-contest-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Walkthrough</span>
+            <span class="tutorial-nav__card-title">Video Contest Bot</span>
+            <p class="tutorial-nav__card-desc">A fully automated video submission and voting system for growing communities.</p>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--simple"><i data-lucide="zap" style="width:14px;height:14px" aria-hidden="true"></i> Simple</span></span>
+          </a>
+          <a href="/walkthrough/community-world-map-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Walkthrough</span>
+            <span class="tutorial-nav__card-title">Community World Map Bot</span>
+            <p class="tutorial-nav__card-desc">Interactive web map powered by a Discord bot where members pin their locations.</p>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--moderate"><i data-lucide="layers" style="width:14px;height:14px" aria-hidden="true"></i> Moderate</span></span>
+          </a>
+          <a href="/walkthrough/texas-holdem-poker-bot" class="tutorial-nav__card">
+            <span class="tutorial-nav__card-label">Walkthrough</span>
+            <span class="tutorial-nav__card-title">Texas Hold'em Poker Bot</span>
+            <p class="tutorial-nav__card-desc">Multiplayer, full-economy Poker bot built strictly on Discord interactions.</p>
+            <span class="tutorial-nav__card-complexity"><span class="complexity-badge complexity-badge--moderate"><i data-lucide="layers" style="width:14px;height:14px" aria-hidden="true"></i> Moderate</span></span>
+          </a>
+        </div>
+
+        <div class="tutorial-nav" style="margin-top: 1.5rem; grid-template-columns: 1fr;">
+          <div class="tutorial-nav__card" style="cursor: default;">
+            <span class="tutorial-nav__card-title">How to use this page</span>
+            <p class="tutorial-nav__card-desc" style="margin-top: 8px;">Use the walkthroughs above when you want to understand what a request looks like in practice. Use the grouped integration library below when you already know the business or community problem you want your Discord server to solve.</p>
+          </div>
+        </div>
+
+        <div class="section__intro" style="text-align: center; max-width: 760px; margin: 4rem auto 2rem;">
+          <h2 class="section__title">Browse integration guides by category</h2>
+          <p class="section__desc" style="color: var(--dj-text-400);">Grouped by the job they do inside your Discord server so you can find the right pattern faster.</p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <div class="section__intro" style="text-align: left; max-width: none; margin: 0 0 1rem;">
+            <p class="badge" style="display: inline-flex; margin-bottom: 12px;">Payments and commerce</p>
+            <h3 style="margin: 0 0 8px;">Use Discord as the paid-access and customer-operations layer</h3>
+            <p class="muted" style="margin: 0;">These integrations turn billing, orders, customer status, and monetization events into roles, support flows, and visible access inside Discord.</p>
+          </div>
+          <div class="tutorial-nav" style="margin-top: 1rem;">
+            <a href="/discord-stripe-integration-bot" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Payments</span>
+              <span class="tutorial-nav__card-title">Stripe Integration</span>
+              <p class="tutorial-nav__card-desc">Subscriptions, purchase-to-role, renewal handling, and premium support access.</p>
+            </a>
+            <a href="/discord-shopify-bot" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Ecommerce</span>
+              <span class="tutorial-nav__card-title">Shopify Bot</span>
+              <p class="tutorial-nav__card-desc">Order notifications, buyer perks, VIP spaces, and customer community access.</p>
+            </a>
+            <a href="/discord-lemon-squeezy-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Digital products</span>
+              <span class="tutorial-nav__card-title">Lemon Squeezy Integration</span>
+              <p class="tutorial-nav__card-desc">Customer roles, license-state workflows, beta access, and premium support lanes.</p>
+            </a>
+            <a href="/discord-tebex-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Game monetization</span>
+              <span class="tutorial-nav__card-title">Tebex Integration</span>
+              <p class="tutorial-nav__card-desc">Donor perks, game store fulfillment, refund handling, and VIP support workflows.</p>
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <div class="section__intro" style="text-align: left; max-width: none; margin: 0 0 1rem;">
+            <p class="badge" style="display: inline-flex; margin-bottom: 12px;">Creator memberships and audience</p>
+            <h3 style="margin: 0 0 8px;">Turn audience support into visible access and structured creator ops</h3>
+            <p class="muted" style="margin: 0;">These are ideal when supporters, subscribers, or viewers should unlock channels, events, creator support, and audience-specific automation.</p>
+          </div>
+          <div class="tutorial-nav" style="margin-top: 1rem;">
+            <a href="/discord-patreon-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Memberships</span>
+              <span class="tutorial-nav__card-title">Patreon Integration</span>
+              <p class="tutorial-nav__card-desc">Tier roles, premium channels, paid support, grace periods, and event gating.</p>
+            </a>
+            <a href="/discord-kofi-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Creator support</span>
+              <span class="tutorial-nav__card-title">Ko-fi Integration</span>
+              <p class="tutorial-nav__card-desc">Supporter roles, memberships, shop perks, commission workflows, and launches.</p>
+            </a>
+            <a href="/discord-youtube-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Video audience</span>
+              <span class="tutorial-nav__card-title">YouTube Integration</span>
+              <p class="tutorial-nav__card-desc">Upload alerts, subscriber verification, memberships, watch parties, and analytics feeds.</p>
+            </a>
+            <a href="/discord-twitch-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Live streaming</span>
+              <span class="tutorial-nav__card-title">Twitch Integration</span>
+              <p class="tutorial-nav__card-desc">Go-live alerts, subscriber roles, clip feeds, stream stats, and raid coordination.</p>
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <div class="section__intro" style="text-align: left; max-width: none; margin: 0 0 1rem;">
+            <p class="badge" style="display: inline-flex; margin-bottom: 12px;">Courses and paid communities</p>
+            <h3 style="margin: 0 0 8px;">Map enrollments and memberships to real Discord structure</h3>
+            <p class="muted" style="margin: 0;">These integrations are for businesses that sell education, masterminds, memberships, and premium student communities.</p>
+          </div>
+          <div class="tutorial-nav" style="margin-top: 1rem;">
+            <a href="/discord-kajabi-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Education platform</span>
+              <span class="tutorial-nav__card-title">Kajabi Integration</span>
+              <p class="tutorial-nav__card-desc">Student roles, course cohorts, premium support, workshops, and community ops.</p>
+            </a>
+            <a href="/discord-thinkific-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Education platform</span>
+              <span class="tutorial-nav__card-title">Thinkific Integration</span>
+              <p class="tutorial-nav__card-desc">Enrollment roles, cohort rooms, support lanes, and event gating for students.</p>
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <div class="section__intro" style="text-align: left; max-width: none; margin: 0 0 1rem;">
+            <p class="badge" style="display: inline-flex; margin-bottom: 12px;">Productivity and internal ops</p>
+            <h3 style="margin: 0 0 8px;">Bring data, docs, and workflows into the server</h3>
+            <p class="muted" style="margin: 0;">Use Discord as the interface for knowledge, operations, queue management, and internal process tracking.</p>
+          </div>
+          <div class="tutorial-nav" style="margin-top: 1rem;">
+            <a href="/discord-notion-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Knowledge and workflows</span>
+              <span class="tutorial-nav__card-title">Notion Integration</span>
+              <p class="tutorial-nav__card-desc">Sync docs, knowledge bases, tasks, and approval flows with Discord operations.</p>
+            </a>
+            <a href="/discord-airtable-automation" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Structured data</span>
+              <span class="tutorial-nav__card-title">Airtable Automation</span>
+              <p class="tutorial-nav__card-desc">Queues, dashboards, records, alerts, and staff workflows powered by Airtable data.</p>
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <div class="section__intro" style="text-align: left; max-width: none; margin: 0 0 1rem;">
+            <p class="badge" style="display: inline-flex; margin-bottom: 12px;">Games and server operations</p>
+            <h3 style="margin: 0 0 8px;">Bridge game identity, admin tools, and community workflows</h3>
+            <p class="muted" style="margin: 0;">These are for gaming communities where Discord needs to reflect ownership, server state, moderation context, or donor entitlements.</p>
+          </div>
+          <div class="tutorial-nav" style="margin-top: 1rem;">
+            <a href="/discord-steam-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Player identity</span>
+              <span class="tutorial-nav__card-title">Steam Integration</span>
+              <p class="tutorial-nav__card-desc">Game ownership verification, playtime roles, VAC checks, stats, and matchmaking.</p>
+            </a>
+            <a href="/discord-game-server-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Multi-game overview</span>
+              <span class="tutorial-nav__card-title">Game Server Integration</span>
+              <p class="tutorial-nav__card-desc">A broader guide to Rust, FiveM, Minecraft, Garry's Mod, and Roblox patterns.</p>
+            </a>
+            <a href="/discord-ark-server-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Cluster operations</span>
+              <span class="tutorial-nav__card-title">ARK Server Integration</span>
+              <p class="tutorial-nav__card-desc">Cross-chat, player tracking, donor tooling, admin logs, and cluster visibility.</p>
+            </a>
+            <a href="/discord-palworld-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">RCON operations</span>
+              <span class="tutorial-nav__card-title">Palworld Integration</span>
+              <p class="tutorial-nav__card-desc">RCON admin tools, server status, support workflows, moderation, and donor perks.</p>
+            </a>
+            <a href="/discord-redm-integration" class="tutorial-nav__card">
+              <span class="tutorial-nav__card-label">Roleplay systems</span>
+              <span class="tutorial-nav__card-title">RedM Integration</span>
+              <p class="tutorial-nav__card-desc">Whitelist, factions, dispatch, staff workflows, and roleplay admin structure.</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="tutorial-nav" style="margin-top: 2rem; grid-template-columns: 1fr;">
+          <div class="tutorial-nav__card" style="cursor: default;">
+            <span class="tutorial-nav__card-title">Do not see your stack?</span>
+            <p class="tutorial-nav__card-desc" style="margin-top: 8px;">If your service exposes an API, webhook system, plugin layer, admin console, or server-side scripting surface, we can usually wire it into Discord. The grouped guides above are the starting library, not the limit.</p>
+            <div class="spoke-hero__actions" style="margin-top: 12px;">
+              <a href="/#book" class="btn btn--neon">Book a free intro call</a>
+              <a href="https://app.discordgenius.com/" class="btn btn--primary">Start building today</a>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section__title" style="text-align: center; margin-top: 4rem;">How long does it take to fulfil a request?</h2>
+        <div class="services__grid" style="margin-bottom: 2.5rem;">
+          <article class="card card--center">
+            <div class="card__head"><i data-lucide="clock" aria-hidden="true"></i>
+              <h3>Simple (1-2 days)</h3>
+            </div>
+            <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;">
+              <ul>
+                <li>Small feature edits to existing bots</li>
+                <li>API webhook to role assignment</li>
+                <li>Basic ticket system</li>
+                <li>Custom XP system with leaderboards</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card card--center">
+            <div class="card__head"><i data-lucide="timer" aria-hidden="true"></i>
+              <h3>Moderate (2-4 days)</h3>
+            </div>
+            <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;">
+              <ul>
+                <li>Large feature edits to existing bots</li>
+                <li>Medium to low complexity AI suite bots</li>
+                <li>Server analytics with a dedicated dashboard</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card card--center">
+            <div class="card__head"><i data-lucide="hourglass" aria-hidden="true"></i>
+              <h3>Complex (4-7 days)</h3>
+            </div>
+            <div class="card__panel" style="grid-template-rows: 1fr; padding: 4px 0 12px;">
+              <ul>
+                <li>Complex multi-feature bots with monetization</li>
+                <li>Complex interactive games and community economies</li>
+                <li>Complex custom APIs and multi-system integrations</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__about">
+        <p><strong>DiscordGenius</strong> is your dedicated Discord development partner. We build custom bots, integrations, and server experiences that scale with your community. From launch to 100K+ members.</p>
+        <p class="muted small">Founded by developers who've shipped 400+ Discord features for communities managing 100k+ members combined. We're Discord-native, security-first, and obsessed with helping communities thrive.</p>
+      </div>
+      <div class="footer__columns">
+        <div>
+          <p class="footer__col-title">Solutions</p>
+          <ul class="footer__col-links">
+            <li><a href="/hire-discord-bot-developer">Hire a Discord Bot Developer</a></li>
+            <li><a href="/custom-discord-economy-bot">Custom Economy Bots</a></li>
+            <li><a href="/discord-bot-verification-system">Verification Systems</a></li>
+            <li><a href="/discord-server-setup-expert">Server Setup Expert</a></li>
+            <li><a href="/discord-community-monetization">Community Monetization</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Integrations</p>
+          <ul class="footer__col-links">
+            <li><a href="/discord-stripe-integration-bot">Stripe Integration</a></li>
+            <li><a href="/discord-shopify-bot">Shopify Bot</a></li>
+            <li><a href="/discord-notion-integration">Notion Integration</a></li>
+            <li><a href="/discord-airtable-automation">Airtable Automation</a></li>
+            <li><a href="/discord-steam-integration">Steam Integration</a></li>
+            <li><a href="/discord-youtube-integration">YouTube Integration</a></li>
+            <li><a href="/discord-twitch-integration">Twitch Integration</a></li>
+            <li><a href="/discord-game-server-integration">Game Server Integration</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Walkthroughs</p>
+          <ul class="footer__col-links">
+            <li><a href="/walkthrough">Walkthrough hub</a></li>
+            <li><a href="/walkthrough/video-contest-bot">Video Contest Bot</a></li>
+            <li><a href="/walkthrough/community-world-map-bot">Community World Map Bot</a></li>
+            <li><a href="/walkthrough/texas-holdem-poker-bot">Texas Hold'em Poker Bot</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Compare</p>
+          <ul class="footer__col-links">
+            <li><a href="/discord-bot-maker-vs-custom-developer">Bot Maker vs Custom Dev</a></li>
+            <li><a href="/fiverr-vs-discordgenius-for-discord-bots">Fiverr vs DiscordGenius</a></li>
+            <li><a href="/upwork-discord-bot-developer-alternative">Upwork Alternative</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__col-links">
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#book">Book a Call</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__wrap">
+        <div class="footer__brand">
+          <img id="footer-logo-fallback" class="footer__logo" src="assets/SVGDiscordGeniusLogo.svg" alt="DiscordGenius logo" width="72" height="72">
+          <canvas id="footer-logo" class="footer__logo footer__logo--rive" width="72" height="72" aria-hidden="true" style="display:none;"></canvas>
+          <span id="footer-title-fallback">DiscordGenius</span>
+          <canvas id="footer-title" class="footer__title" width="160" height="40" style="display:none;"></canvas>
+        </div>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+        </nav>
+        <p class="muted">Headquartered on the internet</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="rive-setup.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

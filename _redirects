@@ -22,6 +22,16 @@
 /discord-steam-integration /discord-steam-integration.html 200
 /discord-youtube-integration /discord-youtube-integration.html 200
 /discord-twitch-integration /discord-twitch-integration.html 200
+/discord-game-server-integration /discord-game-server-integration.html 200
+/discord-tebex-integration /discord-tebex-integration.html 200
+/discord-patreon-integration /discord-patreon-integration.html 200
+/discord-kofi-integration /discord-kofi-integration.html 200
+/discord-lemon-squeezy-integration /discord-lemon-squeezy-integration.html 200
+/discord-kajabi-integration /discord-kajabi-integration.html 200
+/discord-thinkific-integration /discord-thinkific-integration.html 200
+/discord-ark-server-integration /discord-ark-server-integration.html 200
+/discord-palworld-integration /discord-palworld-integration.html 200
+/discord-redm-integration /discord-redm-integration.html 200
 
 # Comparison Pages
 /discord-bot-maker-vs-custom-developer /discord-bot-maker-vs-custom-developer.html 200
@@ -29,6 +39,18 @@
 /upwork-discord-bot-developer-alternative /upwork-discord-bot-developer-alternative.html 200
 
 # Example / Tutorial Pages
-/examples/video-contest-bot /examples/video-contest-bot.html 200
-/examples/community-world-map-bot /examples/community-world-map-bot.html 200
-/examples/texas-holdem-poker-bot /examples/texas-holdem-poker-bot.html 200
+/walkthrough /walkthrough.html 200
+/walkthrough/ /walkthrough.html 200
+/walkthrough.html /walkthrough 301!
+/examples /walkthrough 301!
+/examples/ /walkthrough 301!
+/examples/index.html /walkthrough 301!
+/walkthrough/video-contest-bot /examples/video-contest-bot.html 200
+/walkthrough/community-world-map-bot /examples/community-world-map-bot.html 200
+/walkthrough/texas-holdem-poker-bot /examples/texas-holdem-poker-bot.html 200
+/examples/video-contest-bot /walkthrough/video-contest-bot 301!
+/examples/community-world-map-bot /walkthrough/community-world-map-bot 301!
+/examples/texas-holdem-poker-bot /walkthrough/texas-holdem-poker-bot 301!
+/examples/video-contest-bot.html /walkthrough/video-contest-bot 301!
+/examples/community-world-map-bot.html /walkthrough/community-world-map-bot 301!
+/examples/texas-holdem-poker-bot.html /walkthrough/texas-holdem-poker-bot 301!
