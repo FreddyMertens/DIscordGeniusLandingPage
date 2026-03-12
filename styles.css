@@ -2239,6 +2239,11 @@ header .container {
     justify-content: center;
   }
 
+  .spoke-hero__or {
+    width: 100%;
+    justify-content: center;
+  }
+
   .comparison-table {
     font-size: .85rem;
   }
@@ -2327,6 +2332,14 @@ header .container {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.spoke-hero__or {
+  display: inline-flex;
+  align-items: center;
+  color: var(--dj-text-400);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 /* Feature Grid — for spoke page features */

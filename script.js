@@ -291,13 +291,70 @@
         el.textContent = 'Ask a question';
       }
     });
+    document.querySelectorAll('.spoke-hero__actions, .hero__actions, .topbar__actions').forEach((group) => {
+      const existingOr = group.querySelector('.spoke-hero__or, .topbar__or');
+      if (existingOr) return;
+      const children = [...group.children];
+      const primary = children.find((child) => {
+        const text = (child.textContent || '').trim();
+        return child.classList?.contains('btn') && /subscribe|start building|join today|subscribe and try it/i.test(text);
+      });
+      const question = children.find((child) => {
+        const text = (child.textContent || '').trim();
+        return child.matches?.('[data-open-question]') || /ask a question/i.test(text);
+      });
+      if (!primary || !question) return;
+      const orEl = document.createElement('span');
+      orEl.className = group.classList.contains('topbar__actions') ? 'topbar__or' : 'spoke-hero__or';
+      orEl.textContent = 'or';
+      if (primary.nextElementSibling === question) {
+        group.insertBefore(orEl, question);
+        return;
+      }
+      if (question.nextElementSibling === primary) {
+        group.insertBefore(orEl, primary);
+        return;
+      }
+      const questionIndex = children.indexOf(question);
+      if (questionIndex >= 0) {
+        group.insertBefore(orEl, question);
+      }
+    });
     if (shouldRefreshIcons && window.lucide && typeof window.lucide.createIcons === 'function') {
       window.lucide.createIcons();
     }
   }
 
+  function rewriteWalkthroughLinks() {
+    const integrationRoutes = {
+      '/discord-stripe-integration-bot': '/walkthrough/integrations/discord-stripe-integration-bot',
+      '/discord-shopify-bot': '/walkthrough/integrations/discord-shopify-bot',
+      '/discord-notion-integration': '/walkthrough/integrations/discord-notion-integration',
+      '/discord-airtable-automation': '/walkthrough/integrations/discord-airtable-automation',
+      '/discord-steam-integration': '/walkthrough/integrations/discord-steam-integration',
+      '/discord-youtube-integration': '/walkthrough/integrations/discord-youtube-integration',
+      '/discord-twitch-integration': '/walkthrough/integrations/discord-twitch-integration',
+      '/discord-game-server-integration': '/walkthrough/integrations/discord-game-server-integration',
+      '/discord-tebex-integration': '/walkthrough/integrations/discord-tebex-integration',
+      '/discord-patreon-integration': '/walkthrough/integrations/discord-patreon-integration',
+      '/discord-kofi-integration': '/walkthrough/integrations/discord-kofi-integration',
+      '/discord-lemon-squeezy-integration': '/walkthrough/integrations/discord-lemon-squeezy-integration',
+      '/discord-kajabi-integration': '/walkthrough/integrations/discord-kajabi-integration',
+      '/discord-thinkific-integration': '/walkthrough/integrations/discord-thinkific-integration',
+      '/discord-ark-server-integration': '/walkthrough/integrations/discord-ark-server-integration',
+      '/discord-palworld-integration': '/walkthrough/integrations/discord-palworld-integration',
+      '/discord-redm-integration': '/walkthrough/integrations/discord-redm-integration',
+    };
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || !(href in integrationRoutes)) return;
+      link.setAttribute('href', integrationRoutes[href]);
+    });
+  }
+
   ensureQuestionModal();
   rewriteBookCallCtas();
+  rewriteWalkthroughLinks();
 
   // Modal helpers with focus trap
   const focusableSelectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
