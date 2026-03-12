@@ -84,6 +84,174 @@
       </div>
     </section>
 
+    <section class="section walkthrough-guide-section" style="padding-top: 0;">
+      <div class="container">
+        <div class="walkthrough-guide__header">
+          <span class="badge walkthrough-guide__badge">Client board walkthrough</span>
+          <h2 class="section__title">See exactly how the management board works</h2>
+          <p class="section__desc walkthrough-guide__desc">This is the board you use to submit requests, review deliveries, ask for edits, and choose how you want your bot managed once everything is approved.</p>
+        </div>
+
+        <div class="walkthrough-shot walkthrough-shot--board">
+          <div class="walkthrough-shot__frame">
+            <img src="assets/appscreenshotoverview.png" alt="DiscordGenius board overview showing the Backlog, Active Request, and Approved columns" loading="lazy">
+            <span class="walkthrough-marker walkthrough-marker--backlog">
+              <span class="walkthrough-marker__dot">1</span>
+              <span class="walkthrough-marker__label">Backlog</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--active">
+              <span class="walkthrough-marker__dot">2</span>
+              <span class="walkthrough-marker__label">Active request</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--approved">
+              <span class="walkthrough-marker__dot">3</span>
+              <span class="walkthrough-marker__label">Approved</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--add-card">
+              <span class="walkthrough-marker__dot">4</span>
+              <span class="walkthrough-marker__label">Add a card</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--board-tools">
+              <span class="walkthrough-marker__dot">5</span>
+              <span class="walkthrough-marker__label">Search and account</span>
+            </span>
+          </div>
+          <div class="walkthrough-shot__notes">
+            <p class="walkthrough-shot__eyebrow">📋 Your Project Board</p>
+            <p class="walkthrough-shot__lead">Your requests move through three stages so you always know what is waiting, what is being built, and what is complete.</p>
+            <div class="walkthrough-flow" aria-label="Board workflow stages">
+              <div class="walkthrough-flow__step">
+                <strong>Backlog</strong>
+                <span>Pending requests</span>
+              </div>
+              <span class="walkthrough-flow__arrow" aria-hidden="true">→</span>
+              <div class="walkthrough-flow__step">
+                <strong>Active</strong>
+                <span>Being worked on</span>
+              </div>
+              <span class="walkthrough-flow__arrow" aria-hidden="true">→</span>
+              <div class="walkthrough-flow__step">
+                <strong>Approved</strong>
+                <span>Complete</span>
+              </div>
+            </div>
+            <ul class="walkthrough-note-list">
+              <li><strong>1. Backlog</strong> New ideas and queued requests stay here until they are ready to be worked on.</li>
+              <li><strong>2. Active request</strong> This is the one request your builder is currently focused on.</li>
+              <li><strong>3. Approved</strong> Finished work stays here so you can revisit what shipped at any time.</li>
+              <li><strong>4. Add a card</strong> Create a new request whenever you want another change or feature added.</li>
+              <li><strong>5. Search and account</strong> Use the top bar to search the board, switch context, and manage your session.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="walkthrough-shot walkthrough-shot--detail">
+          <div class="walkthrough-shot__frame">
+            <img src="assets/appscreenshotrequuestcard.png" alt="DiscordGenius request card showing the request editor, attachments area, delivery thread, and chat panel" loading="lazy">
+            <span class="walkthrough-marker walkthrough-marker--card-title">
+              <span class="walkthrough-marker__dot">1</span>
+              <span class="walkthrough-marker__label">Card title</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--composer">
+              <span class="walkthrough-marker__dot">2</span>
+              <span class="walkthrough-marker__label">Request and delivery</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--attachments">
+              <span class="walkthrough-marker__dot">3</span>
+              <span class="walkthrough-marker__label">Attach files</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--submit">
+              <span class="walkthrough-marker__dot">4</span>
+              <span class="walkthrough-marker__label">Submit request</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--thread">
+              <span class="walkthrough-marker__dot">5</span>
+              <span class="walkthrough-marker__label">Delivery thread</span>
+            </span>
+            <span class="walkthrough-marker walkthrough-marker--chat">
+              <span class="walkthrough-marker__dot">6</span>
+              <span class="walkthrough-marker__label">Live chat</span>
+            </span>
+          </div>
+          <div class="walkthrough-shot__notes">
+            <p class="walkthrough-shot__eyebrow">💬 Delivery Thread</p>
+            <p class="walkthrough-shot__lead">Each card contains the working conversation between you and your builder so every request, fulfilment, and revision stays in one place.</p>
+            <ul class="walkthrough-note-list">
+              <li><strong>1. Card title</strong> Name the request clearly so the outcome is easy to recognize later.</li>
+              <li><strong>2. Request and delivery</strong> Describe what should change and include context, links, screenshots, or acceptance details.</li>
+              <li><strong>3. Attach files</strong> Add assets, references, recordings, or documents that help your builder move faster.</li>
+              <li><strong>4. Submit request</strong> Send the request into the thread when you are ready for work to begin.</li>
+              <li><strong>5. Delivery thread</strong> Your builder replies here with updates, test links, documentation, and delivered work.</li>
+              <li><strong>6. Live chat</strong> Use the chat in any card to message your builder directly whenever you need clarification.</li>
+            </ul>
+            <div class="walkthrough-process">
+              <div class="walkthrough-process__step">You submit a request with details and attachments.</div>
+              <div class="walkthrough-process__step">Your builder delivers with a test server link so you can try the bot.</div>
+              <div class="walkthrough-process__step">You review it, request edits if needed, and repeat until you are happy.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="walkthrough-guide__cards">
+          <article class="walkthrough-info-card">
+            <p class="walkthrough-shot__eyebrow">🤖 Your Bot</p>
+            <p class="walkthrough-shot__lead">When your bot is ready, your builder will usually share everything you need to test and use it immediately.</p>
+            <ul class="walkthrough-bullet-list">
+              <li>A test server invite so you can try it out safely.</li>
+              <li>An invite link to add the bot to your real server.</li>
+              <li>Documentation for commands, setup, and usage.</li>
+            </ul>
+          </article>
+
+          <article class="walkthrough-info-card walkthrough-info-card--ownership">
+            <p class="walkthrough-shot__eyebrow">🔐 Ownership Options</p>
+            <p class="walkthrough-shot__lead">When your project is complete, choose how you want your bot to be managed going forward.</p>
+            <div class="ownership-grid">
+              <div class="ownership-card ownership-card--recommended">
+                <div class="ownership-card__header">
+                  <div>
+                    <p class="ownership-card__title">🛡️ We Manage It</p>
+                    <span class="ownership-card__tag">Recommended</span>
+                  </div>
+                </div>
+                <p class="ownership-card__desc">Your bot runs on our infrastructure so you can focus on using it instead of maintaining it.</p>
+                <ul class="walkthrough-bullet-list">
+                  <li>24/7 hosting with monitoring and restarts.</li>
+                  <li>Updates and fixes handled for you.</li>
+                  <li>No technical skills required.</li>
+                  <li>Easy changes through new requests on the board.</li>
+                </ul>
+                <p class="ownership-card__footnote">You own your Discord server. We own the bot application and hosting, which is the best fit for most clients.</p>
+              </div>
+
+              <div class="ownership-card">
+                <div class="ownership-card__header">
+                  <div>
+                    <p class="ownership-card__title">📦 Full Handoff</p>
+                    <span class="ownership-card__tag ownership-card__tag--muted">Transfer everything to you</span>
+                  </div>
+                </div>
+                <p class="ownership-card__desc">Everything transfers to your team, and you become responsible for running and maintaining it.</p>
+                <ul class="walkthrough-bullet-list">
+                  <li>Source code and repository access transferred to you.</li>
+                  <li>Hosting project moved into your account.</li>
+                  <li>Discord application ownership transferred in the developer portal.</li>
+                  <li>Credentials, deployment details, and setup documentation handed over securely.</li>
+                </ul>
+                <p class="ownership-card__footnote">Best for technical teams, enterprise requirements, or one-time projects where you want full control.</p>
+              </div>
+            </div>
+            <p class="walkthrough-info-card__footer">Discuss your preference with your builder in the chat when your project is approved.</p>
+          </article>
+
+          <article class="walkthrough-info-card walkthrough-info-card--help">
+            <p class="walkthrough-shot__eyebrow">Need help?</p>
+            <p class="walkthrough-shot__lead">Use the chat in any card to message your builder directly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="section__intro" style="text-align: center; max-width: 760px; margin: 0 auto 2rem;">
