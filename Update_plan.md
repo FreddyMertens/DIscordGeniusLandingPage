@@ -13,7 +13,6 @@ Examples of pages to create:
 /discord-stripe-integration-bot (For people wanting monetization)
 /discord-bot-verification-system
 /discord-web3-nft-bot-developer
-/discord-server-setup-expert
 Strategy: Each of these pages should have a focused H1 (e.g., "Custom Discord Economy Bots Developed for Your Server"), specific examples of that feature, and the same CTA ("Subscribe to DiscordGenius").
 
 2. Target "Discord + [Software]" Integrations
