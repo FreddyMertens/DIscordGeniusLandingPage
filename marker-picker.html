@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marker Position Picker</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0a0f1a;
+    color: #e0e6f0;
+    padding: 2rem;
+  }
+  h1 { text-align: center; margin-bottom: 0.5rem; font-size: 1.6rem; color: #00e5ff; }
+  .subtitle { text-align: center; margin-bottom: 2rem; opacity: 0.6; font-size: 0.9rem; }
+
+  .image-section {
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.03);
+  }
+  .image-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #00e5ff;
+  }
+
+  .picker-container {
+    position: relative;
+    display: inline-block;
+    cursor: crosshair;
+    border: 2px solid rgba(0,229,255,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .picker-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Placed dots */
+  .placed-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #00e5ff;
+    color: #0a0f1a;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0,229,255,0.6);
+    z-index: 10;
+  }
+
+  /* Crosshair follower */
+  .crosshair-h, .crosshair-v {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .crosshair-h {
+    left: 0; right: 0;
+    height: 1px;
+    background: rgba(0,229,255,0.3);
+  }
+  .crosshair-v {
+    top: 0; bottom: 0;
+    width: 1px;
+    background: rgba(0,229,255,0.3);
+  }
+
+  /* Coordinate tooltip */
+  .coord-tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.85);
+    color: #00e5ff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Consolas', monospace;
+    pointer-events: none;
+    z-index: 20;
+    white-space: nowrap;
+    transform: translate(12px, -100%);
+  }
+
+  /* Log panel */
+  .log-panel {
+    margin-top: 1rem;
+    background: #111827;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+  .log-entry {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .log-entry:last-child { border-bottom: none; }
+  .log-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00e5ff;
+    color: #0a0f1a;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .log-coords { color: #00e5ff; }
+
+  .controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  button {
+    background: rgba(0,229,255,0.15);
+    color: #00e5ff;
+    border: 1px solid rgba(0,229,255,0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  button:hover { background: rgba(0,229,255,0.3); }
+
+  .copy-output {
+    margin-top: 1rem;
+    background: #111827;
+    border: 1px solid rgba(0,229,255,0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    color: #a5f3fc;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎯 Marker Position Picker</h1>
+<p class="subtitle">Click on each image to place markers. Coordinates are shown as CSS percentages. Click "Copy CSS" to get the code.</p>
+
+<!-- Board Overview -->
+<div class="image-section" id="section-board">
+  <h2>📋 Board Overview — <span id="board-counter">0</span> markers placed</h2>
+  <div class="picker-container" id="picker-board">
+    <img src="assets/appscreenshotoverview.png" alt="Board Overview">
+    <div class="crosshair-h" style="display:none"></div>
+    <div class="crosshair-v" style="display:none"></div>
+    <div class="coord-tooltip" style="display:none"></div>
+  </div>
+  <div class="log-panel" id="log-board"></div>
+  <div class="controls">
+    <button onclick="undoLast('board')">↩ Undo Last</button>
+    <button onclick="clearAll('board')">🗑 Clear All</button>
+    <button onclick="copyCSS('board')">📋 Copy CSS</button>
+  </div>
+  <div class="copy-output" id="output-board" style="display:none"></div>
+</div>
+
+<!-- Card Detail -->
+<div class="image-section" id="section-card">
+  <h2>💬 Card Detail — <span id="card-counter">0</span> markers placed</h2>
+  <div class="picker-container" id="picker-card">
+    <img src="assets/appscreenshotrequuestcard.png" alt="Card Detail">
+    <div class="crosshair-h" style="display:none"></div>
+    <div class="crosshair-v" style="display:none"></div>
+    <div class="coord-tooltip" style="display:none"></div>
+  </div>
+  <div class="log-panel" id="log-card"></div>
+  <div class="controls">
+    <button onclick="undoLast('card')">↩ Undo Last</button>
+    <button onclick="clearAll('card')">🗑 Clear All</button>
+    <button onclick="copyCSS('card')">📋 Copy CSS</button>
+  </div>
+  <div class="copy-output" id="output-card" style="display:none"></div>
+</div>
+
+<script>
+const boardMarkerNames = ['backlog', 'active', 'approved', 'add-card', 'board-tools'];
+const cardMarkerNames  = ['card-title', 'composer', 'attachments', 'submit', 'thread', 'chat'];
+
+const state = {
+  board: [],
+  card: []
+};
+
+function setupPicker(id, maxMarkers) {
+  const container = document.getElementById(`picker-${id}`);
+  const hLine = container.querySelector('.crosshair-h');
+  const vLine = container.querySelector('.crosshair-v');
+  const tooltip = container.querySelector('.coord-tooltip');
+
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xPct = ((x / rect.width) * 100).toFixed(1);
+    const yPct = ((y / rect.height) * 100).toFixed(1);
+
+    hLine.style.display = 'block';
+    vLine.style.display = 'block';
+    tooltip.style.display = 'block';
+
+    hLine.style.top = y + 'px';
+    vLine.style.left = x + 'px';
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+    tooltip.textContent = `left: ${xPct}%  top: ${yPct}%`;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    hLine.style.display = 'none';
+    vLine.style.display = 'none';
+    tooltip.style.display = 'none';
+  });
+
+  container.addEventListener('click', (e) => {
+    if (state[id].length >= maxMarkers) return;
+
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xPct = ((x / rect.width) * 100).toFixed(1);
+    const yPct = ((y / rect.height) * 100).toFixed(1);
+
+    const num = state[id].length + 1;
+    state[id].push({ x: xPct, y: yPct });
+
+    // Place visual dot
+    const dot = document.createElement('div');
+    dot.className = 'placed-dot';
+    dot.textContent = num;
+    dot.style.left = xPct + '%';
+    dot.style.top  = yPct + '%';
+    dot.dataset.index = num - 1;
+    container.appendChild(dot);
+
+    renderLog(id);
+  });
+}
+
+function renderLog(id) {
+  const names = id === 'board' ? boardMarkerNames : cardMarkerNames;
+  const log = document.getElementById(`log-${id}`);
+  const counter = document.getElementById(`${id}-counter`);
+  counter.textContent = state[id].length;
+
+  log.innerHTML = state[id].map((pt, i) => {
+    const name = names[i] || `marker-${i+1}`;
+    return `<div class="log-entry">
+      <span class="log-dot">${i+1}</span>
+      <span><strong>${name}</strong></span>
+      <span class="log-coords">left: ${pt.x}% &nbsp; top: ${pt.y}%</span>
+    </div>`;
+  }).join('');
+}
+
+function undoLast(id) {
+  if (state[id].length === 0) return;
+  state[id].pop();
+  const container = document.getElementById(`picker-${id}`);
+  const dots = container.querySelectorAll('.placed-dot');
+  if (dots.length) dots[dots.length - 1].remove();
+  renderLog(id);
+}
+
+function clearAll(id) {
+  state[id] = [];
+  const container = document.getElementById(`picker-${id}`);
+  container.querySelectorAll('.placed-dot').forEach(d => d.remove());
+  renderLog(id);
+  const output = document.getElementById(`output-${id}`);
+  output.style.display = 'none';
+}
+
+function copyCSS(id) {
+  const names = id === 'board' ? boardMarkerNames : cardMarkerNames;
+  const lines = state[id].map((pt, i) => {
+    const name = names[i] || `marker-${i+1}`;
+    return `.walkthrough-marker--${name} {\n  top: ${pt.y}%;\n  left: ${pt.x}%;\n}`;
+  }).join('\n\n');
+
+  navigator.clipboard.writeText(lines).catch(() => {});
+  const output = document.getElementById(`output-${id}`);
+  output.textContent = lines;
+  output.style.display = 'block';
+}
+
+setupPicker('board', 5);
+setupPicker('card', 6);
+</script>
+</body>
+</html>

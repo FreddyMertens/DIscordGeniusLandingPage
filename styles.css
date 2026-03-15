@@ -3045,61 +3045,61 @@ header .container {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 229, 255, 0.6);
 }
 
-/* Board overview markers — inside each column's empty space */
+/* Board overview markers */
 .walkthrough-marker--backlog {
-  top: 58%;
-  left: 33%;
+  top: 14.9%;
+  left: 34.2%;
 }
 
 .walkthrough-marker--active {
-  top: 54%;
-  left: 50%;
+  top: 15.1%;
+  left: 55.4%;
 }
 
 .walkthrough-marker--approved {
-  top: 22%;
-  left: 67%;
+  top: 15.2%;
+  left: 71.9%;
 }
 
 .walkthrough-marker--add-card {
-  bottom: 5%;
-  left: 40%;
+  top: 92.7%;
+  left: 39.7%;
 }
 
 .walkthrough-marker--board-tools {
-  top: 3%;
-  left: 93%;
+  top: 4.1%;
+  left: 90.9%;
 }
 
-/* Card detail markers — inside each section's empty space */
+/* Card detail markers */
 .walkthrough-marker--card-title {
-  top: 9%;
-  left: 51%;
+  top: 11.2%;
+  left: 55.9%;
 }
 
 .walkthrough-marker--composer {
-  top: 37%;
-  left: 50%;
+  top: 28.5%;
+  left: 67.9%;
 }
 
 .walkthrough-marker--attachments {
-  top: 50%;
-  left: 43%;
+  top: 50.3%;
+  left: 42.0%;
 }
 
 .walkthrough-marker--submit {
-  top: 54%;
-  left: 66%;
+  top: 49.9%;
+  left: 70.1%;
 }
 
 .walkthrough-marker--thread {
-  top: 62%;
-  left: 55%;
+  top: 62.6%;
+  left: 65.3%;
 }
 
 .walkthrough-marker--chat {
-  top: 92%;
-  left: 50%;
+  top: 88.6%;
+  left: 66.0%;
 }
 
 .walkthrough-flow {
