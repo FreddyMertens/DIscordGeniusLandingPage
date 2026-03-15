@@ -3442,8 +3442,8 @@ header .container {
   width: 100%;
   height: 100%;
   transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
-  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), transform-origin 0.2s ease-out;
-  will-change: transform, transform-origin;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
 }
 
 [data-hover-zoom]:hover .walkthrough-shot__inner {

@@ -1092,20 +1092,28 @@
     const inner = frame.querySelector('.walkthrough-shot__inner');
     if (!inner) return;
 
+    let isUpdating = false;
+
     const updateOrigin = (e) => {
-      const rect = frame.getBoundingClientRect();
-      let x = e.clientX - rect.left;
-      let y = e.clientY - rect.top;
+      if (isUpdating) return;
+      isUpdating = true;
       
-      // Clamp values so origin doesn't fly out of bounds
-      x = Math.max(0, Math.min(x, rect.width));
-      y = Math.max(0, Math.min(y, rect.height));
-      
-      const xPercent = (x / rect.width) * 100;
-      const yPercent = (y / rect.height) * 100;
-      
-      inner.style.setProperty('--zoom-x', `${xPercent}%`);
-      inner.style.setProperty('--zoom-y', `${yPercent}%`);
+      requestAnimationFrame(() => {
+        const rect = frame.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        
+        // Clamp values so origin doesn't fly out of bounds
+        x = Math.max(0, Math.min(x, rect.width));
+        y = Math.max(0, Math.min(y, rect.height));
+        
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+        
+        inner.style.setProperty('--zoom-x', `${xPercent}%`);
+        inner.style.setProperty('--zoom-y', `${yPercent}%`);
+        isUpdating = false;
+      });
     };
 
     frame.addEventListener('mouseenter', updateOrigin);
