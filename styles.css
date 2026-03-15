@@ -3437,6 +3437,14 @@ header .container {
   pointer-events: none;
 }
 
+[data-hover-zoom]:hover .walkthrough-marker {
+  transform: scale(0.6);
+}
+
+[data-hover-zoom]:hover .walkthrough-marker:hover {
+  transform: scale(0.7);
+}
+
 .walkthrough-shot__inner {
   position: relative;
   width: 100%;
