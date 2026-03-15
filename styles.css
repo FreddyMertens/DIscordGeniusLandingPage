@@ -3002,7 +3002,7 @@ header .container {
 
 .walkthrough-shot__notes {
   display: grid;
-  gap: 18px;
+  gap: 14px;
   align-content: start;
 }
 
@@ -3018,8 +3018,8 @@ header .container {
 .walkthrough-shot__lead {
   margin: 0;
   color: var(--dj-text-200);
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .walkthrough-marker {
@@ -3145,17 +3145,18 @@ header .container {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .walkthrough-note-list li,
 .walkthrough-bullet-list li {
-  padding: 14px 16px;
-  border-radius: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, .08);
   background: rgba(255, 255, 255, .03);
   color: var(--dj-text-300);
-  line-height: 1.65;
+  font-size: 0.9rem;
+  line-height: 1.5;
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -3172,26 +3173,27 @@ header .container {
 
 .walkthrough-process {
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .walkthrough-process__step {
   position: relative;
-  padding: 14px 16px 14px 50px;
-  border-radius: 14px;
+  padding: 10px 14px 10px 42px;
+  border-radius: 10px;
   background: linear-gradient(180deg, rgba(0, 229, 255, .08), rgba(106, 0, 255, .08));
   border: 1px solid rgba(0, 229, 255, .12);
   color: var(--dj-text-200);
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .walkthrough-process__step::before {
   content: "";
   position: absolute;
   top: 50%;
-  left: 18px;
-  width: 18px;
-  height: 18px;
+  left: 14px;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
   transform: translateY(-50%);
   background: linear-gradient(180deg, var(--dj-neon), var(--dj-accent));
