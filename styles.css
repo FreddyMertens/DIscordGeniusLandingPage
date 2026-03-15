@@ -441,6 +441,14 @@ body {
 .nav__ctas {
   display: flex;
   gap: 10px;
+  align-items: center; /* Ensures the 'or' text respects the vertical center of the buttons */
+}
+
+.nav__or {
+  color: var(--dj-text-400);
+  font-size: 0.85rem;
+  font-weight: 500;
+  user-select: none;
 }
 
 @media (min-width: 840px) {
