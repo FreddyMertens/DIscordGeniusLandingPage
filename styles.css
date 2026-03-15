@@ -3441,11 +3441,11 @@ header .container {
 }
 
 [data-hover-zoom]:hover .walkthrough-marker {
-  transform: scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
 }
 
 [data-hover-zoom]:hover .walkthrough-marker:hover {
-  transform: scale(0.7);
+  transform: translate(-50%, -50%) scale(0.7);
 }
 
 .walkthrough-shot__inner {
