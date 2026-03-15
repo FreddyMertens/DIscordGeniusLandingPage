@@ -232,11 +232,13 @@
         <div class="modal__overlay" data-close-modal></div>
         <div class="modal__dialog" role="document">
           <header class="modal__head">
-            <h2 id="question-title">Ask a question</h2>
-            <p style="margin:4px 0 0;font-size:.9rem;color:var(--dj-text-400);">or email <a href="mailto:developer@discordgenius.com" style="color:var(--dj-neon);">developer@discordgenius.com</a></p>
+            <h2 id="question-title" style="margin-bottom: 0;">Ask a question</h2>
             <button class="modal__close" aria-label="Close" data-close-modal>&times;</button>
           </header>
           <div class="modal__body">
+            <p style="margin: 0 0 1.5rem; font-size: .95rem; color: var(--dj-text-400);">
+              Fill out the form below or email <a href="mailto:developer@discordgenius.com" style="color: var(--dj-neon); text-decoration: none; font-weight: 500;">developer@discordgenius.com</a>
+            </p>
             <form id="question-form">
               <label class="field">
                 <span>Your question</span>
