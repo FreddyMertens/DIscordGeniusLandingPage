@@ -665,6 +665,13 @@ body {
   flex-wrap: wrap;
 }
 
+@media (max-width: 600px) {
+  .hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 .hero__bullets {
   display: flex;
   gap: 16px;
@@ -3038,7 +3045,16 @@ header .container {
   z-index: 2;
   cursor: pointer;
   transform: translate(-50%, -50%);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.2s, height 0.2s;
+}
+
+@media (max-width: 600px) {
+  .walkthrough-marker {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 229, 255, 0.4);
+  }
 }
 
 .walkthrough-marker:hover {
