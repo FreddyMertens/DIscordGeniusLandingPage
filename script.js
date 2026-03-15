@@ -1064,6 +1064,27 @@
       if (timer) clearTimeout(timer);
     }
   }
+
+  // Walkthrough Marker Hover Logic
+  const markers = document.querySelectorAll('.walkthrough-marker');
+  markers.forEach(marker => {
+    marker.addEventListener('mouseenter', () => {
+      const targetId = marker.getAttribute('data-target');
+      if (!targetId) return;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.classList.add('highlight-active');
+      }
+    });
+    marker.addEventListener('mouseleave', () => {
+      const targetId = marker.getAttribute('data-target');
+      if (!targetId) return;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.classList.remove('highlight-active');
+      }
+    });
+  });
 })();
 
 

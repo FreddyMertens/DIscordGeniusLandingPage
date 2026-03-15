@@ -95,26 +95,11 @@
         <div class="walkthrough-shot walkthrough-shot--board">
           <div class="walkthrough-shot__frame">
             <img src="assets/appscreenshotoverview.png" alt="DiscordGenius board overview showing the Backlog, Active Request, and Approved columns" loading="lazy">
-            <span class="walkthrough-marker walkthrough-marker--backlog">
-              <span class="walkthrough-marker__dot">1</span>
-              <span class="walkthrough-marker__label">Backlog</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--active">
-              <span class="walkthrough-marker__dot">2</span>
-              <span class="walkthrough-marker__label">Active request</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--approved">
-              <span class="walkthrough-marker__dot">3</span>
-              <span class="walkthrough-marker__label">Approved</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--add-card">
-              <span class="walkthrough-marker__dot">4</span>
-              <span class="walkthrough-marker__label">Add a card</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--board-tools">
-              <span class="walkthrough-marker__dot">5</span>
-              <span class="walkthrough-marker__label">Search and account</span>
-            </span>
+            <span class="walkthrough-marker walkthrough-marker--backlog" data-target="legend-board-1">1</span>
+            <span class="walkthrough-marker walkthrough-marker--active" data-target="legend-board-2">2</span>
+            <span class="walkthrough-marker walkthrough-marker--approved" data-target="legend-board-3">3</span>
+            <span class="walkthrough-marker walkthrough-marker--add-card" data-target="legend-board-4">4</span>
+            <span class="walkthrough-marker walkthrough-marker--board-tools" data-target="legend-board-5">5</span>
           </div>
           <div class="walkthrough-shot__notes">
             <p class="walkthrough-shot__eyebrow">📋 Your Project Board</p>
@@ -136,11 +121,11 @@
               </div>
             </div>
             <ul class="walkthrough-note-list">
-              <li><strong>1. Backlog</strong> New ideas and queued requests stay here until they are ready to be worked on.</li>
-              <li><strong>2. Active request</strong> This is the one request your builder is currently focused on.</li>
-              <li><strong>3. Approved</strong> Finished work stays here so you can revisit what shipped at any time.</li>
-              <li><strong>4. Add a card</strong> Create a new request whenever you want another change or feature added.</li>
-              <li><strong>5. Search and account</strong> Use the top bar to search the board, switch context, and manage your session.</li>
+              <li id="legend-board-1"><strong>1. Backlog</strong> New ideas and queued requests stay here until they are ready to be worked on.</li>
+              <li id="legend-board-2"><strong>2. Active request</strong> This is the one request your builder is currently focused on.</li>
+              <li id="legend-board-3"><strong>3. Approved</strong> Finished work stays here so you can revisit what shipped at any time.</li>
+              <li id="legend-board-4"><strong>4. Add a card</strong> Create a new request whenever you want another change or feature added.</li>
+              <li id="legend-board-5"><strong>5. Search and account</strong> Use the top bar to search the board, switch context, and manage your session.</li>
             </ul>
           </div>
         </div>
@@ -148,41 +133,23 @@
         <div class="walkthrough-shot walkthrough-shot--detail">
           <div class="walkthrough-shot__frame">
             <img src="assets/appscreenshotrequuestcard.png" alt="DiscordGenius request card showing the request editor, attachments area, delivery thread, and chat panel" loading="lazy">
-            <span class="walkthrough-marker walkthrough-marker--card-title">
-              <span class="walkthrough-marker__dot">1</span>
-              <span class="walkthrough-marker__label">Card title</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--composer">
-              <span class="walkthrough-marker__dot">2</span>
-              <span class="walkthrough-marker__label">Request and delivery</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--attachments">
-              <span class="walkthrough-marker__dot">3</span>
-              <span class="walkthrough-marker__label">Attach files</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--submit">
-              <span class="walkthrough-marker__dot">4</span>
-              <span class="walkthrough-marker__label">Submit request</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--thread">
-              <span class="walkthrough-marker__dot">5</span>
-              <span class="walkthrough-marker__label">Delivery thread</span>
-            </span>
-            <span class="walkthrough-marker walkthrough-marker--chat">
-              <span class="walkthrough-marker__dot">6</span>
-              <span class="walkthrough-marker__label">Live chat</span>
-            </span>
+            <span class="walkthrough-marker walkthrough-marker--card-title" data-target="legend-card-1">1</span>
+            <span class="walkthrough-marker walkthrough-marker--composer" data-target="legend-card-2">2</span>
+            <span class="walkthrough-marker walkthrough-marker--attachments" data-target="legend-card-3">3</span>
+            <span class="walkthrough-marker walkthrough-marker--submit" data-target="legend-card-4">4</span>
+            <span class="walkthrough-marker walkthrough-marker--thread" data-target="legend-card-5">5</span>
+            <span class="walkthrough-marker walkthrough-marker--chat" data-target="legend-card-6">6</span>
           </div>
           <div class="walkthrough-shot__notes">
             <p class="walkthrough-shot__eyebrow">💬 Delivery Thread</p>
             <p class="walkthrough-shot__lead">Each card contains the working conversation between you and your builder so every request, fulfilment, and revision stays in one place.</p>
             <ul class="walkthrough-note-list">
-              <li><strong>1. Card title</strong> Name the request clearly so the outcome is easy to recognize later.</li>
-              <li><strong>2. Request and delivery</strong> Describe what should change and include context, links, screenshots, or acceptance details.</li>
-              <li><strong>3. Attach files</strong> Add assets, references, recordings, or documents that help your builder move faster.</li>
-              <li><strong>4. Submit request</strong> Send the request into the thread when you are ready for work to begin.</li>
-              <li><strong>5. Delivery thread</strong> Your builder replies here with updates, test links, documentation, and delivered work.</li>
-              <li><strong>6. Live chat</strong> Use the chat in any card to message your builder directly whenever you need clarification.</li>
+              <li id="legend-card-1"><strong>1. Card title</strong> Name the request clearly so the outcome is easy to recognize later.</li>
+              <li id="legend-card-2"><strong>2. Request and delivery</strong> Describe what should change and include context, links, screenshots, or acceptance details.</li>
+              <li id="legend-card-3"><strong>3. Attach files</strong> Add assets, references, recordings, or documents that help your builder move faster.</li>
+              <li id="legend-card-4"><strong>4. Submit request</strong> Send the request into the thread when you are ready for work to begin.</li>
+              <li id="legend-card-5"><strong>5. Delivery thread</strong> Your builder replies here with updates, test links, documentation, and delivered work.</li>
+              <li id="legend-card-6"><strong>6. Live chat</strong> Use the chat in any card to message your builder directly whenever you need clarification.</li>
             </ul>
             <div class="walkthrough-process">
               <div class="walkthrough-process__step">You submit a request with details and attachments.</div>
