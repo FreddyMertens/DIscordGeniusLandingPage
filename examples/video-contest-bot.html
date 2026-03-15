@@ -104,7 +104,7 @@
 
         <div class="tutorial-stats">
           <div class="tutorial-stat">
-            <span class="tutorial-stat__value">2</span>
+            <span class="tutorial-stat__value">7</span>
             <span class="tutorial-stat__label">Commands</span>
           </div>
           <div class="tutorial-stat">
@@ -166,6 +166,14 @@
                 them, posts the top 5 winners in a beautiful announcement embed to the winners channel, and DMs each
                 winner their placement.</span>
             </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/start-video-comp</span>
+              <span class="bot-command__desc">Admin command to launch a new competition. Configure the title, rules, and an optional auto-finish timer. Restrict submissions to users with a minimum number of Twitch followers, YouTube subscribers, or who own a specific Steam game.</span>
+            </div>
+            <div class="bot-command">
+              <span class="bot-command__name">/verify</span>
+              <span class="bot-command__desc">Allows participants to securely link their Twitch, YouTube, or Steam accounts via OAuth to prove their eligibility for restricted competitions.</span>
+            </div>
           </div>
         </div>
 
@@ -193,6 +201,16 @@
             <h3>Admin-only controls</h3>
             <p>The /finish command is restricted to administrators, so regular members can't end a contest early. Clean
               permission handling with friendly error messages.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="lock" aria-hidden="true"></i>
+            <h3>Platform Eligibility</h3>
+            <p>Gatekeep submissions by requiring users to link external accounts. Enforce minimum Twitch followers, YouTube subscribers, or Steam game ownership.</p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="link" aria-hidden="true"></i>
+            <h3>OAuth Verification</h3>
+            <p>A seamless, secure OAuth flow built right in. Users can easily link and unlink their external accounts straight from Discord.</p>
           </div>
         </div>
 
