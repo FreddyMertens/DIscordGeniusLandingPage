@@ -31,33 +31,38 @@
     position: relative;
     display: inline-block;
     cursor: crosshair;
-    border: 2px solid rgba(0,229,255,0.3);
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(2,6,23,0.9);
   }
   .picker-container img {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
   }
 
-  /* Placed dots */
+  /*
+    Dots are CENTERED on the click point in the picker via translate(-50%,-50%).
+    The CSS output subtracts half the dot size so the walkthrough
+    (which positions by top-left corner) renders identically.
+  */
   .placed-dot {
     position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #00e5ff;
-    color: #0a0f1a;
-    font-size: 12px;
-    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    box-shadow: 0 0 8px rgba(0,229,255,0.6);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(0,229,255,.95), rgba(20,241,149,.92));
+    color: #03111f;
+    font-size: .8rem;
+    font-weight: 900;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,255,0.3);
     z-index: 10;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
   }
 
   /* Crosshair follower */
@@ -77,19 +82,32 @@
     background: rgba(0,229,255,0.3);
   }
 
-  /* Coordinate tooltip */
+  /* Live coordinate tooltip */
   .coord-tooltip {
     position: absolute;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.88);
     color: #00e5ff;
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-size: 12px;
     font-family: 'Consolas', monospace;
     pointer-events: none;
     z-index: 20;
     white-space: nowrap;
-    transform: translate(12px, -100%);
+  }
+
+  /* Ghost preview dot — centered on cursor */
+  .ghost-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0,229,255,0.3);
+    border: 2px solid rgba(0,229,255,0.6);
+    pointer-events: none;
+    z-index: 8;
+    display: none;
+    transform: translate(-50%, -50%);
   }
 
   /* Log panel */
@@ -113,16 +131,12 @@
   }
   .log-entry:last-child { border-bottom: none; }
   .log-dot {
-    width: 20px;
-    height: 20px;
+    width: 20px; height: 20px;
     border-radius: 50%;
-    background: #00e5ff;
-    color: #0a0f1a;
-    font-size: 10px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,229,255,.95), rgba(20,241,149,.92));
+    color: #03111f;
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
   .log-coords { color: #00e5ff; }
@@ -158,21 +172,34 @@
     white-space: pre-wrap;
     word-break: break-all;
   }
+
+  .note-box {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: rgba(0,229,255,0.08);
+    border-left: 3px solid #00e5ff;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    opacity: 0.8;
+  }
 </style>
 </head>
 <body>
 
-<h1>🎯 Marker Position Picker</h1>
-<p class="subtitle">Click on each image to place markers. Coordinates are shown as CSS percentages. Click "Copy CSS" to get the code.</p>
+<h1>🎯 Marker Position Picker v3</h1>
+<p class="subtitle">Click to place markers. The crosshair, ghost, and placed dot all align to the center. CSS output is auto-adjusted for the walkthrough.</p>
 
 <!-- Board Overview -->
 <div class="image-section" id="section-board">
-  <h2>📋 Board Overview — <span id="board-counter">0</span> markers placed</h2>
+  <h2>📋 Board Overview — <span id="board-counter">0</span> / 5 markers</h2>
+  <div class="note-box">Click to place markers in order: 1. Backlog → 2. Active → 3. Approved → 4. Add a card → 5. Search &amp; account</div>
+  <br>
   <div class="picker-container" id="picker-board">
     <img src="assets/appscreenshotoverview.png" alt="Board Overview">
-    <div class="crosshair-h" style="display:none"></div>
-    <div class="crosshair-v" style="display:none"></div>
-    <div class="coord-tooltip" style="display:none"></div>
+    <div class="crosshair-h"></div>
+    <div class="crosshair-v"></div>
+    <div class="coord-tooltip"></div>
+    <div class="ghost-dot"></div>
   </div>
   <div class="log-panel" id="log-board"></div>
   <div class="controls">
@@ -185,12 +212,15 @@
 
 <!-- Card Detail -->
 <div class="image-section" id="section-card">
-  <h2>💬 Card Detail — <span id="card-counter">0</span> markers placed</h2>
+  <h2>💬 Card Detail — <span id="card-counter">0</span> / 6 markers</h2>
+  <div class="note-box">Click to place markers in order: 1. Card title → 2. Composer → 3. Attach files → 4. Submit → 5. Thread → 6. Chat</div>
+  <br>
   <div class="picker-container" id="picker-card">
     <img src="assets/appscreenshotrequuestcard.png" alt="Card Detail">
-    <div class="crosshair-h" style="display:none"></div>
-    <div class="crosshair-v" style="display:none"></div>
-    <div class="coord-tooltip" style="display:none"></div>
+    <div class="crosshair-h"></div>
+    <div class="crosshair-v"></div>
+    <div class="coord-tooltip"></div>
+    <div class="ghost-dot"></div>
   </div>
   <div class="log-panel" id="log-card"></div>
   <div class="controls">
@@ -202,19 +232,18 @@
 </div>
 
 <script>
+const DOT_SIZE = 24; // px — must match .placed-dot width/height
 const boardMarkerNames = ['backlog', 'active', 'approved', 'add-card', 'board-tools'];
 const cardMarkerNames  = ['card-title', 'composer', 'attachments', 'submit', 'thread', 'chat'];
 
-const state = {
-  board: [],
-  card: []
-};
+const state = { board: [], card: [] };
 
 function setupPicker(id, maxMarkers) {
   const container = document.getElementById(`picker-${id}`);
-  const hLine = container.querySelector('.crosshair-h');
-  const vLine = container.querySelector('.crosshair-v');
-  const tooltip = container.querySelector('.coord-tooltip');
+  const hLine     = container.querySelector('.crosshair-h');
+  const vLine     = container.querySelector('.crosshair-v');
+  const tooltip   = container.querySelector('.coord-tooltip');
+  const ghost     = container.querySelector('.ghost-dot');
 
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
@@ -223,21 +252,33 @@ function setupPicker(id, maxMarkers) {
     const xPct = ((x / rect.width) * 100).toFixed(1);
     const yPct = ((y / rect.height) * 100).toFixed(1);
 
+    // Crosshair lines — at the cursor
     hLine.style.display = 'block';
     vLine.style.display = 'block';
-    tooltip.style.display = 'block';
-
-    hLine.style.top = y + 'px';
+    hLine.style.top  = y + 'px';
     vLine.style.left = x + 'px';
-    tooltip.style.left = x + 'px';
-    tooltip.style.top = y + 'px';
-    tooltip.textContent = `left: ${xPct}%  top: ${yPct}%`;
+
+    // Tooltip
+    tooltip.style.display = 'block';
+    tooltip.style.left = (x + 16) + 'px';
+    tooltip.style.top  = (y - 28) + 'px';
+    tooltip.textContent = `top: ${yPct}%  left: ${xPct}%`;
+
+    // Ghost dot — CENTERED on cursor via translate(-50%,-50%) in CSS
+    if (state[id].length < maxMarkers) {
+      ghost.style.display = 'block';
+      ghost.style.left = xPct + '%';
+      ghost.style.top  = yPct + '%';
+    } else {
+      ghost.style.display = 'none';
+    }
   });
 
   container.addEventListener('mouseleave', () => {
     hLine.style.display = 'none';
     vLine.style.display = 'none';
     tooltip.style.display = 'none';
+    ghost.style.display = 'none';
   });
 
   container.addEventListener('click', (e) => {
@@ -246,19 +287,27 @@ function setupPicker(id, maxMarkers) {
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const xPct = ((x / rect.width) * 100).toFixed(1);
-    const yPct = ((y / rect.height) * 100).toFixed(1);
+
+    // Visual position (center of dot) — used for display in the picker
+    const xPctVisual = ((x / rect.width) * 100).toFixed(1);
+    const yPctVisual = ((y / rect.height) * 100).toFixed(1);
+
+    // CSS position (top-left of dot) — offset by half dot size
+    // This is what the walkthrough uses since markers have no centering transform
+    const halfDotPctX = ((DOT_SIZE / 2) / rect.width) * 100;
+    const halfDotPctY = ((DOT_SIZE / 2) / rect.height) * 100;
+    const xPctCSS = Math.max(0, (x - DOT_SIZE / 2) / rect.width * 100).toFixed(1);
+    const yPctCSS = Math.max(0, (y - DOT_SIZE / 2) / rect.height * 100).toFixed(1);
 
     const num = state[id].length + 1;
-    state[id].push({ x: xPct, y: yPct });
+    state[id].push({ xVisual: xPctVisual, yVisual: yPctVisual, xCSS: xPctCSS, yCSS: yPctCSS });
 
-    // Place visual dot
+    // Place dot — centered on click via translate(-50%,-50%)
     const dot = document.createElement('div');
     dot.className = 'placed-dot';
     dot.textContent = num;
-    dot.style.left = xPct + '%';
-    dot.style.top  = yPct + '%';
-    dot.dataset.index = num - 1;
+    dot.style.left = xPctVisual + '%';
+    dot.style.top  = yPctVisual + '%';
     container.appendChild(dot);
 
     renderLog(id);
@@ -276,7 +325,7 @@ function renderLog(id) {
     return `<div class="log-entry">
       <span class="log-dot">${i+1}</span>
       <span><strong>${name}</strong></span>
-      <span class="log-coords">left: ${pt.x}% &nbsp; top: ${pt.y}%</span>
+      <span class="log-coords">top: ${pt.yCSS}% &nbsp; left: ${pt.xCSS}%</span>
     </div>`;
   }).join('');
 }
@@ -295,15 +344,15 @@ function clearAll(id) {
   const container = document.getElementById(`picker-${id}`);
   container.querySelectorAll('.placed-dot').forEach(d => d.remove());
   renderLog(id);
-  const output = document.getElementById(`output-${id}`);
-  output.style.display = 'none';
+  document.getElementById(`output-${id}`).style.display = 'none';
 }
 
 function copyCSS(id) {
   const names = id === 'board' ? boardMarkerNames : cardMarkerNames;
+  // Output uses the CSS coordinates (top-left corner offset)
   const lines = state[id].map((pt, i) => {
     const name = names[i] || `marker-${i+1}`;
-    return `.walkthrough-marker--${name} {\n  top: ${pt.y}%;\n  left: ${pt.x}%;\n}`;
+    return `.walkthrough-marker--${name} {\n  top: ${pt.yCSS}%;\n  left: ${pt.xCSS}%;\n}`;
   }).join('\n\n');
 
   navigator.clipboard.writeText(lines).catch(() => {});

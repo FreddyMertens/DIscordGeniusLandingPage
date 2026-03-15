@@ -3047,59 +3047,59 @@ header .container {
 
 /* Board overview markers */
 .walkthrough-marker--backlog {
-  top: 14.9%;
-  left: 34.2%;
+  top: 13.6%;
+  left: 38.2%;
 }
 
 .walkthrough-marker--active {
-  top: 15.1%;
-  left: 55.4%;
+  top: 13.6%;
+  left: 55.0%;
 }
 
 .walkthrough-marker--approved {
-  top: 15.2%;
-  left: 71.9%;
+  top: 13.6%;
+  left: 72.0%;
 }
 
 .walkthrough-marker--add-card {
-  top: 92.7%;
-  left: 39.7%;
+  top: 91.3%;
+  left: 39.0%;
 }
 
 .walkthrough-marker--board-tools {
-  top: 4.1%;
-  left: 90.9%;
+  top: 2.5%;
+  left: 90.2%;
 }
 
 /* Card detail markers */
 .walkthrough-marker--card-title {
-  top: 11.2%;
-  left: 55.9%;
+  top: 9.6%;
+  left: 56.2%;
 }
 
 .walkthrough-marker--composer {
-  top: 28.5%;
-  left: 67.9%;
+  top: 26.9%;
+  left: 67.5%;
 }
 
 .walkthrough-marker--attachments {
-  top: 50.3%;
-  left: 42.0%;
+  top: 49.2%;
+  left: 41.6%;
 }
 
 .walkthrough-marker--submit {
-  top: 49.9%;
-  left: 70.1%;
+  top: 48.8%;
+  left: 69.5%;
 }
 
 .walkthrough-marker--thread {
-  top: 62.6%;
-  left: 65.3%;
+  top: 60.8%;
+  left: 66.7%;
 }
 
 .walkthrough-marker--chat {
-  top: 88.6%;
-  left: 66.0%;
+  top: 87.5%;
+  left: 66.9%;
 }
 
 .walkthrough-flow {
