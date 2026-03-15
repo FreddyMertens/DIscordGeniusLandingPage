@@ -1118,6 +1118,12 @@
 
     frame.addEventListener('mouseenter', updateOrigin);
     frame.addEventListener('mousemove', updateOrigin);
+    frame.addEventListener('click', () => {
+      const shotContainer = frame.closest('.walkthrough-shot');
+      if (shotContainer) {
+        shotContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
   });
 })();
 
