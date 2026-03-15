@@ -3425,42 +3425,29 @@ header .container {
 }
 
 /* ============================================================
-   SEAMLESS IMAGE ZOOM (Medium-style)
+   HOVER PAN IMAGE ZOOM
    ============================================================ */
 
-.zoom-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(4, 9, 20, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 9998;
-  opacity: 0;
+[data-hover-zoom] {
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+[data-hover-zoom] img {
   pointer-events: none;
-  transition: opacity 0.3s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.zoom-overlay.is-visible {
-  opacity: 1;
-  pointer-events: auto;
-  cursor: zoom-out;
-}
-
-[data-zoomable] {
-  cursor: zoom-in;
-  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
-  will-change: transform;
-}
-
-[data-zoomable].is-zoomed {
+.walkthrough-shot__inner {
   position: relative;
-  z-index: 9999;
-  cursor: zoom-out;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
-  /* The actual transform (scale + translate) is applied inline via JS */
+  width: 100%;
+  height: 100%;
+  transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), transform-origin 0.2s ease-out;
+  will-change: transform, transform-origin;
+}
+
+[data-hover-zoom]:hover .walkthrough-shot__inner {
+  transform: scale(1.8);
 }
 
 /* ============================================================

@@ -1086,89 +1086,30 @@
     });
   });
 
-  // Seamless Image Zoom Logic
-  const zoomableImages = document.querySelectorAll('img[data-zoomable="true"]');
-  const zoomOverlay = document.getElementById('zoom-overlay');
-  let currentlyZoomedImage = null;
+  // Hover Pan Image Zoom Logic
+  const hoverZoomFrames = document.querySelectorAll('.walkthrough-shot__frame[data-hover-zoom="true"]');
+  hoverZoomFrames.forEach(frame => {
+    const inner = frame.querySelector('.walkthrough-shot__inner');
+    if (!inner) return;
 
-  function closeZoom() {
-    if (!currentlyZoomedImage) return;
-    
-    currentlyZoomedImage.style.transform = '';
-    currentlyZoomedImage.classList.remove('is-zoomed');
-    zoomOverlay.classList.remove('is-visible');
-    currentlyZoomedImage = null;
-    
-    window.removeEventListener('scroll', closeZoom);
-    window.removeEventListener('keydown', handleEsc);
-  }
+    const updateOrigin = (e) => {
+      const rect = frame.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      
+      // Clamp values so origin doesn't fly out of bounds
+      x = Math.max(0, Math.min(x, rect.width));
+      y = Math.max(0, Math.min(y, rect.height));
+      
+      const xPercent = (x / rect.width) * 100;
+      const yPercent = (y / rect.height) * 100;
+      
+      inner.style.setProperty('--zoom-x', `${xPercent}%`);
+      inner.style.setProperty('--zoom-y', `${yPercent}%`);
+    };
 
-  function handleEsc(e) {
-    if (e.key === 'Escape') closeZoom();
-  }
-
-  if (zoomOverlay) {
-    zoomOverlay.addEventListener('click', closeZoom);
-  }
-
-  zoomableImages.forEach(img => {
-    img.addEventListener('click', (e) => {
-      e.stopPropagation();
-      
-      if (currentlyZoomedImage === img) {
-        closeZoom();
-        return;
-      }
-      
-      // If another image is open, close it instantly before opening this one
-      if (currentlyZoomedImage) {
-        currentlyZoomedImage.style.transition = 'none';
-        currentlyZoomedImage.style.transform = '';
-        currentlyZoomedImage.classList.remove('is-zoomed');
-        // Force reflow
-        void currentlyZoomedImage.offsetHeight;
-        currentlyZoomedImage.style.transition = '';
-      }
-
-      currentlyZoomedImage = img;
-      
-      const rect = img.getBoundingClientRect();
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      
-      // Calculate how much to scale. Leave a 40px margin around the image.
-      const margin = 40;
-      const maxTargetWidth = viewportWidth - (margin * 2);
-      const maxTargetHeight = viewportHeight - (margin * 2);
-      
-      const scaleX = maxTargetWidth / rect.width;
-      const scaleY = maxTargetHeight / rect.height;
-      
-      // We want to scale proportionally, so take the smallest scale factor
-      // But don't scale it past its natural/intrinsic size (max scale 1 if image is small, 
-      // though typically we want to allow it to grow if it's high-res, but `naturalWidth` is safe).
-      // We will scale it up to fill the viewport, capping at a reasonable 2x if needed so it doesn't get horribly blurry.
-      const scale = Math.min(scaleX, scaleY, (img.naturalWidth / rect.width) * 1.5, 3);
-      
-      // Calculate translations needed to move the center of the image to the center of the viewport
-      const imageCenterX = rect.left + (rect.width / 2);
-      const imageCenterY = rect.top + (rect.height / 2);
-      
-      const viewportCenterX = viewportWidth / 2;
-      const viewportCenterY = viewportHeight / 2;
-      
-      const translateX = viewportCenterX - imageCenterX;
-      const translateY = viewportCenterY - imageCenterY;
-      
-      // Apply the CSS
-      img.classList.add('is-zoomed');
-      zoomOverlay.classList.add('is-visible');
-      
-      img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-      
-      window.addEventListener('scroll', closeZoom, { once: true });
-      window.addEventListener('keydown', handleEsc);
-    });
+    frame.addEventListener('mouseenter', updateOrigin);
+    frame.addEventListener('mousemove', updateOrigin);
   });
 })();
 
