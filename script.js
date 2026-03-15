@@ -1119,9 +1119,12 @@
     frame.addEventListener('mouseenter', updateOrigin);
     frame.addEventListener('mousemove', updateOrigin);
     frame.addEventListener('click', () => {
-      const shotContainer = frame.closest('.walkthrough-shot');
-      if (shotContainer) {
-        shotContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Only auto-scroll on desktop screens
+      if (window.innerWidth > 600) {
+        const shotContainer = frame.closest('.walkthrough-shot');
+        if (shotContainer) {
+          shotContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
   });
