@@ -232,7 +232,6 @@
 </div>
 
 <script>
-const DOT_SIZE = 24; // px — must match .placed-dot width/height
 const boardMarkerNames = ['backlog', 'active', 'approved', 'add-card', 'board-tools'];
 const cardMarkerNames  = ['card-title', 'composer', 'attachments', 'submit', 'thread', 'chat'];
 
@@ -252,19 +251,16 @@ function setupPicker(id, maxMarkers) {
     const xPct = ((x / rect.width) * 100).toFixed(1);
     const yPct = ((y / rect.height) * 100).toFixed(1);
 
-    // Crosshair lines — at the cursor
     hLine.style.display = 'block';
     vLine.style.display = 'block';
     hLine.style.top  = y + 'px';
     vLine.style.left = x + 'px';
 
-    // Tooltip
     tooltip.style.display = 'block';
     tooltip.style.left = (x + 16) + 'px';
     tooltip.style.top  = (y - 28) + 'px';
     tooltip.textContent = `top: ${yPct}%  left: ${xPct}%`;
 
-    // Ghost dot — CENTERED on cursor via translate(-50%,-50%) in CSS
     if (state[id].length < maxMarkers) {
       ghost.style.display = 'block';
       ghost.style.left = xPct + '%';
@@ -288,26 +284,19 @@ function setupPicker(id, maxMarkers) {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    // Visual position (center of dot) — used for display in the picker
-    const xPctVisual = ((x / rect.width) * 100).toFixed(1);
-    const yPctVisual = ((y / rect.height) * 100).toFixed(1);
-
-    // CSS position (top-left of dot) — offset by half dot size
-    // This is what the walkthrough uses since markers have no centering transform
-    const halfDotPctX = ((DOT_SIZE / 2) / rect.width) * 100;
-    const halfDotPctY = ((DOT_SIZE / 2) / rect.height) * 100;
-    const xPctCSS = Math.max(0, (x - DOT_SIZE / 2) / rect.width * 100).toFixed(1);
-    const yPctCSS = Math.max(0, (y - DOT_SIZE / 2) / rect.height * 100).toFixed(1);
+    // Direct percentage — no offset math needed.
+    // Both picker and walkthrough use translate(-50%,-50%) to center the dot.
+    const xPct = ((x / rect.width) * 100).toFixed(1);
+    const yPct = ((y / rect.height) * 100).toFixed(1);
 
     const num = state[id].length + 1;
-    state[id].push({ xVisual: xPctVisual, yVisual: yPctVisual, xCSS: xPctCSS, yCSS: yPctCSS });
+    state[id].push({ x: xPct, y: yPct });
 
-    // Place dot — centered on click via translate(-50%,-50%)
     const dot = document.createElement('div');
     dot.className = 'placed-dot';
     dot.textContent = num;
-    dot.style.left = xPctVisual + '%';
-    dot.style.top  = yPctVisual + '%';
+    dot.style.left = xPct + '%';
+    dot.style.top  = yPct + '%';
     container.appendChild(dot);
 
     renderLog(id);
@@ -325,7 +314,7 @@ function renderLog(id) {
     return `<div class="log-entry">
       <span class="log-dot">${i+1}</span>
       <span><strong>${name}</strong></span>
-      <span class="log-coords">top: ${pt.yCSS}% &nbsp; left: ${pt.xCSS}%</span>
+      <span class="log-coords">top: ${pt.y}% &nbsp; left: ${pt.x}%</span>
     </div>`;
   }).join('');
 }
@@ -349,10 +338,9 @@ function clearAll(id) {
 
 function copyCSS(id) {
   const names = id === 'board' ? boardMarkerNames : cardMarkerNames;
-  // Output uses the CSS coordinates (top-left corner offset)
   const lines = state[id].map((pt, i) => {
     const name = names[i] || `marker-${i+1}`;
-    return `.walkthrough-marker--${name} {\n  top: ${pt.yCSS}%;\n  left: ${pt.xCSS}%;\n}`;
+    return `.walkthrough-marker--${name} {\n  top: ${pt.y}%;\n  left: ${pt.x}%;\n}`;
   }).join('\n\n');
 
   navigator.clipboard.writeText(lines).catch(() => {});

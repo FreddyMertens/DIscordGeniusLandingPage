@@ -3037,11 +3037,12 @@ header .container {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 255, 0.3);
   z-index: 2;
   cursor: pointer;
+  transform: translate(-50%, -50%);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .walkthrough-marker:hover {
-  transform: scale(1.15);
+  transform: translate(-50%, -50%) scale(1.15);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 229, 255, 0.6);
 }
 
