@@ -3046,58 +3046,58 @@ header .container {
 }
 
 .walkthrough-marker--backlog {
-  top: 11%;
-  left: 23%;
+  top: 9.5%;
+  left: 14%;
 }
 
 .walkthrough-marker--active {
-  top: 11%;
-  left: 43.5%;
+  top: 9.5%;
+  left: 40%;
 }
 
 .walkthrough-marker--approved {
-  top: 11%;
-  left: 61%;
+  top: 9.5%;
+  left: 58%;
 }
 
 .walkthrough-marker--add-card {
-  bottom: 4%;
-  left: 21%;
+  bottom: 4.5%;
+  left: 27%;
 }
 
 .walkthrough-marker--board-tools {
   top: 3%;
-  right: 1.5%;
+  right: 13%;
 }
 
 .walkthrough-marker--card-title {
-  top: 7%;
-  left: 32%;
+  top: 3%;
+  left: 27%;
 }
 
 .walkthrough-marker--composer {
-  top: 21%;
-  left: 60%;
+  top: 32%;
+  left: 52%;
 }
 
 .walkthrough-marker--attachments {
-  top: 45%;
-  left: 16%;
+  top: 50%;
+  left: 31.5%;
 }
 
 .walkthrough-marker--submit {
-  top: 43%;
-  left: 69%;
+  top: 50%;
+  left: 68%;
 }
 
 .walkthrough-marker--thread {
-  top: 57%;
-  left: 54%;
+  top: 60%;
+  left: 30%;
 }
 
 .walkthrough-marker--chat {
-  top: 83%;
-  left: 39%;
+  top: 88%;
+  left: 30%;
 }
 
 .walkthrough-flow {
